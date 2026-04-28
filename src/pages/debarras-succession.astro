@@ -1,0 +1,78 @@
+---
+import ServicePageLayout from '../layouts/ServicePageLayout.astro';
+
+const data = {
+  pageTitle: 'Débarras après Décès à Carcassonne | Vide Maison Succession Aude',
+  pageDescription: 'Débarras de maison ou d\'appartement après un décès à Carcassonne. Accompagnement respectueux des familles, discrétion absolue, travail avec notaires.',
+
+  overline: 'Accompagnement succession',
+  title: 'Débarras d\'une maison<br/>après un <em>décès.</em>',
+  subtitle: 'Vider la maison d\'un proche disparu est l\'une des étapes les plus difficiles d\'une succession. Nous accompagnons les familles avec respect, discrétion et patience. Notre rôle : prendre en charge toute la logistique pour que vous puissiez vous concentrer sur l\'essentiel.',
+
+  priceFrom: 'sur devis',
+  priceDesc: 'Souvent gratuit ou très réduit. Les maisons familiales contiennent presque toujours du mobilier ancien et des objets valorisables qui couvrent partiellement ou totalement nos frais.',
+
+  introTitle: 'Une étape difficile,<br/>que nous abordons avec <em>délicatesse.</em>',
+  introText: `
+    <p>Perdre un proche est une épreuve. Devoir ensuite vider sa maison en est une autre. Entre les souvenirs qui surgissent à chaque pièce, les démarches administratives à mener, les héritiers parfois éloignés géographiquement et le notaire qui attend, beaucoup de familles se sentent dépassées.</p>
+    <p>Notre rôle est de vous décharger de toute la partie matérielle : le tri, le démontage, l'évacuation, la valorisation, le nettoyage. Nous travaillons sans précipitation, avec respect, et en mettant systématiquement de côté tout ce qui a une valeur sentimentale ou matérielle pour la famille.</p>
+    <p>Nous savons qu'il ne s'agit pas seulement de "vider une maison". Il s'agit de fermer un chapitre, dans la dignité.</p>
+  `,
+
+  casTitle: 'Nos engagements pour<br/>les familles en <em>deuil.</em>',
+  casSubtitle: 'Travailler dans le contexte d\'une succession demande une approche particulière. Voici les principes auxquels nous tenons.',
+  cas: [
+    { icon: '🤫', title: 'Discrétion absolue', text: 'Nous travaillons sans véhicule marqué tape-à-l\'œil, sans bruit excessif. Personne dans le voisinage ne saura le pourquoi de notre intervention.' },
+    { icon: '📦', title: 'Respect des objets', text: 'Chaque objet est manipulé avec soin. Nous ouvrons les tiroirs avec précaution, nous prenons le temps de comprendre avant de décider.' },
+    { icon: '📜', title: 'Mise de côté des souvenirs', text: 'Photos, lettres, journaux intimes, bijoux, montres, médailles, albums de famille : tout est mis de côté et restitué à la famille.' },
+    { icon: '⏸', title: 'Aucune pression commerciale', text: 'Aucune relance insistante. Vous prenez le temps qu\'il vous faut pour décider. Le devis reste valable plusieurs semaines.' },
+    { icon: '🤝', title: 'Collaboration avec les notaires', text: 'Nous travaillons régulièrement avec les notaires de l\'Aude. Documents fournis pour la clôture de la succession.' },
+    { icon: '🌍', title: 'Intervention en votre absence', text: 'Si vous habitez loin, nous intervenons avec les clés laissées au notaire ou à un mandataire. Photos avant/après, paiement par virement.' },
+  ],
+
+  inclus: [
+    'Visite gratuite avec ou sans votre présence',
+    'Tri méticuleux pièce par pièce',
+    'Recherche systématique des documents et photos',
+    'Mise de côté des bijoux, montres, objets sentimentaux',
+    'Restitution en main propre des objets personnels',
+    'Démontage de tous les meubles sur place',
+    'Évacuation respectueuse de tous les biens',
+    'Tri sélectif et envoi vers les filières adaptées',
+    'Don aux associations (Emmaüs, Croix-Rouge, Secours Populaire)',
+    'Valorisation des biens dans notre entrepôt',
+    'Coordination avec votre notaire si besoin',
+    'Documents complets pour la clôture de succession',
+    'Bordereau de suivi des déchets',
+    'Discrétion absolue à toutes les étapes',
+  ],
+
+  prixIntro: 'Les successions sont les cas où nos formules de valorisation sont les plus avantageuses. Pour un appartement standard ou une maison de plain-pied, dans 6 cas sur 10, nous proposons une formule réduite ou gratuite après visite.',
+  prixRows: [
+    { type: 'Appartement (succession)', volume: '15-35 m³', price: 'souvent gratuit ou -50 %' },
+    { type: 'Maison plain-pied (succession)', volume: '30-50 m³', price: 'souvent gratuit ou réduit' },
+    { type: 'Maison familiale complète', volume: '50-80 m³', price: 'souvent gratuit ou indemnisé' },
+    { type: 'Grande propriété avec antiquités', volume: '80+ m³', price: 'souvent indemnisé' },
+  ],
+  prixNote: 'Les maisons familiales contiennent presque toujours : mobilier ancien, vaisselle, livres, vinyles, outils, vêtements, objets décoratifs anciens. Cette valorisation peut transformer votre devis en Débarras Gratuit (0 € à payer) ou Indemnisé (nous vous versons une indemnité).',
+
+  exempleTitle: 'Succession à <em>Castelnaudary,</em><br/>héritière à Bruxelles.',
+  exempleSituation: '<p>Maison de famille de 140 m² avec cave et grenier, habitée par la même personne pendant 50 ans. Volume estimé : <strong>70 m³</strong>. Contenu : tout le mobilier ancien d\'une vie (armoire normande, buffet, vaisselle de porcelaine, lit à baldaquin), bibliothèque de 800 livres, collection de vinyles, vêtements, photos de famille. Madame V. ne pouvait venir qu\'une seule fois, pour 3 jours.</p>',
+  exempleIntervention: '<p>Visite initiale avec le notaire (Madame V. en visioconférence). Lors de sa venue, elle a passé 1 journée à identifier les objets à conserver (200 photos, 30 lettres, bijoux, 15 livres, 2 meubles pour Bruxelles). Pendant les 2 jours suivants : intervention complète. Évaluation : <strong>28 m³ valorisables</strong>. Formule : <strong>Débarras Gratuit</strong>. Devis : <strong>0 €</strong>. Expédition à Bruxelles des objets sentimentaux.</p>',
+  exempleResultat: '<p>Madame V. n\'a rien payé. Elle a pu récupérer tous les souvenirs importants. La maison a été remise au notaire pour mise en vente. Madame V. est repartie à Bruxelles avec les essentiels, sans avoir eu à gérer la logistique.</p>',
+
+  faq: [
+    { q: 'Combien de temps après le décès faut-il vider la maison ?', a: 'Il n\'y a pas de délai légal strict, sauf si la maison est en location ou en vente avec un compromis signé. La plupart des familles attendent 2 à 6 mois après le décès pour vider la maison. Nous nous adaptons à votre rythme.' },
+    { q: 'Faut-il attendre la fin de la succession pour faire le débarras ?', a: 'Pas nécessairement. Si tous les héritiers sont d\'accord, le débarras peut commencer avant la clôture. En cas d\'indivision conflictuelle, il vaut mieux attendre ou demander un mandat notarié.' },
+    { q: 'Que faire si je ne sais pas ce qui doit être conservé ?', a: 'Nous prenons le temps de discuter avec vous lors de la visite. Si vous ne savez pas, nous mettons systématiquement de côté tout ce qui est manifestement personnel (photos, lettres, documents, bijoux) et tout ce qui semble avoir une valeur. Vous décidez ensuite.' },
+    { q: 'Et si plusieurs héritiers veulent récupérer des choses différentes ?', a: 'C\'est très fréquent. Nous pouvons faire la visite avec plusieurs héritiers en même temps, ou en plusieurs fois. Chacun fait sa liste, et nous mettons les objets de côté. Vous gérez la répartition entre vous.' },
+    { q: 'Que se passe-t-il si on trouve de l\'argent caché ou des objets précieux ?', a: 'Tout est immédiatement mis de côté et vous est restitué. C\'est une règle absolue. Nous tenons même un petit registre des découvertes (espèces, bijoux, papiers importants) que nous vous remettons signé.' },
+    { q: 'Travaillez-vous avec mon notaire ?', a: 'Si votre notaire est dans l\'Aude, il y a de fortes chances que nous le connaissions déjà. Nous fournissons tous les documents nécessaires (devis, facture, bordereau) et pouvons coordonner directement avec lui si vous le souhaitez.' },
+  ],
+
+  ctaTitle: 'Vous traversez une succession ?<br/>Parlons-en, <em>sans engagement.</em>',
+  ctaSubtitle: 'Un simple échange suffit pour comprendre votre situation. Aucune pression, aucune obligation. Nous sommes là quand vous serez prêt.',
+};
+---
+
+<ServicePageLayout {...data} />

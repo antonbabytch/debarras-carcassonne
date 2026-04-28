@@ -1,0 +1,81 @@
+---
+import ServicePageLayout from '../layouts/ServicePageLayout.astro';
+
+const data = {
+  pageTitle: 'Nettoyage Syndrome de Diogène à Carcassonne | Logement Insalubre — Transport Carcassonne',
+  pageDescription: 'Nettoyage et débarras de logements en syndrome de Diogène à Carcassonne et dans l\'Aude. Équipe formée, désinfection complète. Discrétion absolue, sans jugement.',
+
+  overline: 'Intervention spécialisée',
+  title: 'Nettoyage et débarras<br/>syndrome de <em>Diogène.</em>',
+  subtitle: 'Le syndrome de Diogène n\'est pas une question de paresse ou de négligence : c\'est un trouble du comportement reconnu, qui touche des personnes de tous les milieux. Notre équipe intervient sans jugement, dans la discrétion la plus totale, avec la formation et le matériel nécessaires aux situations les plus difficiles.',
+
+  priceFrom: '60 à 80 €/m³',
+  priceDesc: 'Minimum d\'intervention 1 500 €. Désinfection complète incluse. Aucun jugement, aucune photo publiée, aucune information divulguée.',
+
+  introTitle: 'Le syndrome de Diogène : <em>comprendre</em> avant d\'agir.',
+  introText: `
+    <p>Le syndrome de Diogène est un trouble du comportement caractérisé par une accumulation extrême d'objets, un isolement social, une négligence de l'hygiène personnelle et du logement, souvent accompagnée d'un refus d'aide extérieure. Il touche aussi bien des personnes âgées, isolées et en détresse psychologique, que des adultes plus jeunes en souffrance.</p>
+    <p>Ce n'est pas une question de paresse, ni de saleté volontaire. C'est une pathologie reconnue, qui demande une approche professionnelle et humaine. Les familles et les voisins se retrouvent souvent dépassés face à un logement devenu inaccessible, parfois insalubre.</p>
+    <p>Chez Transport Carcassonne, nous intervenons régulièrement dans ces situations, avec une seule règle : agir sans jugement, restaurer la dignité du logement et permettre à la personne ou à sa famille de tourner la page.</p>
+  `,
+
+  casTitle: 'Notre approche : <em>compétence</em><br/>et humanité.',
+  casSubtitle: 'Le syndrome de Diogène demande bien plus qu\'un simple débarras. Voici les principes qui guident chacune de nos interventions.',
+  cas: [
+    { icon: '🤐', title: 'Zéro jugement', text: 'Nous ne posons pas de questions sur "comment c\'est arrivé". Aucune remarque, aucune photo non nécessaire. Personne ne ressentira de gêne supplémentaire.' },
+    { icon: '🛡', title: 'Équipements professionnels', text: 'Combinaisons jetables, masques FFP3, gants de protection, chaussures spécifiques, lunettes : nous sommes équipés pour les conditions les plus difficiles.' },
+    { icon: '🦠', title: 'Désinfection incluse', text: 'Au-delà du débarras, désinfection complète des sols, murs et surfaces : produits virucides, bactéricides, fongicides. Coordination avec dératisation si besoin.' },
+    { icon: '🔍', title: 'Recherche probe des objets de valeur', text: 'Dans les logements en accumulation, des objets précieux se trouvent souvent au milieu : documents, billets, bijoux, photos. Nous fouillons systématiquement.' },
+    { icon: '⏳', title: 'Nous prenons le temps', text: 'Une intervention Diogène peut durer 3 à 7 jours selon le volume. Nous ne précipitons rien. Le tri demande de la patience.' },
+    { icon: '🤝', title: 'Coordination possible', text: 'Pour les situations complexes, nous travaillons en lien avec les travailleurs sociaux, curateurs, médecins, services d\'hygiène municipaux.' },
+  ],
+
+  inclus: [
+    'Visite d\'évaluation gratuite (avec équipement si nécessaire)',
+    'Devis détaillé sans engagement',
+    'Équipements de protection complets (combinaisons, masques, gants)',
+    'Tri systématique avec recherche des objets de valeur',
+    'Mise de côté des documents, photos, bijoux découverts',
+    'Démontage de tous les meubles et structures',
+    'Évacuation en bennes vers déchèteries professionnelles',
+    'Nettoyage en profondeur des sols, murs et surfaces',
+    'Désinfection complète (virucides, bactéricides, fongicides)',
+    'Élimination des odeurs (traitement spécifique si nécessaire)',
+    'Évacuation des déchets organiques selon protocole sanitaire',
+    'Bordereau de suivi des déchets',
+    'Attestation de désinfection',
+    'Discrétion absolue (véhicules sans marquage agressif)',
+  ],
+
+  prixIntro: 'Les interventions liées au syndrome de Diogène sont plus longues et plus techniques. Elles demandent des équipements spécifiques, plus de personnel et plus de temps.',
+  prixRows: [
+    { type: 'Niveau 1 — Encombrement modéré', volume: 'variable', price: '60 €/m³ TTC' },
+    { type: 'Niveau 2 — Encombrement important', volume: 'variable', price: '70 €/m³ TTC' },
+    { type: 'Niveau 3 — Insalubrité avérée', volume: 'variable', price: '80 €/m³ TTC + frais spécifiques' },
+    { type: 'Désinfection complète', volume: 'selon surface', price: '300 à 800 €' },
+    { type: 'Dératisation / désinsectisation', volume: 'selon ampleur', price: '200 à 800 €' },
+    { type: 'Minimum d\'intervention', volume: '—', price: '1 500 € TTC' },
+  ],
+  prixNote: 'Possibilité d\'aides financières : selon les situations, certaines caisses (mutuelles, services sociaux, assurance habitation, mandataire judiciaire) peuvent prendre en charge tout ou partie des frais. Nous fournissons tous les devis et factures nécessaires.',
+
+  exempleTitle: 'Appartement Diogène à <em>Carcassonne,</em><br/>niveau 2.',
+  exempleSituation: '<p>Appartement T2 de 55 m² au 2ème étage avec ascenseur, dans le quartier de Grazailles. La locataire, âgée de 72 ans, vivait seule depuis 15 ans avec une accumulation progressive d\'objets, journaux, magazines, vêtements et denrées alimentaires. Volume estimé : <strong>50 m³</strong>. Hygiène générale dégradée, odeurs marquées. La fille de la locataire (à Toulouse) a découvert l\'état lors de l\'hospitalisation de sa mère. Le bailleur demandait une remise en état dans les 6 semaines.</p>',
+  exempleIntervention: '<p>Visite d\'évaluation à 2 personnes avec équipements légers. Préparation : combinaisons, masques, désinfectants, bennes. Intervention sur 4 jours :</p><p>• Jour 1 : tri pièce par pièce, recherche d\'objets de valeur (résultat : carnets bancaires, photos de famille, 2 bijoux, <strong>280 € en espèces</strong> — tout restitué à la fille)<br/>• Jour 2 : évacuation principale (3 voyages de fourgon)<br/>• Jour 3 : démontage des meubles, nettoyage en profondeur<br/>• Jour 4 : désinfection complète, vérification</p><p>Devis : <strong>3 950 € TTC</strong>. Documents fournis : bordereau, attestation de désinfection, compte-rendu pour le bailleur.</p>',
+  exempleResultat: '<p>Appartement remis en état dans les délais. Le bailleur a accepté l\'état des lieux sans pénalité supplémentaire. La fille a pu se concentrer sur la santé de sa mère sans avoir à gérer la logistique. La mutuelle de la locataire a remboursé <strong>40% des frais</strong> via une garantie d\'assistance.</p>',
+
+  faq: [
+    { q: 'La personne concernée doit-elle accepter l\'intervention ?', a: 'Idéalement oui, mais ce n\'est pas toujours possible. Si la personne est hospitalisée, sous tutelle/curatelle ou décédée, nous intervenons à la demande de la famille, du curateur ou du propriétaire selon les droits en vigueur.' },
+    { q: 'Peut-on intervenir sans la personne sur place ?', a: 'Oui, c\'est même très fréquent. Lors d\'une hospitalisation, d\'un placement en EHPAD ou d\'un décès, nous intervenons à la demande de la famille ou du curateur, avec les clés fournies. Le mandat doit être documenté légalement.' },
+    { q: 'Quelle différence entre votre intervention et celle d\'une entreprise de nettoyage classique ?', a: 'Une entreprise de nettoyage classique ne dispose ni des équipements de protection adaptés, ni des compétences pour gérer le tri à grande échelle, ni des autorisations pour évacuer les volumes concernés. Nos interventions Diogène sont à mi-chemin entre le débarras et le nettoyage extrême.' },
+    { q: 'La désinfection est-elle vraiment nécessaire ?', a: 'Oui, dans la plupart des cas. Après un long encombrement ou une situation insalubre, les surfaces contiennent bactéries, champignons et résidus organiques. Une simple ventilation ou un nettoyage classique ne suffit pas.' },
+    { q: 'Combien de temps après peut-on réinstaller quelqu\'un dans le logement ?', a: 'Généralement 24 à 48h après notre intervention. Pour les niveaux 3 et 4, nous recommandons parfois des travaux complémentaires (peinture, changement de sol) avant réinstallation.' },
+    { q: 'Les frais peuvent-ils être pris en charge par une assurance ou une aide ?', a: 'Plusieurs pistes existent : garanties "assistance habitation" de certaines mutuelles, aide sociale via le CCAS de la commune, mandataire judiciaire (curatelle/tutelle) qui peut autoriser les frais, assurance dommage-ouvrage en cas de dégradation. Nous vous fournissons tous les documents nécessaires.' },
+    { q: 'Avez-vous déjà refusé une intervention ?', a: 'Très rarement. Nous savons gérer la quasi-totalité des situations. Les seuls cas où nous orientons vers d\'autres prestataires sont : les contaminations chimiques importantes, les scènes de crime non encore traitées par les services compétents.' },
+  ],
+
+  ctaTitle: 'Vous êtes confronté à<br/>une situation <em>difficile ?</em>',
+  ctaSubtitle: 'Un simple appel ou un message suffit. Nous comprendrons votre situation, nous vous expliquerons concrètement comment nous pouvons aider, et nous vous laisserons le temps de décider. Aucune pression, aucun jugement.',
+};
+---
+
+<ServicePageLayout {...data} />

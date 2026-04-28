@@ -1,0 +1,86 @@
+---
+import CityPageLayout from '../layouts/CityPageLayout.astro';
+
+const data = {
+  pageTitle: 'Débarras à Castelnaudary | Vide Maison Aude — Transport Carcassonne',
+  pageDescription: 'Débarras de maison, appartement, cave à Castelnaudary (11400). Équipe locale, intervention sous 48h, devis gratuit. À partir de 350 €.',
+
+  overline: 'Notre intervention',
+  title: 'Débarras<br/>à <em>Castelnaudary</em><br/>et le Lauragais.',
+  subtitle: 'Castelnaudary, capitale du cassoulet et porte d\'entrée du Lauragais audois, est une commune où nous intervenons régulièrement. Maisons en briques rouges du centre, fermes lauragaises, propriétés au bord du Canal du Midi : nous adaptons nos interventions à chaque type d\'habitat.',
+
+  cityInfo: {
+    population: '12 000 hab.',
+    distance: '40 km',
+    postalCode: '11400',
+    departement: 'Aude (11)',
+  },
+
+  introTitle: 'Castelnaudary :<br/>au cœur du <em>Lauragais.</em>',
+  introText: `
+    <p>Castelnaudary se distingue par son architecture en briques foraines typiques du Lauragais, son Grand Bassin (le plus grand bassin du Canal du Midi), et son rôle de centre économique pour toute la partie ouest de l'Aude. La commune mêle un centre historique dense, des quartiers résidentiels en périphérie et une importante zone d'activité.</p>
+    <p>Nous intervenons à Castelnaudary en environ 40 minutes depuis Carcassonne. Pour cette commune située en limite ouest de notre zone, nous appliquons un petit forfait de déplacement, toujours transparent et annoncé dans le devis initial.</p>
+    <p>Le tissu rural autour de Castelnaudary, avec ses fermes lauragaises et ses villages typiques (Saint-Papoul, Bram, Villepinte, Pexiora), constitue une part importante de nos interventions dans le secteur. Les anciennes fermes contiennent souvent un patrimoine intéressant à valoriser.</p>
+  `,
+
+  servicesTitle: 'Nos services<br/>à <em>Castelnaudary.</em>',
+  servicesSubtitle: 'Toutes nos prestations à Castelnaudary et dans le Lauragais audois.',
+  services: [
+    { icon: '🏠', title: 'Débarras de maison', text: 'Maisons en briques du centre, fermes lauragaises, villas de lotissement. À partir de 1 200 €.', link: '/debarras-maison' },
+    { icon: '🏢', title: 'Débarras d\'appartement', text: 'Appartements du centre, résidences récentes. À partir de 350 €.', link: '/debarras-appartement' },
+    { icon: '⚖', title: 'Débarras succession', text: 'Maisons et fermes familiales avec patrimoine ancien. Coordination avec les notaires.', link: '/debarras-succession' },
+    { icon: '🍷', title: 'Débarras de cave', text: 'Caves de maisons en briques, caves d\'immeuble. À partir de 250 €.', link: '/debarras-cave' },
+    { icon: '🚗', title: 'Débarras de garage', text: 'Garages individuels, dépendances de fermes. À partir de 300 €.', link: '/debarras-garage' },
+    { icon: '🪜', title: 'Débarras de grenier', text: 'Greniers de maisons anciennes du Lauragais. À partir de 250 €.', link: '/debarras-grenier' },
+    { icon: '🛋', title: 'Enlèvement encombrants', text: 'Mobilier, électroménager, matelas. À partir de 80 €.', link: '/enlevement-encombrants' },
+    { icon: '🤐', title: 'Syndrome de Diogène', text: 'Discrétion absolue, équipe formée. Particulièrement importante en petite commune.', link: '/nettoyage-syndrome-diogene' },
+    { icon: '🏪', title: 'Local commercial', text: 'Commerces du centre, locaux de la zone industrielle, restaurants. À partir de 30 €/m³.', link: '/debarras-local-commercial' },
+  ],
+
+  quartiersTitle: 'Les <em>secteurs</em><br/>de Castelnaudary.',
+  quartiersSubtitle: 'Castelnaudary présente une grande variété d\'habitats, du centre historique aux fermes lauragaises.',
+  quartiers: [
+    { name: 'Centre historique', description: 'Maisons en briques foraines, rues étroites, place de la République. Autorisation de voirie possible.' },
+    { name: 'Quartier du Présidial', description: 'Architecture remarquable, maisons bourgeoises anciennes, parfois classées.' },
+    { name: 'Bords du Grand Bassin', description: 'Propriétés au bord du Canal du Midi. Accès parfois technique.' },
+    { name: 'Lotissements résidentiels', description: 'Villas individuelles avec garage et jardin, accès facile pour nos fourgons.' },
+    { name: 'Zone industrielle', description: 'Locaux d\'activité, entrepôts, ateliers. Intervention possible en horaires décalés.' },
+    { name: 'Périphérie rurale', description: 'Fermes lauragaises, hameaux, propriétés viticoles : Saint-Papoul, Bram, Villepinte, Pexiora.' },
+  ],
+
+  avantagesTitle: 'Pourquoi nous choisir<br/>à <em>Castelnaudary ?</em>',
+  avantages: [
+    { icon: '🚐', title: 'Tarif de déplacement transparent', text: 'Pour Castelnaudary, à 40 km de Carcassonne, nous appliquons un petit forfait kilométrique annoncé dès le devis. Aucune surprise.' },
+    { icon: '🏚', title: 'Expérience des fermes lauragaises', text: 'Anciennes fermes en briques avec dépendances, granges, étables : nous savons gérer ces volumes importants et le mobilier d\'époque.' },
+    { icon: '💶', title: 'Valorisation du patrimoine', text: 'Les fermes du Lauragais recèlent souvent du mobilier ancien, outillage agricole, vaisselle de famille. Souvent débarras réduit ou gratuit.' },
+    { icon: '🤝', title: 'Coordination avec les notaires', text: 'Nous travaillons avec les notaires de Castelnaudary, Bram et Carcassonne pour les successions du Lauragais.' },
+  ],
+
+  exempleTitle: 'Ferme lauragaise à <em>Saint-Papoul,</em><br/>près de Castelnaudary.',
+  exempleSituation: '<p>Ancienne ferme lauragaise de 220 m² avec dépendances (grange, ancien étable, grenier de 80 m²) à Saint-Papoul, à 8 km de Castelnaudary. Volume estimé : <strong>110 m³</strong>. Habitée par la même famille depuis 1925. Suite au décès du dernier occupant, son neveu (habitant Lyon) devait gérer la succession. Contenu : mobilier languedocien et lauragais ancien, outillage agricole d\'époque, archives familiales (lettres, factures, photos sur 100 ans), 400 livres, vaisselle, vêtements anciens.</p>',
+  exempleIntervention: '<p>Visite avec le neveu pendant un week-end. Tri systématique sur 5 jours pour identifier les pièces de valeur. Mise de côté importante : <strong>1 armoire languedocienne d\'époque (estimée 2 200 €)</strong>, 1 buffet bas (700 €), pétrin ancien, outillage agricole de collection, archives familiales complètes, 40 livres anciens, photos. Évaluation : 35 m³ valorisables. Formule appliquée : <strong>Débarras Indemnisé</strong>. Devis : <strong>− 600 € (versés au client)</strong>. Durée : 5 jours.</p>',
+  exempleResultat: '<p>Le client a reçu <strong>600 €</strong> pour un débarras qui aurait coûté 3 200 € en standard. Il a récupéré toutes les archives familiales et 4 meubles sentimentaux expédiés à Lyon. La ferme a été mise en vente avec succès trois mois plus tard. <strong>L\'armoire languedocienne a été revendue 2 800 €</strong> chez un commissaire-priseur de Toulouse.</p>',
+
+  communesTitle: 'Communes <em>voisines</em>',
+  communesText: 'Nous intervenons dans tout le Lauragais audois et les communes proches de Castelnaudary. Pour ces communes plus éloignées de notre base, un forfait de déplacement peut s\'ajouter — toujours annoncé à l\'avance.',
+  communes: [
+    'Saint-Papoul', 'Issel', 'Mas-Saintes-Puelles', 'Lasbordes', 'Souilhe', 'Villepinte',
+    'Pexiora', 'Bram', 'Castelnau-d\'Aude', 'Saint-Martin-Lalande', 'Labécède-Lauragais', 'Verdun-en-Lauragais',
+    'Mireval-Lauragais', 'Saint-Paulet', 'Soupex', 'Cumiès',
+  ],
+
+  faq: [
+    { q: 'Y a-t-il un supplément pour intervenir à Castelnaudary ?', a: 'Oui, un petit forfait de déplacement est appliqué pour Castelnaudary (40 km de notre base). Il est toujours annoncé dans le devis initial, sans surprise. Pour les communes plus éloignées du Lauragais, un forfait additionnel peut s\'appliquer.' },
+    { q: 'Combien de temps pour avoir un devis à Castelnaudary ?', a: 'Sous 48h pour la visite. Nous regroupons souvent plusieurs visites le même jour pour optimiser nos déplacements et limiter les frais.' },
+    { q: 'Pouvez-vous intervenir dans une ferme lauragaise ?', a: 'Oui, c\'est l\'une de nos spécialités dans cette zone. Volumes importants, mobilier ancien, outillage agricole : nous savons gérer.' },
+    { q: 'Travaillez-vous avec les notaires de Castelnaudary ?', a: 'Oui, plusieurs études de Castelnaudary nous sollicitent régulièrement pour les successions de leurs clients. Documents fournis pour la clôture.' },
+    { q: 'Pouvez-vous évacuer du matériel agricole ancien ?', a: 'Oui. Une partie peut être valorisée auprès de collectionneurs (charrues, herses anciennes, outillage manuel). Le reste suit la filière déchets adaptée.' },
+    { q: 'Pouvez-vous intervenir au bord du Grand Bassin de Castelnaudary ?', a: 'Oui. Les propriétés au bord du canal demandent parfois une logistique adaptée (rues étroites, éclusiers à coordonner). C\'est inclus dans notre service.' },
+  ],
+
+  ctaTitle: 'Un débarras à <em>Castelnaudary ?</em><br/>Contactez-nous.',
+  ctaSubtitle: 'Notre équipe intervient à Castelnaudary et dans tout le Lauragais audois. Visite sous 48h, devis transparent avec forfait de déplacement annoncé dès le départ.',
+};
+---
+
+<CityPageLayout {...data} />

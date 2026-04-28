@@ -1,0 +1,74 @@
+---
+import ServicePageLayout from '../layouts/ServicePageLayout.astro';
+
+const data = {
+  pageTitle: 'Débarras de Maison à Carcassonne | Vide Maison Aude — Transport Carcassonne',
+  pageDescription: 'Débarras de maison à Carcassonne et dans l\'Aude. Équipe de 3 professionnels, 2 fourgons, devis gratuit sous 2h. Prix à partir de 1 200 €.',
+
+  overline: 'Notre service',
+  title: 'Débarras de maison<br/>à <em>Carcassonne</em><br/>et dans l\'Aude.',
+  subtitle: 'Vous devez vider une maison à Carcassonne ou dans les environs ? Notre équipe se charge de tout : du démontage des meubles à l\'évacuation des déchets, en passant par le nettoyage final. Devis gratuit sous 2h, prix fixe garanti.',
+
+  priceFrom: 'à partir de 1 200 €',
+  priceDesc: 'Pour une maison plain-pied de 30 à 50 m³ environ. Possibilité de débarras réduit ou gratuit selon la valeur des biens présents dans votre logement.',
+
+  introTitle: 'Un débarras de maison <em>complet,</em> sans souci.',
+  introText: `
+    <p>Le débarras de maison est l'une de nos prestations principales chez Transport Carcassonne. Que votre maison soit vide, encombrée, ou contienne encore tous les meubles d'une vie entière, notre équipe intervient pour la rendre propre, vide et prête à être vendue, louée ou rénovée.</p>
+    <p>Nous prenons en charge l'intégralité du processus : démontage de tous les meubles, évacuation des objets, vêtements, électroménager, documents, tri sélectif, nettoyage de base, restitution des objets de valeur sentimentale ou matérielle.</p>
+    <p>Notre objectif : que vous récupériez vos clés en quelques jours, sans avoir levé le petit doigt.</p>
+  `,
+
+  casTitle: 'Dans quelles <em>situations ?</em>',
+  casSubtitle: 'Le débarras de maison s\'adresse à des situations très variées. Voici les cas les plus fréquents pour lesquels nos clients nous appellent.',
+  cas: [
+    { icon: '🏠', title: 'Vente de maison', text: 'Vous vendez votre maison et devez la vider entièrement avant le compromis ou la signature. Une maison vide se vend plus vite et à un meilleur prix.' },
+    { icon: '⚖', title: 'Succession', text: 'Après le décès d\'un proche, la maison doit être vidée pour être vendue ou partagée. Nous intervenons avec respect, en mettant de côté les souvenirs et documents.' },
+    { icon: '🚛', title: 'Déménagement', text: 'Vous déménagez et certains meubles ne suivent pas ? Nous intervenons en complément du déménageur pour évacuer vieux mobilier, électroménager remplacé.' },
+    { icon: '🔨', title: 'Rénovation', text: 'Avant des travaux importants (rénovation totale, démolition intérieure), il faut vider la maison. Nous travaillons en amont des artisans.' },
+  ],
+
+  inclus: [
+    'Visite gratuite et devis détaillé sans engagement',
+    'Démontage de tous les meubles (armoires, lits, cuisines équipées)',
+    'Évacuation de l\'électroménager (frigo, machine à laver, four)',
+    'Manutention de pièce en pièce, étage par étage',
+    'Évacuation des objets, vêtements, livres, vaisselle',
+    'Vidage complet des placards, tiroirs, armoires',
+    'Évacuation des objets dans le jardin ou les dépendances',
+    'Tri sélectif et envoi vers les filières adaptées',
+    'Don aux associations (Emmaüs, Croix-Rouge, Secours Populaire)',
+    'Valorisation des objets de valeur dans notre entrepôt',
+    'Mise de côté des documents et objets personnels',
+    'Nettoyage de base (balayage, dépoussiérage)',
+    'Bordereau de suivi des déchets remis',
+    'Facture détaillée',
+  ],
+
+  prixIntro: 'Le prix dépend principalement du volume à évacuer et de la valeur des objets présents. Voici nos tarifs indicatifs.',
+  prixRows: [
+    { type: 'Maison plain-pied (50-100 m²)', volume: '30-50 m³', price: 'à partir de 1 200 €' },
+    { type: 'Maison complète (cave, garage, grenier)', volume: '50-80 m³', price: 'à partir de 1 800 €' },
+    { type: 'Grande maison / villa (150-250 m²)', volume: '80-120 m³', price: 'sur devis (dès 3 000 €)' },
+  ],
+  prixNote: 'Si votre maison contient du mobilier de qualité, de l\'électroménager récent, des antiquités ou des objets de collection, vous pouvez bénéficier d\'un débarras réduit (-20 à -50 %), gratuit, voire indemnisé.',
+
+  exempleTitle: 'Maison à <em>Trèbes</em> après succession.',
+  exempleSituation: '<p>Maison plain-pied de 130 m² à Trèbes avec cave et garage. Volume estimé : <strong>65 m³</strong>. Contenu : mobilier ancien de qualité (buffet en chêne, armoire normande), beaucoup de livres et de vaisselle, électroménager récent, outillage de jardin complet.</p>',
+  exempleIntervention: '<p>Visite d\'évaluation : 1h sur place. Identification de <strong>18 m³ revendables</strong>. Formule appliquée : <strong>Débarras Réduit (-40 %)</strong>. Devis : <strong>1 500 € TTC</strong> au lieu de 2 600 € en standard. Durée : 2 jours, équipe de 3 personnes. Documents personnels et photos remis à la cliente.</p>',
+  exempleResultat: '<p>Maison rendue vide et propre, prête à être mise en vente. La cliente a pu lancer la vente immobilière dans la foulée. Bordereau de suivi fourni au notaire pour la clôture de la succession.</p>',
+
+  faq: [
+    { q: 'Combien de temps dure un débarras de maison ?', a: 'Une maison plain-pied de 100 m² standard prend généralement 1 journée. Une maison complète avec cave, garage et grenier peut demander 2 à 3 jours. Une grande maison (200 m² et +) ou un cas Diogène peut nécessiter 3 à 5 jours. Le devis précise toujours la durée prévue.' },
+    { q: 'Devez-vous être présent pendant toute l\'intervention ?', a: 'Non, ce n\'est pas nécessaire. Beaucoup de nos clients nous remettent les clés et ne reviennent qu\'à la fin pour vérifier le travail. C\'est particulièrement utile pour les successions où les héritiers habitent loin.' },
+    { q: 'Que faites-vous des photos de famille et documents ?', a: 'Nous mettons systématiquement de côté tous les documents importants (papiers d\'identité, livrets de famille, actes notariés, photos), les bijoux, les objets sentimentaux manifestes. Nous vous les remettons en main propre.' },
+    { q: 'Pouvez-vous vider une maison habitée par une personne décédée ?', a: 'Oui, c\'est même l\'une de nos spécialités. Nous intervenons avec une attention particulière aux objets personnels, aux photos et aux documents. Possibilité d\'intervenir avant ou après la succession officielle, selon les besoins du notaire.' },
+    { q: 'Pouvez-vous intervenir dans une maison sans électricité ni eau ?', a: 'Oui, nous sommes équipés en matériel autonome. Cela arrive souvent pour des maisons inoccupées depuis longtemps ou en attente de succession.' },
+  ],
+
+  ctaTitle: 'Vous devez vider une maison<br/>à <em>Carcassonne ?</em>',
+  ctaSubtitle: 'Demandez un devis gratuit. Notre équipe se déplace chez vous sous 24h pour évaluer votre besoin et identifier les objets valorisables.',
+};
+---
+
+<ServicePageLayout {...data} />

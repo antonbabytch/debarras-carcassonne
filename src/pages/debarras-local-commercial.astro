@@ -1,0 +1,83 @@
+---
+import ServicePageLayout from '../layouts/ServicePageLayout.astro';
+
+const data = {
+  pageTitle: 'Débarras Local Commercial à Carcassonne | Bureau, Boutique, Entrepôt',
+  pageDescription: 'Débarras de local commercial à Carcassonne et dans l\'Aude : bureaux, boutiques, entrepôts, restaurants. Intervention rapide, possible en weekend.',
+
+  overline: 'Notre service pro',
+  title: 'Débarras de<br/><em>local commercial</em><br/>et professionnel.',
+  subtitle: 'Vous fermez ou déménagez votre boutique, bureau, restaurant, atelier ou entrepôt ? Nous prenons en charge le débarras complet de votre local professionnel à Carcassonne et dans l\'Aude. Intervention possible le weekend ou en horaires décalés pour ne pas perturber votre activité.',
+
+  priceFrom: 'à partir de 30\u00A0€/m³',
+  priceDesc: 'Tarif dégressif selon le volume. Intervention possible weekend, jours fériés, horaires de nuit. Facture pro avec TVA.',
+
+  introTitle: 'Un service adapté<br/>aux <em>professionnels.</em>',
+  introText: `
+    <p>Le débarras d'un local commercial ou professionnel répond à des contraintes spécifiques : délais souvent serrés (fin de bail imminente), nécessité de ne pas perturber l'activité, gestion de matériel professionnel, déchets parfois spécifiques (équipements de cuisine, matériel de salon de coiffure, machines), facturation adaptée à votre comptabilité.</p>
+    <p>Chez Transport Carcassonne, nous intervenons pour tous types de locaux professionnels : boutiques de centre-ville, bureaux, restaurants, garages, salons de coiffure, ateliers, entrepôts, cabinets médicaux. Nous adaptons nos horaires à votre activité (weekend, soir, tôt le matin) pour minimiser l'impact sur votre chiffre d'affaires.</p>
+    <p>Notre statut professionnel et notre numéro SIRET (104 166 780) nous permettent d'émettre des factures conformes pour votre comptabilité, déductibles fiscalement.</p>
+  `,
+
+  casTitle: 'Tous types de <em>locaux</em><br/>professionnels.',
+  casSubtitle: 'Quelle que soit votre activité, nous adaptons notre intervention à vos contraintes spécifiques.',
+  cas: [
+    { icon: '🛍', title: 'Commerces et boutiques', text: 'Magasins de prêt-à-porter, librairies, fleuristes, opticiens, cordonnerie, bijouterie. Vidage du mobilier commercial, présentoirs, vitrines, caisses, stock.' },
+    { icon: '💼', title: 'Bureaux et cabinets', text: 'Bureaux d\'entreprise, cabinets médicaux, cabinets d\'avocats, agences immobilières, notaires. Gestion des archives papier (destruction sécurisée possible).' },
+    { icon: '🍽', title: 'Restaurants et bars', text: 'Cuisines professionnelles, salles de restaurant, bars. Démontage et évacuation d\'équipements de cuisine, mobilier de salle, matériel de bar.' },
+    { icon: '✂', title: 'Salons de coiffure / esthétique', text: 'Bacs à shampoing, fauteuils, postes de coiffage, équipements spécifiques. Filière adaptée pour produits cosmétiques.' },
+    { icon: '🚗', title: 'Garages et ateliers', text: 'Gestion de déchets spécifiques (huiles, batteries, pneus), matériel d\'atelier, stocks de pièces.' },
+    { icon: '🏭', title: 'Entrepôts et locaux de stockage', text: 'Vidage rapide de grands volumes. Notre fourgon 20 m³ et nos rotations permettent de traiter rapidement les gros volumes.' },
+  ],
+
+  inclus: [
+    'Visite technique gratuite sur site',
+    'Devis HT/TTC sous 48h',
+    'Intervention possible weekend et jours fériés',
+    'Horaires adaptés (soir, nuit, tôt le matin)',
+    'Démontage du mobilier commercial',
+    'Évacuation des équipements professionnels',
+    'Tri et destruction sécurisée des archives (RGPD)',
+    'Filières spécifiques : Valdélia (mobilier pro), DEEE pro',
+    'Coordination pour matériel CHR (cuisine pro)',
+    'Demande d\'autorisation de voirie si besoin',
+    'Facturation pro avec TVA',
+    'Paiement à 30 jours pour les entreprises',
+    'Bordereau de suivi des déchets',
+    'Certificat de destruction d\'archives',
+    'Attestation de remise en état pour bailleur',
+  ],
+
+  prixIntro: 'Tarification dégressive selon le volume. Plus le local est grand, plus le tarif au m³ baisse.',
+  prixRows: [
+    { type: 'Petit local commercial (< 50 m²)', volume: 'variable', price: 'à partir de 35 €/m³' },
+    { type: 'Local moyen (50-150 m²)', volume: 'variable', price: 'à partir de 30 €/m³' },
+    { type: 'Grand local / entrepôt (150 m² et +)', volume: 'variable', price: 'à partir de 25 €/m³' },
+    { type: 'Cabinet médical / juridique', volume: 'variable', price: 'à partir de 40 €/m³' },
+    { type: 'Restaurant / cuisine pro', volume: 'spécifique', price: 'sur devis' },
+    { type: 'Salon de coiffure / esthétique', volume: 'variable', price: 'à partir de 35 €/m³' },
+  ],
+  prixNote: 'Le mobilier professionnel récent (bureaux, fauteuils, étagères de magasin, équipements en bon état) peut être valorisé. Nous estimons gratuitement la valeur lors de la visite et la déduisons de votre facture.',
+
+  exempleTitle: 'Fin d\'activité boutique<br/>à <em>Carcassonne.</em>',
+  exempleSituation: '<p>Boutique de prêt-à-porter de 80 m² rue de Verdun à Carcassonne, suite à un départ en retraite. Volume estimé : <strong>60 m³</strong>. Contenu : présentoirs métalliques, cintres, mannequins, mobilier de caisse, vitrines, signalétique, stock invendu (200 pièces), miroirs. Bail expirant dans 3 semaines. Local en centre-ville historique, stationnement difficile.</p>',
+  exempleIntervention: '<p>Visite avec la propriétaire 4 semaines avant l\'échéance. Demande d\'autorisation de voirie. Coordination avec un broker partenaire pour le rachat du stock invendu (revente à un destockeur professionnel). Intervention sur 2 jours (samedi et dimanche pour ne pas perturber l\'activité résiduelle). Évaluation : 18 m³ valorisables. Formule : <strong>Débarras Réduit</strong>. Devis : <strong>1 100 € TTC</strong> au lieu de 1 800 €. Documents fournis : facture pro, bordereau, certificat de destruction d\'archives.</p>',
+  exempleResultat: '<p>Local rendu vide et propre dans les délais. La propriétaire a même <strong>récupéré 800 € via la valorisation du stock invendu</strong> par notre broker. Bailleur satisfait, retraite démarrée sereinement.</p>',
+
+  faq: [
+    { q: 'Pouvez-vous intervenir le weekend pour ne pas fermer ma boutique ?', a: 'Oui, c\'est même très demandé. Nous travaillons régulièrement samedi-dimanche pour les commerces de centre-ville.' },
+    { q: 'Émettez-vous une facture professionnelle avec TVA ?', a: 'Oui, systématiquement. Notre statut nous permet d\'émettre des factures conformes, déductibles pour votre comptabilité.' },
+    { q: 'Quel délai de paiement proposez-vous aux entreprises ?', a: 'Pour les professionnels (avec n° SIRET), nous proposons un paiement à 30 jours fin de mois sur facture. Pour les particuliers, paiement immédiat.' },
+    { q: 'Comment gérez-vous les archives confidentielles (cabinets médicaux, juridiques) ?', a: 'Nous proposons un service de destruction sécurisée certifiée (RGPD). Les archives sont collectées, transportées en bennes sécurisées et détruites dans un centre agréé. Certificat de destruction fourni.' },
+    { q: 'Pouvez-vous vider un restaurant avec sa cuisine professionnelle ?', a: 'Oui. Le matériel de cuisine pro (fours, friteuses, chambres froides) suit une filière spécifique. Nous coordonnons avec des partenaires spécialisés en équipement CHR.' },
+    { q: 'Travaillez-vous avec des liquidateurs judiciaires ou administrateurs ?', a: 'Oui, régulièrement. Nous fournissons les documents nécessaires aux procédures collectives.' },
+    { q: 'Pouvez-vous établir une convention pour plusieurs interventions sur l\'année ?', a: 'Oui. Pour les grandes structures (chaînes, groupes, syndics gérant plusieurs locaux), nous proposons des conventions pluriannuelles avec tarifs négociés.' },
+    { q: 'Pouvez-vous intervenir pendant les heures d\'ouverture sans perturber mon activité ?', a: 'Pour les locaux avec activité continue, nous privilégions les interventions hors horaires d\'ouverture. Mais c\'est possible en concertation, en intervenant pièce par pièce ou par zone.' },
+  ],
+
+  ctaTitle: 'Un local pro à débarrasser<br/>à <em>Carcassonne ?</em>',
+  ctaSubtitle: 'Que vous fermiez votre activité, déménagiez ou rénoviez, nous nous occupons de tout. Devis pro détaillé, facturation conforme, intervention adaptée à vos contraintes.',
+};
+---
+
+<ServicePageLayout {...data} />

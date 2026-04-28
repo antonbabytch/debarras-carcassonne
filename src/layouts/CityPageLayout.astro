@@ -1,0 +1,615 @@
+---
+// src/layouts/CityPageLayout.astro
+// Универсальный шаблон страницы города
+
+import BaseLayout from './BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CTASection from '../components/CTASection.astro';
+
+export interface Props {
+  // SEO
+  pageTitle: string;
+  pageDescription: string;
+
+  // HERO
+  overline: string;
+  title: string;
+  subtitle: string;
+
+  // City info banner
+  cityInfo: {
+    population: string;
+    distance: string;
+    postalCode: string;
+    departement: string;
+  };
+
+  // Intro
+  introTitle: string;
+  introText: string;
+
+  // Services
+  servicesTitle: string;
+  servicesSubtitle: string;
+  services: { icon: string; title: string; text: string; link: string }[];
+
+  // Quartiers / zones
+  quartiersTitle: string;
+  quartiersSubtitle: string;
+  quartiers: { name: string; description: string }[];
+
+  // Avantages local
+  avantagesTitle: string;
+  avantages: { icon: string; title: string; text: string }[];
+
+  // Cas concret
+  exempleTitle: string;
+  exempleSituation: string;
+  exempleIntervention: string;
+  exempleResultat: string;
+
+  // Communes voisines
+  communesTitle: string;
+  communesText: string;
+  communes: string[];
+
+  // FAQ
+  faq: { q: string; a: string }[];
+
+  // CTA
+  ctaTitle: string;
+  ctaSubtitle: string;
+}
+
+const {
+  pageTitle, pageDescription,
+  overline, title, subtitle,
+  cityInfo,
+  introTitle, introText,
+  servicesTitle, servicesSubtitle, services,
+  quartiersTitle, quartiersSubtitle, quartiers,
+  avantagesTitle, avantages,
+  exempleTitle, exempleSituation, exempleIntervention, exempleResultat,
+  communesTitle, communesText, communes,
+  faq,
+  ctaTitle, ctaSubtitle,
+} = Astro.props;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+
+  <PageHero
+    overline={overline}
+    title={title}
+    subtitle={subtitle}
+  />
+
+  <!-- CITY INFO BANNER -->
+  <section class="city-info-banner">
+    <div class="container">
+      <div class="city-info-grid">
+        <div class="city-info-item">
+          <span class="mono-label">Population</span>
+          <div class="city-info-value">{cityInfo.population}</div>
+        </div>
+        <div class="city-info-item">
+          <span class="mono-label">Distance</span>
+          <div class="city-info-value">{cityInfo.distance}</div>
+        </div>
+        <div class="city-info-item">
+          <span class="mono-label">Code postal</span>
+          <div class="city-info-value">{cityInfo.postalCode}</div>
+        </div>
+        <div class="city-info-item">
+          <span class="mono-label">Département</span>
+          <div class="city-info-value">{cityInfo.departement}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="city-intro">
+    <div class="container">
+      <div class="intro-grid">
+        <h2 class="display intro-title" set:html={introTitle} />
+        <div class="intro-text" set:html={introText} />
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="city-services">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="display" set:html={servicesTitle} />
+        <p>{servicesSubtitle}</p>
+      </div>
+      <div class="services-grid">
+        {services.map((s) => (
+          <a href={s.link} class="service-card">
+            <div class="service-card-icon">{s.icon}</div>
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+            <span class="service-card-link">En savoir plus →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- QUARTIERS -->
+  <section class="city-quartiers">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="display" set:html={quartiersTitle} />
+        <p>{quartiersSubtitle}</p>
+      </div>
+      <div class="quartiers-grid">
+        {quartiers.map((q) => (
+          <div class="quartier-card">
+            <h4>{q.name}</h4>
+            <p>{q.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- AVANTAGES -->
+  <section class="city-avantages">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="display" set:html={avantagesTitle} />
+      </div>
+      <div class="avantages-grid">
+        {avantages.map((a) => (
+          <div class="avantage-card">
+            <div class="avantage-icon">{a.icon}</div>
+            <h3>{a.title}</h3>
+            <p>{a.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- EXEMPLE -->
+  <section class="city-exemple">
+    <div class="container">
+      <div class="exemple-content">
+        <span class="mono-label">Cas concret</span>
+        <h2 class="display" set:html={exempleTitle} />
+        <div class="exemple-block">
+          <div class="exemple-section">
+            <h4>La situation</h4>
+            <p set:html={exempleSituation} />
+          </div>
+          <div class="exemple-section">
+            <h4>Notre intervention</h4>
+            <p set:html={exempleIntervention} />
+          </div>
+          <div class="exemple-section">
+            <h4>Le résultat</h4>
+            <p set:html={exempleResultat} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNES VOISINES -->
+  <section class="city-communes">
+    <div class="container">
+      <div class="communes-grid">
+        <div class="communes-left">
+          <span class="mono-label">Zone d'intervention</span>
+          <h2 class="display" set:html={communesTitle} />
+          <p>{communesText}</p>
+        </div>
+        <div class="communes-list">
+          {communes.map((c) => <span class="commune-tag">{c}</span>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="city-faq">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="display">Vos <em>questions.</em></h2>
+        <p>Si vous ne trouvez pas votre réponse, contactez-nous directement par téléphone ou WhatsApp.</p>
+      </div>
+      <div class="faq-list">
+        {faq.map((item) => (
+          <details class="faq-item">
+            <summary>{item.q}</summary>
+            <div class="faq-answer" set:html={item.a} />
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection title={ctaTitle} subtitle={ctaSubtitle} />
+
+</BaseLayout>
+
+<style>
+  /* CITY INFO BANNER */
+  .city-info-banner {
+    background: var(--bg-soft);
+    padding: 48px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .city-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .city-info-item .mono-label {
+    color: var(--accent);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .city-info-value {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(28px, 3.2vw, 40px);
+    color: var(--text);
+    line-height: 1;
+  }
+  @media (max-width: 700px) {
+    .city-info-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  }
+
+  /* INTRO */
+  .city-intro {
+    padding: 100px 0;
+    background: var(--bg);
+  }
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .intro-title {
+    font-size: clamp(36px, 4.8vw, 56px);
+    line-height: 1.05;
+  }
+  .intro-title :global(em) {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .intro-text {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .intro-text :global(p) {
+    margin-bottom: 20px;
+  }
+  .intro-text :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  @media (max-width: 900px) {
+    .city-intro { padding: 64px 0; }
+    .intro-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* SECTION HEADER */
+  .section-header {
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: end;
+  }
+  .section-header h2 {
+    font-size: clamp(36px, 4.8vw, 60px);
+    line-height: 1.05;
+  }
+  .section-header h2 :global(em) {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .section-header p {
+    color: var(--text-muted);
+    font-size: 17px;
+    max-width: 540px;
+    line-height: 1.55;
+  }
+  @media (max-width: 900px) {
+    .section-header { grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
+  }
+
+  /* SERVICES */
+  .city-services {
+    padding: 100px 0;
+    background: var(--bg-soft);
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .service-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 32px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+  .service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+  }
+  .service-card-icon {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .service-card h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    line-height: 1.15;
+  }
+  .service-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 20px;
+  }
+  .service-card-link {
+    color: var(--accent);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+  @media (max-width: 900px) {
+    .city-services { padding: 64px 0; }
+    .services-grid { grid-template-columns: 1fr; }
+  }
+
+  /* QUARTIERS */
+  .city-quartiers {
+    padding: 100px 0;
+    background: var(--bg);
+  }
+  .quartiers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .quartier-card {
+    background: var(--bg-card);
+    border-left: 3px solid var(--accent);
+    padding: 24px 28px;
+  }
+  .quartier-card h4 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .quartier-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  @media (max-width: 900px) {
+    .city-quartiers { padding: 64px 0; }
+    .quartiers-grid { grid-template-columns: 1fr; }
+  }
+
+  /* AVANTAGES */
+  .city-avantages {
+    padding: 100px 0;
+    background: var(--bg-soft);
+  }
+  .avantages-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .avantage-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 36px;
+  }
+  .avantage-icon {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .avantage-card h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    line-height: 1.15;
+  }
+  .avantage-card p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+  @media (max-width: 900px) {
+    .city-avantages { padding: 64px 0; }
+    .avantages-grid { grid-template-columns: 1fr; }
+    .avantage-card { padding: 28px; }
+  }
+
+  /* EXEMPLE */
+  .city-exemple {
+    padding: 100px 0;
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+  }
+  .exemple-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .city-exemple .mono-label {
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: block;
+  }
+  .exemple-content h2 {
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.05;
+    color: var(--text-on-dark);
+    margin-bottom: 48px;
+  }
+  .exemple-content h2 :global(em) {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .exemple-block {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .exemple-section {
+    background: var(--bg-dark-alt);
+    border-left: 3px solid var(--accent);
+    padding: 28px 32px;
+  }
+  .exemple-section h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .exemple-section p {
+    color: var(--text-on-dark);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .exemple-section :global(strong) {
+    color: var(--accent);
+  }
+  @media (max-width: 700px) {
+    .city-exemple { padding: 64px 0; }
+    .exemple-section { padding: 20px 24px; }
+  }
+
+  /* COMMUNES */
+  .city-communes {
+    padding: 100px 0;
+    background: var(--bg);
+  }
+  .communes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .communes-left .mono-label {
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: block;
+  }
+  .communes-left h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+  .communes-left h2 :global(em) {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .communes-left p {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+  .communes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-content: start;
+  }
+  .commune-tag {
+    display: inline-block;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 10px 18px;
+    font-size: 14px;
+    color: var(--text);
+    transition: all 0.2s;
+  }
+  .commune-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  @media (max-width: 900px) {
+    .city-communes { padding: 64px 0; }
+    .communes-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* FAQ */
+  .city-faq {
+    padding: 100px 0;
+    background: var(--bg-soft);
+  }
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+    padding: 24px 0;
+  }
+  .faq-item summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 22px;
+    font-weight: 400;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 1.3;
+    transition: color 0.2s;
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item summary::after {
+    content: '+';
+    font-size: 28px;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-left: 24px;
+    transition: transform 0.3s;
+  }
+  .faq-item[open] summary::after {
+    transform: rotate(45deg);
+  }
+  .faq-item summary:hover {
+    color: var(--accent);
+  }
+  .faq-answer {
+    margin-top: 16px;
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 800px;
+  }
+  @media (max-width: 700px) {
+    .city-faq { padding: 64px 0; }
+    .faq-item summary { font-size: 18px; }
+  }
+</style>

@@ -1,0 +1,75 @@
+---
+import ServicePageLayout from '../layouts/ServicePageLayout.astro';
+
+const data = {
+  pageTitle: 'Débarras de Garage à Carcassonne | Vidage Garage Aude — Transport Carcassonne',
+  pageDescription: 'Débarras de garage à Carcassonne et dans l\'Aude. Outils, vélos, vieux meubles, électroménager : nous vidons votre garage intégralement. À partir de 300 €.',
+
+  overline: 'Notre service',
+  title: 'Débarras<br/>de <em>garage</em><br/>à Carcassonne.',
+  subtitle: 'Votre garage est tellement encombré que vous ne pouvez plus y garer votre voiture ? Vieux meubles, outils rouillés, jouets oubliés, vélos hors service, cartons : nous vidons votre garage entièrement et le laissons propre. Devis gratuit sous 2h.',
+
+  priceFrom: 'à partir de 300 €',
+  priceDesc: 'Pour un garage standard (8-15 m³). Tri, démontage, évacuation, nettoyage : tout inclus.',
+
+  introTitle: 'Le garage : pièce oubliée,<br/><em>mine d\'objets.</em>',
+  introText: `
+    <p>Le garage est souvent la pièce qui accumule le plus d'objets hétéroclites au fil des années : outils achetés et jamais utilisés, vélos de l'enfance, sapin de Noël artificiel, anciens meubles "en attendant qu'on en fasse quelque chose", peinture restante des derniers travaux, jouets des enfants devenus adultes.</p>
+    <p>Quand vient le moment de retrouver l'usage initial du garage — y stationner sa voiture, créer un atelier, en faire une pièce de vie — il faut tout évacuer. C'est notre métier.</p>
+    <p>Nous trions intelligemment : ce qui peut servir, ce qui peut être valorisé, ce qui doit partir en déchèterie. Et nous laissons un garage propre, prêt à recevoir une voiture ou des travaux.</p>
+  `,
+
+  casTitle: 'Quand vider un <em>garage ?</em>',
+  casSubtitle: 'Les situations les plus fréquentes pour lesquelles nous intervenons sur des garages.',
+  cas: [
+    { icon: '🚗', title: 'Retrouver l\'usage du garage', text: 'Vous ne pouvez plus garer votre voiture ou faire de bricolage. Nous évacuons tout, vous récupérez votre espace.' },
+    { icon: '🏠', title: 'Avant une vente ou une location', text: 'Un garage présentable valorise votre bien. Les acquéreurs visualisent immédiatement la possibilité de stationnement.' },
+    { icon: '🔨', title: 'Avant des travaux d\'aménagement', text: 'Vous voulez transformer votre garage en pièce de vie, atelier, buanderie ? Nous le préparons pour les artisans.' },
+    { icon: '⚖', title: 'Succession ou maison héritée', text: 'Le garage d\'une maison familiale contient souvent 40 ans d\'outils et d\'objets. Nous nous en occupons.' },
+  ],
+
+  inclus: [
+    'Visite gratuite et devis détaillé',
+    'Évacuation de l\'outillage ancien et électroportatif',
+    'Tri des vélos, équipements de sport',
+    'Évacuation des pneus usagés (filière spécialisée)',
+    'Évacuation des batteries (recyclage métaux)',
+    'Évacuation des huiles, peintures, solvants (filière agréée)',
+    'Évacuation des bouteilles de gaz (reprise)',
+    'Démontage des étagères et structures',
+    'Tri sélectif et envoi vers les filières adaptées',
+    'Don aux associations (jouets, équipements)',
+    'Valorisation des outils en bon état',
+    'Nettoyage du sol après évacuation',
+    'Bordereau de suivi des déchets',
+    'Facture détaillée',
+  ],
+
+  prixIntro: 'Le tarif dépend du volume et de la nature des objets (outils, déchets spéciaux, gros électroménager).',
+  prixRows: [
+    { type: 'Petit garage 1 voiture', volume: '8-12 m³', price: 'à partir de 300 €' },
+    { type: 'Garage 1 voiture standard', volume: '12-18 m³', price: 'à partir de 450 €' },
+    { type: 'Grand garage / 2 voitures', volume: '18-30 m³', price: 'à partir de 700 €' },
+    { type: 'Garage très encombré', volume: '30 m³ et +', price: 'sur devis' },
+  ],
+  prixNote: 'Le garage est souvent la pièce qui contient le plus d\'objets valorisables : outillage électroportatif, vélos en bon état, matériel de bricolage. Notre visite gratuite identifie ce qui peut réduire votre facture.',
+
+  exempleTitle: 'Garage 2 voitures à <em>Trèbes.</em>',
+  exempleSituation: '<p>Garage 2 voitures de 35 m². Volume estimé : <strong>25 m³</strong>. Contenu accumulé sur 25 ans : outillage de feu son mari, 4 vélos (2 d\'enfants, 2 d\'adultes), une vieille moto en panne, pneus usagés, batteries, peintures et solvants, sapin de Noël, jouets des enfants devenus adultes, anciens meubles. Vente de la maison prévue.</p>',
+  exempleIntervention: '<p>Visite avec la cliente pour identifier les objets sentimentaux (notamment les outils du mari). Tri en 4 catégories : conservation, valorisation (outillage électroportatif récent, 2 vélos adultes, moto pour pièces), don (jouets et vélos d\'enfants → Emmaüs), évacuation (le reste). Évaluation : 6 m³ valorisables. Formule : <strong>Débarras Réduit (-25 %)</strong>. Devis : <strong>540 € TTC</strong> au lieu de 720 €. Durée : 1 jour. Évacuation séparée des huiles, peintures, batteries, pneus.</p>',
+  exempleResultat: '<p>Garage entièrement vidé, nettoyé. La cliente a pu présenter le bien aux acquéreurs avec un argument supplémentaire : "<strong>garage double libre</strong>".</p>',
+
+  faq: [
+    { q: 'Pouvez-vous évacuer une vieille voiture ou moto en panne ?', a: 'Oui, dans le cadre du débarras. Nous coordonnons avec un épaviste partenaire pour les véhicules. Frais à intégrer au devis.' },
+    { q: 'Que faire des huiles, peintures et solvants ?', a: 'Nous les évacuons vers les filières agréées. Inclus dans le prix tant que les quantités restent raisonnables.' },
+    { q: 'Et les batteries de voiture ?', a: 'Recyclage spécialisé. Inclus dans le devis.' },
+    { q: 'Pouvez-vous vider un garage en immeuble (parking sous-sol) ?', a: 'Oui. Nous nous adaptons aux contraintes de stationnement et horaires d\'accès aux parkings collectifs.' },
+    { q: 'Pouvez-vous intervenir un samedi ?', a: 'Oui, tout à fait. Le samedi est un jour très demandé pour les particuliers, n\'hésitez pas à le préciser lors de la visite.' },
+  ],
+
+  ctaTitle: 'Un garage à vider<br/>à <em>Carcassonne ?</em>',
+  ctaSubtitle: 'Demandez un devis gratuit. Visite sous 24h, prix fixe garanti, valorisation des outils et équipements en bon état.',
+};
+---
+
+<ServicePageLayout {...data} />

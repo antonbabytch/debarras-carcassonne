@@ -1,0 +1,204 @@
+---
+// src/components/Footer.astro
+// Подвал сайта — присутствует на всех страницах
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <span class="logo-mark"></span>
+          <span class="logo-text">
+            <strong>Transport Carcassonne</strong>
+            <small>Débarras &amp; Vide Maison</small>
+          </span>
+        </a>
+        <p>
+          Entreprise locale de débarras et vide maison à Carcassonne et
+          dans l'Aude. SIRET 104 166 780. Entreprise déclarée et assurée.
+        </p>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/debarras-maison">Débarras de maison</a></li>
+          <li><a href="/vide-maison">Vide maison</a></li>
+          <li><a href="/debarras-appartement">Débarras d'appartement</a></li>
+          <li><a href="/debarras-succession">Succession</a></li>
+          <li><a href="/debarras-cave">Cave</a></li>
+          <li><a href="/debarras-garage">Garage</a></li>
+          <li><a href="/debarras-grenier">Grenier</a></li>
+          <li><a href="/enlevement-encombrants">Encombrants</a></li>
+          <li><a href="/debarras-local-commercial">Local commercial</a></li>
+          <li><a href="/nettoyage-syndrome-diogene">Syndrome de Diogène</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Zone</h4>
+        <ul>
+          <li><a href="/debarras-carcassonne">Carcassonne</a></li>
+          <li><a href="/debarras-trebes">Trèbes</a></li>
+          <li><a href="/debarras-limoux">Limoux</a></li>
+          <li><a href="/debarras-castelnaudary">Castelnaudary</a></li>
+          <li><a href="/debarras-narbonne">Narbonne</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+33626178237">06 26 17 82 37</a></li>
+          <li><a href="mailto:contact@debarras-carcassonne.fr">contact@debarras-carcassonne.fr</a></li>
+          <li>WhatsApp · Telegram</li>
+          <li>Lun–Sam · 8h–19h</li>
+          <li>Carcassonne, Aude (11)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Transport Carcassonne · SIRET 104 166 780</div>
+      <div class="footer-legal">
+        <a href="/mentions-legales">Mentions légales</a>
+        <span>·</span>
+        <a href="/politique-confidentialite">Politique de confidentialité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+    padding: 64px 0 32px;
+    border-top: 1px solid var(--line-dark);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  .footer-brand .logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: var(--text-on-dark);
+    margin-bottom: 20px;
+  }
+
+  .footer-brand .logo-mark {
+    width: 38px;
+    height: 38px;
+    background: var(--accent);
+    border-radius: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Instrument Serif', serif;
+    color: var(--bg-dark);
+    font-size: 22px;
+    font-weight: 400;
+  }
+
+  .footer-brand .logo-mark::after {
+    content: 'TC';
+  }
+
+  .footer-brand .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .footer-brand .logo-text strong {
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  .footer-brand .logo-text small {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    color: var(--text-on-dark-muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  .footer-brand p {
+    color: var(--text-on-dark-muted);
+    font-size: 14px;
+    line-height: 1.65;
+    max-width: 340px;
+  }
+
+  h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-bottom: 22px;
+    font-weight: 500;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    margin-bottom: 11px;
+  }
+
+  a {
+    color: var(--text-on-dark);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  a:hover {
+    color: var(--accent);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--line-dark);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    color: var(--text-on-dark-muted);
+    font-size: 13px;
+  }
+
+  .footer-bottom a {
+    color: var(--text-on-dark-muted);
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  @media (max-width: 900px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

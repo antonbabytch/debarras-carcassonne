@@ -1,0 +1,76 @@
+---
+import ServicePageLayout from '../layouts/ServicePageLayout.astro';
+
+const data = {
+  pageTitle: 'Débarras de Grenier à Carcassonne | Vidage Combles Aude — Transport Carcassonne',
+  pageDescription: 'Débarras et vidage de grenier ou combles à Carcassonne et dans l\'Aude. Accès difficile, objets anciens, documents oubliés. À partir de 250 €.',
+
+  overline: 'Notre service',
+  title: 'Débarras<br/>de <em>grenier</em><br/>à Carcassonne.',
+  subtitle: 'Votre grenier accumule depuis des décennies les objets dont vous ne saviez que faire ? Vous voulez le vider avant des travaux d\'aménagement, d\'isolation, ou simplement pour le rendre utilisable ? Notre équipe intervient même dans les greniers les plus difficiles d\'accès.',
+
+  priceFrom: 'à partir de 250 €',
+  priceDesc: 'Pour un grenier standard (5-15 m³). Manutention par escalier ou trappe d\'accès, nettoyage inclus.',
+
+  introTitle: 'Le grenier : la pièce<br/>la plus <em>mystérieuse.</em>',
+  introText: `
+    <p>Le grenier est souvent l'endroit où l'on monte les choses "qu'on ne sait pas où mettre", "qu'on jettera plus tard", "qui pourraient servir un jour". Au bout de 20, 30, parfois 50 ans, le grenier devient une véritable cachette : malles oubliées, vieux meubles, vêtements anciens, jouets d'enfance, photos, archives familiales, parfois même des objets de valeur que personne ne se souvient avoir entreposés.</p>
+    <p>Vider un grenier demande méthode et patience. Surtout, cela demande un tri très attentif : c'est dans les greniers que l'on trouve le plus d'objets ayant une valeur sentimentale ou marchande.</p>
+    <p>Notre équipe est formée à ce travail minutieux. Et nous savons gérer les contraintes physiques : trappes étroites, escaliers escamotables, plafonds bas, chaleur en été.</p>
+  `,
+
+  casTitle: 'Pourquoi vider<br/>un <em>grenier ?</em>',
+  casSubtitle: 'Les situations les plus fréquentes qui nous amènent dans un grenier.',
+  cas: [
+    { icon: '🏗', title: 'Avant travaux d\'isolation ou aménagement', text: 'Pour isoler vos combles, transformer votre grenier en pièce habitable, ou simplement refaire la toiture, il faut tout vider.' },
+    { icon: '📦', title: 'Récupération d\'espace de rangement', text: 'Votre grenier est devenu inutilisable. Vous voulez le vider totalement pour repartir de zéro et l\'organiser intelligemment.' },
+    { icon: '⚖', title: 'Succession de maison ancienne', text: 'Les greniers de maisons anciennes recèlent souvent 50 à 80 ans d\'objets familiaux. C\'est l\'endroit où l\'on trouve les plus beaux trésors.' },
+    { icon: '🏠', title: 'Vente de la maison', text: 'Une maison vide se vend plus vite. Le grenier doit être inclus dans le débarras pour offrir un bien complet et net.' },
+  ],
+
+  inclus: [
+    'Visite gratuite et devis détaillé',
+    'Manutention par escalier escamotable ou trappe étroite',
+    'Démontage sur place des meubles trop encombrants',
+    'Recherche méticuleuse des photos et albums',
+    'Mise de côté des documents et papiers anciens',
+    'Estimation des livres et objets anciens',
+    'Identification des antiquités et objets d\'art',
+    'Recherche des collections (vinyles, timbres, monnaies)',
+    'Tri systématique pièce par pièce',
+    'Tri sélectif et envoi vers les filières adaptées',
+    'Don aux associations (vêtements, jouets en bon état)',
+    'Valorisation maximale dans notre entrepôt',
+    'Nettoyage de base après évacuation',
+    'Bordereau de suivi des déchets',
+  ],
+
+  prixIntro: 'Le tarif dépend du volume, de l\'accessibilité (trappe, escalier) et de la valeur des biens présents.',
+  prixRows: [
+    { type: 'Petit grenier / combles bas', volume: '5-10 m³', price: 'à partir de 250 €' },
+    { type: 'Grenier standard', volume: '10-20 m³', price: 'à partir de 450 €' },
+    { type: 'Grand grenier aménageable', volume: '20-35 m³', price: 'à partir de 750 €' },
+    { type: 'Grenier exceptionnellement encombré', volume: '35 m³ et +', price: 'sur devis' },
+  ],
+  prixNote: 'Le grenier est, statistiquement, la pièce de la maison qui contient le plus d\'objets valorisables. Mobilier ancien, vinyles, livres, vêtements vintage, vaisselle de famille : ces biens peuvent réduire considérablement votre facture, voire la rendre gratuite.',
+
+  exempleTitle: 'Grenier de maison de famille<br/>à <em>Caunes-Minervois.</em>',
+  exempleSituation: '<p>Grenier de 60 m² avec accès par escalier escamotable. Volume estimé : <strong>30 m³</strong>. Contenu accumulé sur 4 générations (1920-2024) : malles de vêtements anciens, mobilier d\'époque entreposé, collection de 600 livres dont plusieurs avant 1900, photos de famille, vaisselle, jouets, lettres. Travaux d\'aménagement prévus.</p>',
+  exempleIntervention: '<p>Visite avec la famille pour comprendre l\'historique. Tri très méticuleux pièce par pièce. Mise de côté importante : <strong>2 robes de mariée des années 1920 et 1950</strong>, 4 albums photos complets, 80 lettres familiales, 1 service à thé en porcelaine de Limoges, <strong>1 secrétaire en marqueterie 19ème siècle</strong>, 25 livres anciens (avant 1900), bijoux trouvés dans une boîte cachée. Évaluation : 12 m³ valorisables. Formule : <strong>Débarras Gratuit</strong>. Devis : <strong>0 €</strong>. Durée : 3 jours.</p>',
+  exempleResultat: '<p>La famille a récupéré tous les objets sentimentaux et de valeur identifiés. Les travaux d\'aménagement ont pu commencer la semaine suivante. La famille n\'a rien payé. <strong>Le secrétaire en marqueterie a été estimé à 1 800 €</strong> chez un commissaire-priseur — un patrimoine familial dont personne ne soupçonnait la valeur.</p>',
+
+  faq: [
+    { q: 'Mon grenier est très difficile d\'accès, est-ce un problème ?', a: 'Non. Trappes étroites, escaliers escamotables, plafonds bas : notre équipe est habituée. Tout est inclus dans le prix.' },
+    { q: 'Que faites-vous des photos et lettres anciennes ?', a: 'Tout est mis de côté systématiquement. Nous ne jetons jamais une photo. Nous vous remettons les documents personnels en main propre.' },
+    { q: 'Comment savez-vous si un objet a de la valeur ?', a: 'Notre équipe est formée à reconnaître les objets de valeur : mobilier ancien, livres, vaisselle, collections. En cas de doute, nous mettons de côté pour estimation par un partenaire spécialisé.' },
+    { q: 'Pouvez-vous intervenir en été dans un grenier ?', a: 'Oui, mais nous adaptons les horaires (très tôt le matin pour éviter les fortes chaleurs). Idéalement, nous recommandons les interventions en automne, hiver ou printemps.' },
+    { q: 'Combien de temps prend un débarras de grenier ?', a: 'De ½ journée pour un petit grenier standard à 3-4 jours pour un grand grenier de maison familiale très chargé.' },
+    { q: 'Pouvez-vous me donner une estimation des objets valorisables ?', a: 'Oui, lors de la visite. Pour une estimation officielle (succession, assurance), nous travaillons avec des commissaires-priseurs partenaires.' },
+  ],
+
+  ctaTitle: 'Un grenier à vider<br/>à <em>Carcassonne ?</em>',
+  ctaSubtitle: 'Demandez un devis gratuit. Notre équipe se déplace sous 24h pour évaluer votre besoin et identifier les objets de valeur.',
+};
+---
+
+<ServicePageLayout {...data} />

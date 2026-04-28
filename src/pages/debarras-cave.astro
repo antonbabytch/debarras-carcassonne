@@ -1,0 +1,74 @@
+---
+import ServicePageLayout from '../layouts/ServicePageLayout.astro';
+
+const data = {
+  pageTitle: 'Débarras de Cave à Carcassonne | Vidage Cave Aude — Transport Carcassonne',
+  pageDescription: 'Débarras et vidage de cave à Carcassonne et dans l\'Aude. Nous évacuons meubles, encombrants, déchets accumulés. À partir de 250 €.',
+
+  overline: 'Notre service',
+  title: 'Débarras<br/>de <em>cave</em><br/>à Carcassonne.',
+  subtitle: 'Votre cave est devenue un débarras au fil des années ? Vous voulez la vider entièrement avant une vente, une rénovation ou simplement pour récupérer de l\'espace ? Notre équipe vide votre cave de fond en comble : démontage, évacuation, tri, nettoyage. Devis gratuit sous 2h.',
+
+  priceFrom: 'à partir de 250 €',
+  priceDesc: 'Pour une cave standard (5-12 m³). Démontage, manutention par escaliers étroits, nettoyage : tout est inclus dans le prix.',
+
+  introTitle: 'La cave : un défi <em>particulier.</em>',
+  introText: `
+    <p>Vider une cave n'a rien de simple. Les caves sont souvent les endroits les plus difficiles d'accès d'un logement : escaliers étroits, plafonds bas, humidité, mauvais éclairage, absence de ventilation. Sans compter les années (parfois les décennies) d'accumulation : vieux meubles, cartons oubliés, bouteilles vides, outils rouillés, magazines, vêtements oubliés.</p>
+    <p>Notre équipe est habituée à ces conditions. Nous arrivons équipés de lampes, de gants, de masques anti-poussière, de cordes pour les objets lourds. Nous démontons sur place les meubles trop volumineux pour passer dans l'escalier.</p>
+    <p>Et surtout : nous n'abandonnons jamais en cours de route, même si la cave s'avère plus pleine que prévu.</p>
+  `,
+
+  casTitle: 'Dans <em>quels cas</em> vider<br/>une cave ?',
+  casSubtitle: 'Voici les situations les plus fréquentes pour lesquelles nos clients nous appellent pour vider leur cave.',
+  cas: [
+    { icon: '🏠', title: 'Avant une vente ou une location', text: 'Une cave vide et propre valorise votre bien. Les acquéreurs ou locataires apprécient l\'espace de rangement disponible.' },
+    { icon: '🔨', title: 'Avant des travaux', text: 'Vous projetez de transformer votre cave en pièce de vie, en buanderie, ou de la rénover ? Il faut tout vider avant que les artisans n\'interviennent.' },
+    { icon: '📦', title: 'Récupération d\'espace', text: 'Votre cave est devenue inutilisable tant elle est encombrée ? Vous voulez en faire un véritable espace de rangement organisé ? Nous évacuons tout.' },
+    { icon: '⚖', title: 'Succession ou logement hérité', text: 'Lors d\'une succession, la cave est souvent oubliée puis découverte avec stupeur : 30 ans d\'accumulation. Nous nous en occupons.' },
+  ],
+
+  inclus: [
+    'Visite gratuite et devis détaillé',
+    'Démontage des meubles trop encombrants',
+    'Évacuation depuis caves voûtées et escaliers étroits',
+    'Manutention sécurisée des objets lourds',
+    'Évacuation des bouteilles vides (verre recyclé)',
+    'Tri des outils, vélos, équipements',
+    'Évacuation des produits dangereux (peinture, solvants)',
+    'Tri sélectif et envoi vers les filières adaptées',
+    'Don aux associations (objets en bon état)',
+    'Recherche systématique des objets de valeur',
+    'Nettoyage de base après évacuation',
+    'Bordereau de suivi des déchets',
+    'Facture détaillée',
+  ],
+
+  prixIntro: 'Le tarif dépend du volume, de l\'accessibilité et de la nature des objets stockés.',
+  prixRows: [
+    { type: 'Petite cave d\'appartement', volume: '5-8 m³', price: 'à partir de 250 €' },
+    { type: 'Cave standard de maison', volume: '8-15 m³', price: 'à partir de 350 €' },
+    { type: 'Grande cave / cave voûtée', volume: '15-25 m³', price: 'à partir de 600 €' },
+    { type: 'Cave très encombrée', volume: '25 m³ et +', price: 'sur devis' },
+  ],
+  prixNote: 'Si votre cave contient des objets valorisables (outils anciens, vélos en bon état, vins de collection, livres anciens), vous pouvez bénéficier d\'une remise. À indiquer lors de la visite.',
+
+  exempleTitle: 'Cave voûtée à <em>Limoux.</em>',
+  exempleSituation: '<p>Cave voûtée de 22 m² avec escalier étroit en pierre, plafond bas (1,80 m), dans une maison ancienne. Volume estimé : <strong>18 m³</strong>. Contenu : vieux meubles, cartons d\'archives de 25 ans, vélos d\'enfants, bouteilles vides, outils rouillés, malle de vêtements anciens. Travaux d\'aménagement en cave à vin prévus.</p>',
+  exempleIntervention: '<p>Visite préalable pour évaluer l\'accès. Démontage de 2 armoires sur place (escalier trop étroit). Tri pièce par pièce, mise de côté de 30 livres anciens, 2 outils d\'époque, <strong>12 bouteilles de vin (1980-1990) trouvées en pleine cave</strong>. Évaluation : 4 m³ valorisables. Formule appliquée : <strong>Débarras Réduit (-30 %)</strong>. Devis : <strong>480 € TTC</strong> au lieu de 700 €. Durée : 1,5 jour.</p>',
+  exempleResultat: '<p>Cave entièrement vidée et nettoyée, prête pour les artisans. Le client a récupéré ses 12 bouteilles de vin (estimées à <strong>200 €</strong> chez un caviste) et les livres anciens.</p>',
+
+  faq: [
+    { q: 'Pouvez-vous descendre les meubles d\'une cave avec escalier étroit ?', a: 'Oui. Nous démontons sur place les meubles trop encombrants. C\'est inclus dans le prix.' },
+    { q: 'Que faites-vous des produits dangereux trouvés dans la cave (peinture, solvants) ?', a: 'Nous les évacuons vers les filières spécialisées. Inclus dans le prix tant que les quantités restent raisonnables.' },
+    { q: 'Pouvez-vous vider une cave d\'immeuble en copropriété ?', a: 'Oui. Nous prévenons le syndic si nécessaire et travaillons aux horaires autorisés.' },
+    { q: 'Combien de temps prend un débarras de cave ?', a: 'De 2 heures pour une petite cave à une journée pour une grande cave très encombrée.' },
+    { q: 'Pouvez-vous intervenir si je n\'ai pas les clés mais le voisin oui ?', a: 'Oui, c\'est très fréquent. Nous fonctionnons aussi avec gardiens d\'immeuble ou syndics.' },
+  ],
+
+  ctaTitle: 'Une cave à vider<br/>à <em>Carcassonne ?</em>',
+  ctaSubtitle: 'Demandez un devis gratuit. Notre équipe se déplace sous 24h pour évaluer votre besoin et identifier les objets valorisables.',
+};
+---
+
+<ServicePageLayout {...data} />

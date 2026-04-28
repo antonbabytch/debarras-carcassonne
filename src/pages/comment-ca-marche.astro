@@ -1,0 +1,482 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CTASection from '../components/CTASection.astro';
+
+const pageTitle = 'Comment se déroule un débarras ? | Étapes & Délais — Transport Carcassonne';
+const pageDescription = 'Comment fonctionne un débarras avec Transport Carcassonne ? Découvrez les 5 étapes de notre intervention. Devis gratuit sous 2h.';
+
+const steps = [
+  {
+    num: '01',
+    title: 'Vous nous contactez',
+    sub: 'Quatre moyens de nous joindre, choisissez celui qui vous arrange.',
+    text: 'Tout commence par un simple échange. Vous nous appelez, vous nous écrivez sur WhatsApp, vous nous envoyez un email ou vous remplissez notre formulaire en ligne. Nous prenons connaissance de votre situation et fixons un rendez-vous pour la visite d\'évaluation.',
+    points: [
+      'Réponse sous 2h en semaine',
+      'Échange par téléphone, WhatsApp, email ou formulaire',
+      'Aucun engagement de votre part',
+      'Possibilité d\'envoyer des photos pour gagner du temps',
+    ],
+    duration: '10 à 15 minutes',
+  },
+  {
+    num: '02',
+    title: 'Nous venons évaluer chez vous',
+    sub: 'Une visite gratuite, sans engagement, sous 24h en moyenne.',
+    text: 'Un membre de notre équipe se déplace au logement à l\'horaire convenu. Cette visite est totalement gratuite et sans engagement, même si vous décidez finalement de ne pas faire appel à nous.',
+    points: [
+      'Visite 100% gratuite, sans engagement',
+      'Sous 24h en moyenne, plus rapide pour les urgences',
+      'Évaluation possible en votre absence (mandataire ou photos)',
+      'Estimation précise des objets valorisables',
+      'Identification de la formule qui vous convient',
+    ],
+    duration: '30 à 60 minutes selon la taille du logement',
+  },
+  {
+    num: '03',
+    title: 'Vous recevez un devis détaillé',
+    sub: 'Un prix fixe, écrit, sans frais cachés.',
+    text: 'Suite à la visite, nous vous remettons un devis détaillé. Le prix est définitif. Si lors de l\'intervention nous constatons que le volume est plus important que prévu, c\'est notre erreur d\'estimation. Le prix ne change pas.',
+    points: [
+      'Devis écrit et détaillé',
+      'Prix fixe garanti par contrat',
+      'Aucun acompte demandé',
+      'Aucune relance commerciale insistante',
+      'Vous restez libre de comparer avec d\'autres devis',
+    ],
+    duration: 'Devis remis immédiatement ou sous 24h',
+  },
+  {
+    num: '04',
+    title: 'Nous vidons votre logement',
+    sub: 'Notre équipe de 3 professionnels, sur place à l\'heure convenue.',
+    text: 'Le jour J, notre équipe arrive à l\'heure prévue avec le matériel nécessaire : fourgons, outils de démontage, sangles, cartons, équipements de protection, produits de nettoyage de base.',
+    points: [
+      'Équipe de 3 professionnels expérimentés',
+      'Matériel professionnel (fourgons, sangles, outils)',
+      'Protection des parties communes et des sols',
+      'Démontage de tous les meubles inclus',
+      'Tri et évacuation responsables',
+      'Nettoyage de base inclus',
+      'Possibilité d\'intervention en votre absence',
+    ],
+    duration: 'De 1 à 3 jours selon le volume',
+  },
+  {
+    num: '05',
+    title: 'Logement rendu, paiement effectué',
+    sub: 'Vous vérifiez le travail, vous payez, vous repartez avec les documents.',
+    text: 'À la fin de l\'intervention, nous vous remettons les clés (ou les laissons à l\'endroit convenu) et vérifions ensemble le résultat. Si quelque chose ne vous convient pas, nous le corrigeons immédiatement.',
+    points: [
+      'Vérification commune du résultat',
+      'Bordereau de suivi des déchets remis',
+      'Facture détaillée fournie',
+      'Restitution de vos objets personnels',
+      'Paiement uniquement après satisfaction',
+      'Espèces, virement ou chèque acceptés',
+    ],
+    duration: '15 à 30 minutes',
+  },
+];
+
+const cas = [
+  { icon: '⚖', title: 'Débarras après succession', text: 'Discrétion absolue, respect des biens, mise de côté systématique des documents et photos.' },
+  { icon: '🏠', title: 'Logement à l\'étranger ou loin de vous', text: 'Nous gérons à distance : remise des clés à un voisin, photos par WhatsApp, paiement par virement.' },
+  { icon: '⚡', title: 'Urgence — intervention sous 48h', text: 'Vous devez libérer un logement très rapidement ? Nous pouvons intervenir sous 48h, même le week-end.' },
+  { icon: '🧹', title: 'Syndrome de Diogène / logement insalubre', text: 'Équipements de protection, désinfection, dératisation. Aucun jugement, totale discrétion.' },
+  { icon: '🔑', title: 'Locataire parti en laissant des affaires', text: 'Nous remettons votre bien en état pour la prochaine location. Photos avant/après fournies.' },
+  { icon: '🔥', title: 'Débarras après sinistre', text: 'Coordination avec votre assurance, photos et inventaires détaillés pour votre dossier.' },
+  { icon: '🏥', title: 'Départ en EHPAD ou maison de retraite', text: 'Accompagnement délicat, mise de côté des objets sentimentaux pour la nouvelle chambre.' },
+];
+
+const garanties = [
+  { icon: '🆓', title: 'Devis gratuit', desc: 'Visite et devis 100% gratuits, sans engagement.' },
+  { icon: '📋', title: 'Prix fixe', desc: 'Le tarif annoncé dans le devis est garanti par contrat.' },
+  { icon: '⚡', title: 'Réactivité', desc: 'Réponse sous 2h en semaine, visite sous 24h.' },
+  { icon: '🛡', title: 'Assurance', desc: 'Entreprise déclarée et assurée pour vos biens.' },
+  { icon: '💳', title: 'Paiement après', desc: 'Aucun acompte. Vous payez uniquement après l\'intervention.' },
+  { icon: '♻', title: 'Traçabilité', desc: 'Bordereau de suivi des déchets remis systématiquement.' },
+  { icon: '🤝', title: 'Discrétion', desc: 'Confidentialité absolue, surtout pour les situations délicates.' },
+  { icon: '🌱', title: 'Éco-responsable', desc: 'Tri sélectif, dons aux associations, valorisation maximale.' },
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+
+  <PageHero
+    overline="Notre méthode"
+    title="Comment se déroule<br/>un <em>débarras ?</em>"
+    subtitle="De votre premier appel à la remise des clés, voici précisément ce qui se passe à chaque étape. Notre processus est conçu pour être rapide, transparent et sans stress."
+  />
+
+  <!-- Резюме процесса -->
+  <section class="summary-section">
+    <div class="container">
+      <div class="summary-grid">
+        <div class="summary-text">
+          <span class="mono-label">En résumé</span>
+          <h2 class="display"><em>5 étapes</em> simples,<br/>en moyenne 24 à 48h.</h2>
+          <p>De votre demande à l'intervention, comptez généralement 24 à 48 heures. Pour les urgences, nous pouvons intervenir le jour-même.</p>
+        </div>
+        <div class="summary-flow">
+          <div class="flow-step"><span>01</span> Demande</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><span>02</span> Visite</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><span>03</span> Devis</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><span>04</span> Débarras</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><span>05</span> Remise</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Детальные шаги -->
+  <section class="steps-section">
+    <div class="container">
+      {steps.map((step, idx) => (
+        <div class={idx % 2 === 0 ? 'step-block' : 'step-block alt'}>
+          <div class="step-num-large">— Étape {step.num}</div>
+          <div class="step-content">
+            <div class="step-text">
+              <h3 class="display">{step.title}</h3>
+              <p class="step-sub">{step.sub}</p>
+              <p class="step-body">{step.text}</p>
+            </div>
+            <div class="step-side">
+              <div class="step-points">
+                <h4>Ce qui est important</h4>
+                <ul>
+                  {step.points.map((pt) => <li>✓ {pt}</li>)}
+                </ul>
+              </div>
+              <div class="step-duration">
+                <span class="duration-label">Durée</span>
+                <span class="duration-value">{step.duration}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Особые случаи -->
+  <section class="cas-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="display">Et si ma situation<br/>est <em>particulière ?</em></h2>
+        <p>Notre processus s'adapte à des situations spécifiques. Voici comment nous gérons les cas les plus fréquents.</p>
+      </div>
+      <div class="cas-grid">
+        {cas.map((c) => (
+          <div class="cas-card">
+            <div class="cas-icon">{c.icon}</div>
+            <h3>{c.title}</h3>
+            <p>{c.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Гарантии -->
+  <section class="garanties-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="display">Nos engagements<br/>à <em>chaque étape.</em></h2>
+        <p>Travailler avec Transport Carcassonne, c'est bénéficier de garanties claires et écrites.</p>
+      </div>
+      <div class="garanties-grid">
+        {garanties.map((g) => (
+          <div class="garantie-card">
+            <div class="garantie-icon">{g.icon}</div>
+            <h3>{g.title}</h3>
+            <p>{g.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Prêt à <em>démarrer ?</em>"
+    subtitle="La première étape est simple : un coup de fil ou un message. Nous nous occupons du reste."
+  />
+
+</BaseLayout>
+
+<style>
+  /* SUMMARY */
+  .summary-section {
+    padding: 80px 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .summary-text .mono-label {
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: block;
+  }
+  .summary-text h2 {
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+  .summary-text h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .summary-text p {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .summary-flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+  }
+  .flow-step {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .flow-step span {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--accent);
+    font-size: 13px;
+  }
+  .flow-arrow {
+    color: var(--accent);
+    font-size: 18px;
+  }
+  @media (max-width: 900px) {
+    .summary-grid { grid-template-columns: 1fr; gap: 32px; }
+    .summary-flow { justify-content: flex-start; }
+  }
+
+  /* STEPS */
+  .steps-section {
+    padding: 100px 0;
+    background: var(--bg);
+  }
+  .step-block {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .step-block:first-child { padding-top: 0; }
+  .step-block:last-child { padding-bottom: 0; border-bottom: none; }
+  .step-block.alt { background: var(--bg-soft); }
+  .step-num-large {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--accent);
+    font-size: 16px;
+    margin-bottom: 24px;
+    letter-spacing: 0.05em;
+  }
+  .step-content {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .step-text h3 {
+    font-size: clamp(32px, 3.6vw, 48px);
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -0.015em;
+  }
+  .step-sub {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+  .step-body {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .step-side {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .step-points {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 28px;
+  }
+  .step-points h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .step-points ul {
+    list-style: none;
+  }
+  .step-points li {
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .step-duration {
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .duration-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--text-on-dark-muted);
+  }
+  .duration-value {
+    font-family: 'Instrument Serif', serif;
+    font-size: 18px;
+    color: var(--accent);
+  }
+  @media (max-width: 900px) {
+    .step-content { grid-template-columns: 1fr; gap: 32px; }
+    .step-block { padding: 48px 0; }
+  }
+
+  /* CAS */
+  .cas-section {
+    padding: 100px 0;
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+  }
+  .cas-section .section-header h2 { color: var(--text-on-dark); }
+  .cas-section .section-header p { color: var(--text-on-dark-muted); }
+  .section-header {
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: end;
+  }
+  .section-header h2 {
+    font-size: clamp(36px, 4.8vw, 60px);
+    line-height: 1.05;
+  }
+  .section-header h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .section-header p {
+    color: var(--text-muted);
+    font-size: 17px;
+    max-width: 540px;
+    line-height: 1.55;
+  }
+  @media (max-width: 900px) {
+    .section-header { grid-template-columns: 1fr; gap: 24px; }
+  }
+
+  .cas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line-dark);
+    border: 1px solid var(--line-dark);
+  }
+  .cas-card {
+    background: var(--bg-dark);
+    padding: 36px 28px;
+    transition: background 0.3s;
+  }
+  .cas-card:hover { background: var(--bg-dark-alt); }
+  .cas-icon {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .cas-card h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text-on-dark);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .cas-card p {
+    font-size: 14px;
+    color: var(--text-on-dark-muted);
+    line-height: 1.6;
+  }
+  @media (max-width: 1024px) {
+    .cas-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .cas-grid { grid-template-columns: 1fr; }
+  }
+
+  /* GARANTIES */
+  .garanties-section {
+    padding: 100px 0;
+    background: var(--bg);
+  }
+  .garanties-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .garantie-card {
+    background: var(--bg);
+    padding: 32px 24px;
+    transition: background 0.3s;
+  }
+  .garantie-card:hover { background: var(--bg-card); }
+  .garantie-icon {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  .garantie-card h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .garantie-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+  @media (max-width: 1024px) {
+    .garanties-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .garanties-grid { grid-template-columns: 1fr; }
+  }
+</style>

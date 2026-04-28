@@ -1,0 +1,398 @@
+---
+// src/components/Header.astro
+---
+
+<nav class="site-nav">
+  <div class="container nav-inner">
+
+    <a href="/" class="logo">
+      <span class="logo-mark"></span>
+      <span class="logo-text">
+        <strong>Transport Carcassonne</strong>
+        <small>Débarras &amp; Vide Maison</small>
+      </span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/tarifs">Tarifs</a></li>
+      <li><a href="/comment-ca-marche">Méthode</a></li>
+      <li><a href="/#zone">Zone</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="tel:+33626178237" class="nav-phone">06 26 17 82 37</a>
+      <a href="/contact" class="btn btn-primary">Devis gratuit</a>
+    </div>
+
+    <button
+      class="burger"
+      id="burger-btn"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-inner">
+
+    <nav class="mobile-section">
+      <p class="mobile-section-title">Navigation</p>
+      <ul>
+        <li><a href="/" class="mobile-menu-link">Accueil</a></li>
+        <li><a href="/tarifs" class="mobile-menu-link">Tarifs</a></li>
+        <li><a href="/comment-ca-marche" class="mobile-menu-link">Méthode</a></li>
+        <li><a href="/a-propos" class="mobile-menu-link">À propos</a></li>
+        <li><a href="/contact" class="mobile-menu-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <nav class="mobile-section">
+      <p class="mobile-section-title">Nos services</p>
+      <ul>
+        <li><a href="/debarras-maison" class="mobile-menu-link">Débarras de maison</a></li>
+        <li><a href="/vide-maison" class="mobile-menu-link">Vide maison</a></li>
+        <li><a href="/debarras-appartement" class="mobile-menu-link">Débarras d'appartement</a></li>
+        <li><a href="/debarras-succession" class="mobile-menu-link">Succession</a></li>
+        <li><a href="/debarras-cave" class="mobile-menu-link">Cave</a></li>
+        <li><a href="/debarras-garage" class="mobile-menu-link">Garage</a></li>
+        <li><a href="/debarras-grenier" class="mobile-menu-link">Grenier</a></li>
+        <li><a href="/enlevement-encombrants" class="mobile-menu-link">Encombrants</a></li>
+        <li><a href="/debarras-local-commercial" class="mobile-menu-link">Local commercial</a></li>
+        <li><a href="/nettoyage-syndrome-diogene" class="mobile-menu-link">Syndrome de Diogène</a></li>
+      </ul>
+    </nav>
+
+    <nav class="mobile-section">
+      <p class="mobile-section-title">Notre zone</p>
+      <ul>
+        <li><a href="/debarras-carcassonne" class="mobile-menu-link">Carcassonne</a></li>
+        <li><a href="/debarras-trebes" class="mobile-menu-link">Trèbes</a></li>
+        <li><a href="/debarras-limoux" class="mobile-menu-link">Limoux</a></li>
+        <li><a href="/debarras-castelnaudary" class="mobile-menu-link">Castelnaudary</a></li>
+        <li><a href="/debarras-narbonne" class="mobile-menu-link">Narbonne</a></li>
+      </ul>
+    </nav>
+
+    <div class="mobile-cta">
+      <a href="tel:+33626178237" class="btn btn-primary btn-large mobile-menu-link">
+        📞 06 26 17 82 37
+      </a>
+      <a href="/contact" class="btn btn-outline-light btn-large mobile-menu-link">
+        Devis gratuit
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  /* ── Nav base ─────────────────────────────── */
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+    border-bottom: 1px solid var(--line-dark);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+    gap: 24px;
+  }
+
+  /* ── Logo ─────────────────────────────────── */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: var(--text-on-dark);
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    width: 38px;
+    height: 38px;
+    background: var(--accent);
+    border-radius: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Instrument Serif', serif;
+    color: var(--bg-dark);
+    font-size: 22px;
+    font-weight: 400;
+  }
+
+  .logo-mark::after {
+    content: 'TC';
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .logo-text strong {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+  }
+
+  .logo-text small {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    color: var(--text-on-dark-muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 3px;
+    font-weight: 400;
+  }
+
+  /* ── Desktop nav links ────────────────────── */
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-on-dark);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--accent);
+  }
+
+  /* ── Desktop CTA ──────────────────────────── */
+  .nav-cta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+
+  .nav-phone {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-on-dark);
+    text-decoration: none;
+    transition: color 0.2s;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-phone:hover {
+    color: var(--accent);
+  }
+
+  /* ── Burger button ────────────────────────── */
+  .burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    background: transparent;
+    border: 1px solid var(--line-dark);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .burger span {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: var(--text-on-dark);
+    border-radius: 2px;
+    transition: transform 0.28s ease, opacity 0.2s ease;
+    transform-origin: center;
+  }
+
+  .burger.is-active span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+
+  .burger.is-active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .burger.is-active span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+
+  /* ── Mobile menu overlay ──────────────────── */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-dark);
+    z-index: 99;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-menu.is-open {
+    transform: translateX(0);
+  }
+
+  .mobile-menu-inner {
+    padding: 32px 24px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  /* ── Mobile sections ──────────────────────── */
+  .mobile-section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-bottom: 14px;
+  }
+
+  .mobile-section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-section ul a {
+    display: block;
+    font-family: 'Instrument Serif', serif;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 12px 0;
+    color: var(--text-on-dark);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line-dark);
+    transition: color 0.2s;
+  }
+
+  .mobile-section ul a:hover,
+  .mobile-section ul a:active {
+    color: var(--accent);
+  }
+
+  /* ── Mobile CTA ───────────────────────────── */
+  .mobile-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding-top: 8px;
+  }
+
+  .mobile-cta .btn {
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* ── Responsive ───────────────────────────── */
+  @media (max-width: 1024px) {
+    .nav-links {
+      display: none;
+    }
+
+    .logo-text small {
+      display: none;
+    }
+
+    .burger {
+      display: flex;
+    }
+
+    .mobile-menu {
+      display: block;
+      top: 64px;
+    }
+
+    .nav-inner {
+      padding: 14px 0;
+      gap: 12px;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      font-size: 18px;
+    }
+
+    .logo-text strong {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .nav-cta .btn {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav-phone {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const burgerBtn = document.getElementById('burger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  function openMenu() {
+    mobileMenu?.classList.add('is-open');
+    burgerBtn?.classList.add('is-active');
+    burgerBtn?.setAttribute('aria-expanded', 'true');
+    burgerBtn?.setAttribute('aria-label', 'Fermer le menu');
+    mobileMenu?.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    mobileMenu?.classList.remove('is-open');
+    burgerBtn?.classList.remove('is-active');
+    burgerBtn?.setAttribute('aria-expanded', 'false');
+    burgerBtn?.setAttribute('aria-label', 'Ouvrir le menu');
+    mobileMenu?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  burgerBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.contains('is-open') ? closeMenu() : openMenu();
+  });
+
+  document.querySelectorAll('.mobile-menu-link').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+</script>

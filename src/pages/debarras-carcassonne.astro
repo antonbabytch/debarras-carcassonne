@@ -1,0 +1,92 @@
+---
+import CityPageLayout from '../layouts/CityPageLayout.astro';
+
+const data = {
+  pageTitle: 'Débarras à Carcassonne | Vide Maison Tous Quartiers — Transport Carcassonne',
+  pageDescription: 'Débarras de maison, appartement, cave, garage à Carcassonne. Tous quartiers : Bastide, Cité, Grazailles, Montredon. Équipe locale, devis gratuit, à partir de 350 €.',
+
+  overline: 'Notre ville',
+  title: 'Débarras<br/>à <em>Carcassonne :</em><br/>tous quartiers.',
+  subtitle: 'Carcassonne est notre ville. Nous y vivons, nous y travaillons, nous connaissons chaque rue, chaque quartier, chaque difficulté d\'accès. Que vous soyez dans la Bastide Saint-Louis, à La Cité, à Grazailles ou en périphérie, notre équipe intervient sous 24h pour évaluer votre besoin.',
+
+  cityInfo: {
+    population: '46 700 hab.',
+    distance: 'Notre base',
+    postalCode: '11000',
+    departement: 'Aude (11)',
+  },
+
+  introTitle: 'Carcassonne, <em>notre territoire</em><br/>au quotidien.',
+  introText: `
+    <p>Notre entreprise est installée à Carcassonne, au 22 Rue Armand Tiffou. Nous y avons notre entrepôt de 160 m³ et nos deux fourgons (12 m³ et 20 m³). Nos trois professionnels habitent dans la région et connaissent intimement la ville.</p>
+    <p>Cette présence locale nous donne plusieurs avantages concrets pour vous : nous pouvons nous déplacer gratuitement pour un devis sous 2h, nous connaissons toutes les particularités d'accès (escaliers étroits de la Bastide, ruelles médiévales de La Cité, copropriétés de Grazailles), et nous travaillons avec les notaires, syndics et agences immobilières du coin depuis plusieurs années.</p>
+    <p>Quand vous nous appelez à Carcassonne, vous parlez à des gens qui savent où se trouve la rue Aimé Ramond, qui connaissent les difficultés de stationnement Cours Mirabeau et qui ont déjà débarassé des logements dans votre quartier.</p>
+  `,
+
+  servicesTitle: 'Tous nos services<br/>à <em>Carcassonne.</em>',
+  servicesSubtitle: 'Nous intervenons sur toutes les typologies de biens à Carcassonne, du studio au centre-ville à la grande villa de périphérie.',
+  services: [
+    { icon: '🏠', title: 'Débarras de maison', text: 'Maison plain-pied, à étage, villa : nous vidons tout type de maison à Carcassonne. À partir de 1 200 €.', link: '/debarras-maison' },
+    { icon: '🏢', title: 'Débarras d\'appartement', text: 'Studio, T2, T3, T4 dans la Bastide ou en périphérie. Manutention en escalier incluse. À partir de 350 €.', link: '/debarras-appartement' },
+    { icon: '⚖', title: 'Débarras succession', text: 'Maison ou appartement après un décès. Travail avec les notaires de Carcassonne. Souvent gratuit.', link: '/debarras-succession' },
+    { icon: '🍷', title: 'Débarras de cave', text: 'Caves voûtées de la Bastide, caves d\'immeuble, caves de villas. À partir de 250 €.', link: '/debarras-cave' },
+    { icon: '🚗', title: 'Débarras de garage', text: 'Garages individuels, parkings sous-sol, ateliers. À partir de 300 €.', link: '/debarras-garage' },
+    { icon: '🪜', title: 'Débarras de grenier', text: 'Combles et greniers de maisons anciennes carcassonnaises. À partir de 250 €.', link: '/debarras-grenier' },
+    { icon: '🛋', title: 'Enlèvement encombrants', text: 'Canapé, frigo, matelas : un seul objet ou quelques meubles. À partir de 80 €.', link: '/enlevement-encombrants' },
+    { icon: '🤐', title: 'Syndrome de Diogène', text: 'Logement insalubre, accumulation extrême. Discrétion absolue, équipe formée.', link: '/nettoyage-syndrome-diogene' },
+    { icon: '🏪', title: 'Local commercial', text: 'Boutique rue de Verdun, bureau, restaurant. Intervention possible en weekend.', link: '/debarras-local-commercial' },
+  ],
+
+  quartiersTitle: 'Tous les <em>quartiers</em><br/>de Carcassonne.',
+  quartiersSubtitle: 'Chaque quartier de Carcassonne a ses spécificités. Voici comment nous nous adaptons aux contraintes de chacun.',
+  quartiers: [
+    { name: 'Bastide Saint-Louis', description: 'Centre-ville historique, immeubles XVIIIe et XIXe, escaliers étroits, autorisations de voirie souvent nécessaires (rue de Verdun, rue Aimé Ramond, rue du Pont Vieux).' },
+    { name: 'La Cité', description: 'Quartier classé UNESCO, accès véhiculaire restreint, ruelles pavées. Coordination avec la mairie pour les autorisations spéciales.' },
+    { name: 'Grazailles', description: 'Quartier résidentiel populaire, copropriétés, immeubles avec ascenseur. Stationnement généralement aisé.' },
+    { name: 'Montredon', description: 'Quartier mixte avec maisons individuelles, caves et jardins. Accès facile pour nos fourgons.' },
+    { name: 'Salvaza', description: 'Maisons individuelles, lotissements, garages doubles. Idéal pour les gros volumes.' },
+    { name: 'La Conte', description: 'Quartier résidentiel, maisons des années 60-70 souvent avec sous-sol et grenier complets.' },
+    { name: 'Saint-Jacques', description: 'Mix immeubles modernes et maisons anciennes près du Canal du Midi.' },
+    { name: 'Maquens', description: 'Lotissements pavillonnaires, villas avec dépendances. Accès et stationnement faciles.' },
+    { name: 'La Reille / Pasteur', description: 'Quartier dynamique, mix copropriétés et maisons. Proche de notre base.' },
+  ],
+
+  avantagesTitle: 'Pourquoi choisir<br/>une <em>équipe locale ?</em>',
+  avantages: [
+    { icon: '⚡', title: 'Visite gratuite sous 24h', text: 'Notre base est à Carcassonne. Nous nous déplaçons rapidement pour un devis précis, sans facturation du déplacement, partout dans la ville.' },
+    { icon: '🗺', title: 'Connaissance terrain', text: 'Nous connaissons les contraintes de chaque quartier : autorisations de voirie pour la Bastide, accès limités à La Cité, horaires de copropriété à Grazailles.' },
+    { icon: '🤝', title: 'Réseau local de partenaires', text: 'Nous travaillons avec les notaires, syndics, agences immobilières et déchetteries de Carcassonne. Coordination simplifiée pour les successions.' },
+    { icon: '💶', title: 'Tarifs sans frais cachés', text: 'Pas de "frais de déplacement" surprise. Notre proximité nous permet d\'annoncer un prix fixe sans variables liées à la distance.' },
+    { icon: '🚐', title: 'Réactivité maximale', text: 'En cas d\'urgence (vente imminente, fin de bail), nous pouvons intervenir dans les 48h grâce à notre proximité et notre disponibilité.' },
+    { icon: '👥', title: 'Équipe humaine et identifiable', text: 'Vous savez qui vient chez vous. Trois professionnels habitant la région, identifiables, joignables, qui répondent personnellement.' },
+  ],
+
+  exempleTitle: 'Débarras d\'appartement<br/>quartier <em>Grazailles.</em>',
+  exempleSituation: '<p>Appartement T3 de 65 m² au 4ème étage avec ascenseur, dans une copropriété de Grazailles. Volume estimé : <strong>22 m³</strong>. Suite à une succession, la fille de la défunte (habitant Toulouse) devait vider l\'appartement avant la mise en vente. Mobilier ancien (armoire normande, buffet en chêne), électroménager récent, collection de 200 livres, vaisselle de famille, vêtements. Délai : 3 semaines avant le compromis de vente.</p>',
+  exempleIntervention: '<p>Visite faite en visioconférence avec la cliente (présence d\'une voisine pour ouvrir). Tri méticuleux pièce par pièce, mise de côté de 8 cartons d\'objets sentimentaux (photos, livres, bijoux, argenterie) expédiés à Toulouse. Évaluation : <strong>9 m³ valorisables</strong> (l\'armoire normande estimée à 600 €, le buffet à 350 €). Formule appliquée : <strong>Débarras Réduit (-35 %)</strong>. Devis : <strong>720 € TTC</strong> au lieu de 1 100 €. Durée : 1,5 jour, équipe de 3.</p>',
+  exempleResultat: '<p>Appartement remis vide et propre 10 jours avant le compromis. La cliente a reçu ses cartons à Toulouse par transporteur partenaire. Le notaire a reçu directement le bordereau de suivi pour clôturer la succession. <strong>La vente s\'est conclue dans les délais</strong>, et la cliente n\'est venue à Carcassonne qu\'une seule fois pour la signature finale.</p>',
+
+  communesTitle: 'Communes <em>voisines</em>',
+  communesText: 'Au-delà de Carcassonne intra-muros, nous intervenons sans frais supplémentaires dans toutes les communes de la première couronne. Pour les communes plus éloignées (jusqu\'à 40 km), un petit forfait de déplacement peut s\'appliquer — toujours annoncé à l\'avance.',
+  communes: [
+    'Cazilhac', 'Pennautier', 'Villemoustaussou', 'Berriac', 'Cavanac', 'Palaja',
+    'Villegailhenc', 'Conques-sur-Orbiel', 'Bram', 'Capendu', 'Trèbes', 'Pezens',
+    'Alzonne', 'Caunes-Minervois', 'Rieux-Minervois', 'Rouffiac-d\'Aude', 'Roullens', 'Couffoulens',
+  ],
+
+  faq: [
+    { q: 'Combien de temps faut-il pour avoir un devis à Carcassonne ?', a: 'Pour Carcassonne intra-muros, nous nous déplaçons sous 24h pour un devis sur place. Si vous nous appelez le matin, nous pouvons souvent passer dans la journée. Le devis est ensuite remis sur place ou envoyé par email/WhatsApp dans les 2h suivant la visite.' },
+    { q: 'Y a-t-il des frais de déplacement à Carcassonne ?', a: 'Non, aucun. Notre base est à Carcassonne (22 Rue Armand Tiffou), nous ne facturons jamais le déplacement à l\'intérieur de la ville et de sa première couronne.' },
+    { q: 'Pouvez-vous intervenir dans la Cité de Carcassonne ?', a: 'Oui. La Cité a des contraintes d\'accès spécifiques (zone piétonne, restrictions de circulation), mais nous y intervenons régulièrement. Nous coordonnons avec la mairie pour les autorisations nécessaires. Cela peut allonger légèrement le délai d\'intervention (+ 2-3 jours pour l\'autorisation).' },
+    { q: 'Travaillez-vous avec les notaires de Carcassonne ?', a: 'Oui, régulièrement. Nous fournissons tous les documents nécessaires (devis, facture, bordereau de suivi des déchets) pour la clôture des successions. Plusieurs études notariales de Carcassonne nous recommandent à leurs clients.' },
+    { q: 'Est-il possible de stationner dans la Bastide pour un débarras ?', a: 'Les rues de la Bastide (rue de Verdun, rue Aimé Ramond, rue du Pont Vieux) ont souvent un stationnement très limité. Nous demandons systématiquement une autorisation de voirie auprès de la mairie de Carcassonne pour bloquer l\'espace nécessaire le jour de l\'intervention. C\'est inclus dans notre service.' },
+    { q: 'Combien coûte un débarras à Carcassonne ?', a: 'Cela dépend du type de logement : à partir de 350 € pour un studio/T1, 600 € pour un T2, 1 200 € pour une maison plain-pied. Si votre logement contient des biens valorisables (mobilier ancien, électroménager récent), nos formules Réduit, Gratuit ou Indemnisé peuvent considérablement réduire votre facture.' },
+    { q: 'Êtes-vous une entreprise déclarée ?', a: 'Oui, Transport Carcassonne est une Entreprise Individuelle déclarée, SIRET 104 166 780, immatriculée au RCS de Carcassonne. Toutes nos interventions donnent lieu à une facture conforme. Notre activité de transport est déclarée auprès de la DREAL Occitanie.' },
+  ],
+
+  ctaTitle: 'Un débarras à <em>Carcassonne ?</em><br/>Appelez-nous.',
+  ctaSubtitle: 'Notre équipe locale se déplace gratuitement sous 24h pour évaluer votre besoin. Devis fixe, sans surprise. Aucun déplacement facturé dans la ville et sa première couronne.',
+};
+---
+
+<CityPageLayout {...data} />

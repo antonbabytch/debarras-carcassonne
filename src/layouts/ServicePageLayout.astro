@@ -1,0 +1,555 @@
+---
+// src/layouts/ServicePageLayout.astro
+// Универсальный шаблон страницы услуги
+
+import BaseLayout from './BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CTASection from '../components/CTASection.astro';
+
+export interface Props {
+  // SEO
+  pageTitle: string;
+  pageDescription: string;
+
+  // HERO
+  overline: string;
+  title: string;
+  subtitle: string;
+  priceFrom: string;
+  priceDesc: string;
+
+  // Intro
+  introTitle: string;
+  introText: string;
+
+  // Cas d'usage
+  casTitle: string;
+  casSubtitle: string;
+  cas: { icon: string; title: string; text: string }[];
+
+  // Inclus
+  inclus: string[];
+
+  // Prix
+  prixIntro: string;
+  prixRows: { type: string; volume: string; price: string }[];
+  prixNote: string;
+
+  // Cas concret
+  exempleTitle: string;
+  exempleSituation: string;
+  exempleIntervention: string;
+  exempleResultat: string;
+
+  // FAQ
+  faq: { q: string; a: string }[];
+
+  // CTA
+  ctaTitle: string;
+  ctaSubtitle: string;
+}
+
+const {
+  pageTitle, pageDescription,
+  overline, title, subtitle, priceFrom, priceDesc,
+  introTitle, introText,
+  casTitle, casSubtitle, cas,
+  inclus,
+  prixIntro, prixRows, prixNote,
+  exempleTitle, exempleSituation, exempleIntervention, exempleResultat,
+  faq,
+  ctaTitle, ctaSubtitle,
+} = Astro.props;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+
+  <PageHero
+    overline={overline}
+    title={title}
+    subtitle={subtitle}
+  />
+
+  <!-- PRICE BANNER -->
+  <section class="price-banner">
+    <div class="container">
+      <div class="price-banner-inner">
+        <div class="price-banner-left">
+          <span class="mono-label">Tarif</span>
+          <div class="price-banner-amount">{priceFrom}</div>
+        </div>
+        <div class="price-banner-right">
+          <p>{priceDesc}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="service-intro">
+    <div class="container">
+      <div class="intro-grid">
+        <h2 class="display intro-title" set:html={introTitle} />
+        <div class="intro-text" set:html={introText} />
+      </div>
+    </div>
+  </section>
+
+  <!-- CAS D'USAGE -->
+  <section class="cas-usage">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="display" set:html={casTitle} />
+        <p>{casSubtitle}</p>
+      </div>
+      <div class="cas-usage-grid">
+        {cas.map((c) => (
+          <div class="cas-usage-card">
+            <div class="cas-usage-icon">{c.icon}</div>
+            <h3>{c.title}</h3>
+            <p>{c.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- INCLUS -->
+  <section class="service-inclus">
+    <div class="container">
+      <div class="inclus-grid">
+        <div class="inclus-left">
+          <span class="mono-label">Tout est inclus</span>
+          <h2 class="display">Une prestation <em>complète,</em><br/>sans supplément.</h2>
+          <p>Aucun frais supplémentaire le jour de l'intervention. Le prix annoncé dans le devis est le prix final.</p>
+        </div>
+        <ul class="inclus-list">
+          {inclus.map((item) => <li>✓ {item}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIX -->
+  <section class="service-prix">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="display">Combien <em>ça coûte ?</em></h2>
+        <p>{prixIntro}</p>
+      </div>
+      <div class="prix-table">
+        <div class="prix-row header">
+          <div>Type</div>
+          <div>Volume approx.</div>
+          <div>Prix TTC</div>
+        </div>
+        {prixRows.map((r) => (
+          <div class="prix-row">
+            <div class="prix-type">{r.type}</div>
+            <div class="prix-volume">{r.volume}</div>
+            <div class="prix-price">{r.price}</div>
+          </div>
+        ))}
+      </div>
+      <p class="prix-note">💡 {prixNote}</p>
+    </div>
+  </section>
+
+  <!-- EXEMPLE -->
+  <section class="service-exemple">
+    <div class="container">
+      <div class="exemple-content">
+        <span class="mono-label">Cas concret</span>
+        <h2 class="display" set:html={exempleTitle} />
+        <div class="exemple-block">
+          <div class="exemple-section">
+            <h4>La situation</h4>
+            <p set:html={exempleSituation} />
+          </div>
+          <div class="exemple-section">
+            <h4>Notre intervention</h4>
+            <p set:html={exempleIntervention} />
+          </div>
+          <div class="exemple-section">
+            <h4>Le résultat</h4>
+            <p set:html={exempleResultat} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="service-faq">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="display">Vos <em>questions.</em></h2>
+        <p>Si vous ne trouvez pas votre question, contactez-nous directement par téléphone ou WhatsApp.</p>
+      </div>
+      <div class="faq-list">
+        {faq.map((item) => (
+          <details class="faq-item">
+            <summary>{item.q}</summary>
+            <div class="faq-answer" set:html={item.a} />
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection title={ctaTitle} subtitle={ctaSubtitle} />
+
+</BaseLayout>
+
+<style>
+  /* PRICE BANNER */
+  .price-banner {
+    background: var(--bg-soft);
+    padding: 48px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .price-banner-inner {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .price-banner-left .mono-label {
+    color: var(--accent);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .price-banner-amount {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(40px, 5vw, 64px);
+    color: var(--accent);
+    line-height: 1;
+  }
+  .price-banner-right p {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+  @media (max-width: 700px) {
+    .price-banner-inner { grid-template-columns: 1fr; gap: 16px; }
+  }
+
+  /* INTRO */
+  .service-intro {
+    padding: 100px 0;
+    background: var(--bg);
+  }
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .intro-title {
+    font-size: clamp(36px, 4.8vw, 56px);
+    line-height: 1.05;
+  }
+  .intro-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .intro-text {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .intro-text :global(p) {
+    margin-bottom: 20px;
+  }
+  .intro-text :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  @media (max-width: 900px) {
+    .service-intro { padding: 64px 0; }
+    .intro-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* SECTION HEADER */
+  .section-header {
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: end;
+  }
+  .section-header h2 {
+    font-size: clamp(36px, 4.8vw, 60px);
+    line-height: 1.05;
+  }
+  .section-header h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .section-header p {
+    color: var(--text-muted);
+    font-size: 17px;
+    max-width: 540px;
+    line-height: 1.55;
+  }
+  @media (max-width: 900px) {
+    .section-header { grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
+  }
+
+  /* CAS USAGE */
+  .cas-usage {
+    padding: 100px 0;
+    background: var(--bg-soft);
+  }
+  .cas-usage-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .cas-usage-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 36px;
+    transition: all 0.3s;
+  }
+  .cas-usage-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+  }
+  .cas-usage-icon {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .cas-usage-card h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    line-height: 1.15;
+  }
+  .cas-usage-card p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+  @media (max-width: 700px) {
+    .cas-usage { padding: 64px 0; }
+    .cas-usage-grid { grid-template-columns: 1fr; }
+    .cas-usage-card { padding: 28px; }
+  }
+
+  /* INCLUS */
+  .service-inclus {
+    padding: 100px 0;
+    background: var(--bg);
+  }
+  .inclus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .inclus-left .mono-label {
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: block;
+  }
+  .inclus-left h2 {
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+  .inclus-left h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .inclus-left p {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+  .inclus-list {
+    list-style: none;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 32px;
+  }
+  .inclus-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+  }
+  .inclus-list li:last-child { border-bottom: none; }
+  @media (max-width: 900px) {
+    .service-inclus { padding: 64px 0; }
+    .inclus-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* PRIX */
+  .service-prix {
+    padding: 100px 0;
+    background: var(--bg-soft);
+  }
+  .prix-table {
+    border: 1px solid var(--line);
+    background: var(--bg-card);
+    margin-bottom: 32px;
+  }
+  .prix-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 22px 28px;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+    gap: 24px;
+  }
+  .prix-row:last-child { border-bottom: none; }
+  .prix-row.header {
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 500;
+    padding: 16px 28px;
+  }
+  .prix-type {
+    font-family: 'Instrument Serif', serif;
+    font-size: 20px;
+  }
+  .prix-volume {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .prix-price {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--accent);
+    font-size: 18px;
+    text-align: right;
+  }
+  .prix-note {
+    padding: 24px;
+    background: var(--bg-card);
+    border-left: 3px solid var(--accent);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  @media (max-width: 700px) {
+    .service-prix { padding: 64px 0; }
+    .prix-row { grid-template-columns: 1fr; gap: 8px; padding: 16px 20px; }
+    .prix-row.header { display: none; }
+    .prix-price { text-align: left; font-size: 20px; }
+  }
+
+  /* EXEMPLE */
+  .service-exemple {
+    padding: 100px 0;
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+  }
+  .exemple-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .service-exemple .mono-label {
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: block;
+  }
+  .exemple-content h2 {
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.05;
+    color: var(--text-on-dark);
+    margin-bottom: 48px;
+  }
+  .exemple-content h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .exemple-block {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .exemple-section {
+    background: var(--bg-dark-alt);
+    border-left: 3px solid var(--accent);
+    padding: 28px 32px;
+  }
+  .exemple-section h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .exemple-section p {
+    color: var(--text-on-dark);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .exemple-section :global(strong) {
+    color: var(--accent);
+  }
+  @media (max-width: 700px) {
+    .service-exemple { padding: 64px 0; }
+    .exemple-section { padding: 20px 24px; }
+  }
+
+  /* FAQ */
+  .service-faq {
+    padding: 100px 0;
+    background: var(--bg);
+  }
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+    padding: 24px 0;
+  }
+  .faq-item summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 22px;
+    font-weight: 400;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 1.3;
+    transition: color 0.2s;
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item summary::after {
+    content: '+';
+    font-size: 28px;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-left: 24px;
+    transition: transform 0.3s;
+  }
+  .faq-item[open] summary::after {
+    transform: rotate(45deg);
+  }
+  .faq-item summary:hover {
+    color: var(--accent);
+  }
+  .faq-answer {
+    margin-top: 16px;
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 800px;
+  }
+  @media (max-width: 700px) {
+    .service-faq { padding: 64px 0; }
+    .faq-item summary { font-size: 18px; }
+  }
+</style>

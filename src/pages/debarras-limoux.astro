@@ -1,0 +1,86 @@
+---
+import CityPageLayout from '../layouts/CityPageLayout.astro';
+
+const data = {
+  pageTitle: 'Débarras à Limoux | Vide Maison Aude — Transport Carcassonne',
+  pageDescription: 'Débarras de maison, appartement, cave à Limoux (11300). Équipe locale, intervention sous 48h, devis gratuit. À partir de 350 €.',
+
+  overline: 'Notre intervention',
+  title: 'Débarras<br/>à <em>Limoux</em><br/>et la Haute Vallée.',
+  subtitle: 'Limoux, capitale de la Blanquette et porte d\'entrée de la Haute Vallée de l\'Aude, est une commune où nous intervenons régulièrement. Maisons vigneronnes, anciens chais, hôtels particuliers du centre, propriétés viticoles : chaque intervention demande une approche adaptée à un patrimoine souvent ancien et précieux.',
+
+  cityInfo: {
+    population: '10 100 hab.',
+    distance: '25 km',
+    postalCode: '11300',
+    departement: 'Aude (11)',
+  },
+
+  introTitle: 'Limoux : <em>patrimoine</em><br/>et savoir-faire.',
+  introText: `
+    <p>Limoux a une identité forte autour de son patrimoine viticole et de son architecture historique. Place de la République avec ses arcades, hôtels particuliers du XVIIe siècle, maisons vigneronnes anciennes : la commune offre une diversité d'habitats que nous savons aborder avec la délicatesse nécessaire.</p>
+    <p>Nous intervenons à Limoux en environ 30 minutes depuis notre base de Carcassonne. Cette proximité raisonnable nous permet de proposer des interventions sans frais kilométriques excessifs, et de planifier vos chantiers dans des délais courts.</p>
+    <p>Nos interventions à Limoux concernent souvent des maisons familiales avec une histoire : ancienne propriété viticole, maison de famille héritée, hôtel particulier en succession. Dans ces cas, le travail de tri et de valorisation est crucial : il y a toujours des objets de qualité à identifier et à valoriser pour réduire votre facture.</p>
+  `,
+
+  servicesTitle: 'Nos services<br/>à <em>Limoux.</em>',
+  servicesSubtitle: 'Toutes nos prestations à Limoux et dans la Haute Vallée de l\'Aude.',
+  services: [
+    { icon: '🏠', title: 'Débarras de maison', text: 'Maisons vigneronnes, hôtels particuliers, villas de la périphérie. À partir de 1 200 €.', link: '/debarras-maison' },
+    { icon: '🏢', title: 'Débarras d\'appartement', text: 'Appartements du centre historique, résidences récentes. À partir de 350 €.', link: '/debarras-appartement' },
+    { icon: '⚖', title: 'Débarras succession', text: 'Maisons familiales avec patrimoine ancien. Valorisation maximale du mobilier d\'époque.', link: '/debarras-succession' },
+    { icon: '🍷', title: 'Débarras de cave', text: 'Caves de maisons vigneronnes, anciens chais, caves voûtées. À partir de 250 €.', link: '/debarras-cave' },
+    { icon: '🚗', title: 'Débarras de garage', text: 'Garages individuels, anciennes remises. À partir de 300 €.', link: '/debarras-garage' },
+    { icon: '🪜', title: 'Débarras de grenier', text: 'Greniers de maisons anciennes — souvent les plus riches en objets de famille. À partir de 250 €.', link: '/debarras-grenier' },
+    { icon: '🛋', title: 'Enlèvement encombrants', text: 'Mobilier, électroménager, matelas. Intervention rapide. À partir de 80 €.', link: '/enlevement-encombrants' },
+    { icon: '🤐', title: 'Syndrome de Diogène', text: 'Logement insalubre, accumulation extrême. Discrétion absolue garantie.', link: '/nettoyage-syndrome-diogene' },
+    { icon: '🏪', title: 'Local commercial', text: 'Commerces de la place de la République, locaux artisanaux. Intervention weekend possible.', link: '/debarras-local-commercial' },
+  ],
+
+  quartiersTitle: 'Les <em>secteurs</em> de Limoux.',
+  quartiersSubtitle: 'Limoux et ses environs immédiats présentent une grande diversité d\'habitats.',
+  quartiers: [
+    { name: 'Centre historique', description: 'Place de la République, hôtels particuliers, immeubles XVIIe-XIXe. Rues étroites, autorisation de voirie souvent nécessaire.' },
+    { name: 'Quartier Saint-Antoine', description: 'Maisons traditionnelles, mix résidentiel et commercial. Stationnement parfois contraint.' },
+    { name: 'Bords de l\'Aude', description: 'Propriétés et maisons le long de la rivière. Accès facile pour nos fourgons.' },
+    { name: 'Périphérie résidentielle', description: 'Lotissements et villas récentes, accès aisé. Garages doubles fréquents.' },
+    { name: 'Anciennes propriétés viticoles', description: 'Domaines avec maison de maître, chais, dépendances. Volumes importants, biens patrimoniaux à valoriser.' },
+    { name: 'Hameaux et villages voisins', description: 'Maisons rurales dans les villages alentour : Pieusse, Cournanel, Rouffiac, Pomas.' },
+  ],
+
+  avantagesTitle: 'Pourquoi nous choisir<br/>à <em>Limoux ?</em>',
+  avantages: [
+    { icon: '🍷', title: 'Expérience du patrimoine local', text: 'Maisons vigneronnes, hôtels particuliers, mobilier d\'époque : nous savons identifier et valoriser le patrimoine de Limoux.' },
+    { icon: '⚡', title: 'Intervention sous 48h', text: 'Limoux est à 25 km de notre base. Nous nous déplaçons rapidement, et le devis est donné sur place.' },
+    { icon: '💶', title: 'Valorisation maximale', text: 'Les maisons limouxines contiennent souvent du mobilier ancien de qualité. Notre expertise permet souvent un débarras gratuit ou indemnisé.' },
+    { icon: '🤝', title: 'Coordination notaire / agence', text: 'Nous travaillons avec les notaires et agences immobilières de Limoux et Carcassonne pour les successions.' },
+  ],
+
+  exempleTitle: 'Ancienne maison vigneronne<br/>à <em>Limoux.</em>',
+  exempleSituation: '<p>Maison vigneronne de 180 m² avec chai et grenier, en plein centre de Limoux. Volume estimé : <strong>75 m³</strong>. Maison habitée par la même famille pendant 4 générations. Suite au décès de la propriétaire, son fils (habitant Bordeaux) devait vider la maison avant mise en vente. Contenu exceptionnel : mobilier provençal et languedocien d\'époque, 600 livres dont plusieurs anciens, vaisselle de famille, outillage viticole ancien, archives familiales sur 80 ans.</p>',
+  exempleIntervention: '<p>Visite avec le fils pendant un week-end. Tri méticuleux pièce par pièce sur 4 jours. Mise de côté importante : <strong>1 buffet languedocien d\'époque (estimé 1 800 €)</strong>, 1 armoire normande (1 200 €), 40 livres anciens, archives familiales complètes, outillage viticole ancien (potentiel collectionneurs). Évaluation : 22 m³ valorisables. Formule appliquée : <strong>Débarras Indemnisé</strong>. Devis : <strong>− 350 € (versés au client)</strong>. Durée : 4 jours.</p>',
+  exempleResultat: '<p>Le client a non seulement été débarrassé gratuitement, mais a <strong>reçu 350 €</strong>. Il a récupéré toutes les archives familiales et 5 meubles sentimentaux pour Bordeaux. La maison a été mise en vente le mois suivant. Le buffet languedocien a été revendu chez un commissaire-priseur partenaire à Toulouse.</p>',
+
+  communesTitle: 'Communes <em>voisines</em>',
+  communesText: 'Au-delà de Limoux, nous intervenons dans toute la Haute Vallée de l\'Aude et le Limouxin, sans frais supplémentaires pour les communes proches.',
+  communes: [
+    'Pieusse', 'Cournanel', 'Pomas', 'Rouffiac-d\'Aude', 'Couffoulens', 'Saint-Hilaire',
+    'Magrie', 'Saint-Polycarpe', 'Antugnac', 'Loupia', 'Festes-et-Saint-André', 'Espéraza',
+    'Couiza', 'Alet-les-Bains', 'Belvianes-et-Cavirac', 'Quillan',
+  ],
+
+  faq: [
+    { q: 'Combien coûte un débarras à Limoux ?', a: 'Les tarifs de base sont identiques à Carcassonne : à partir de 350 € pour un studio, 1 200 € pour une maison plain-pied. Pour les communes plus éloignées de Limoux (Quillan, Espéraza, Couiza), un petit forfait kilométrique peut s\'appliquer.' },
+    { q: 'Combien de temps pour avoir un devis à Limoux ?', a: 'Sous 48h en général. Nous regroupons souvent plusieurs visites le même jour pour optimiser nos déplacements.' },
+    { q: 'Vous déplacez-vous dans toute la Haute Vallée de l\'Aude ?', a: 'Oui, jusqu\'à Quillan voire au-delà. Pour les communes les plus éloignées (au-delà de 40 km), un forfait de déplacement peut s\'ajouter, toujours annoncé à l\'avance.' },
+    { q: 'Pouvez-vous valoriser le mobilier ancien d\'une maison limouxine ?', a: 'Oui, c\'est même l\'une de nos forces. Limoux et la région recèlent beaucoup de mobilier languedocien et provençal ancien de qualité. Nous travaillons avec des commissaires-priseurs partenaires pour les pièces les plus précieuses.' },
+    { q: 'Pouvez-vous intervenir dans une ancienne propriété viticole ?', a: 'Oui, nous avons l\'habitude des chais, des dépendances, des outillages viticoles anciens. Le volume est généralement important, mais la valorisation aussi.' },
+    { q: 'Travaillez-vous avec les notaires de Limoux ?', a: 'Oui, plusieurs études de Limoux nous recommandent à leurs clients en succession. Nous fournissons tous les documents nécessaires à la clôture.' },
+  ],
+
+  ctaTitle: 'Un débarras à <em>Limoux ?</em><br/>Parlons-en.',
+  ctaSubtitle: 'Notre équipe se déplace à Limoux sous 48h pour évaluer votre besoin. Patrimoine ancien et mobilier d\'époque sont notre spécialité — votre facture peut être considérablement réduite.',
+};
+---
+
+<CityPageLayout {...data} />

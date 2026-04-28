@@ -1,0 +1,349 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CTASection from '../components/CTASection.astro';
+
+const pageTitle = 'Tarifs Débarras Carcassonne | Prix Vide Maison à partir de 350€ — Transport Carcassonne';
+const pageDescription = 'Prix d\'un débarras à Carcassonne : à partir de 350€ pour un studio, 600€ pour un T2, 1200€ pour une maison. Devis gratuit, prix fixe.';
+
+const tarifs = [
+  { type: 'Minimum d\'intervention', volume: '5-8 m³', price: 'à partir de 150 €' },
+  { type: 'Studio / T1', volume: '10-15 m³', price: 'à partir de 350 €' },
+  { type: 'Appartement T2', volume: '15-25 m³', price: 'à partir de 600 €' },
+  { type: 'Appartement T3', volume: '25-35 m³', price: 'à partir de 900 €' },
+  { type: 'Appartement T4 et +', volume: '35-50 m³', price: 'à partir de 1 300 €' },
+  { type: 'Maison plain-pied', volume: '30-50 m³', price: 'à partir de 1 200 €' },
+  { type: 'Maison complète', volume: '50-80 m³', price: 'à partir de 1 800 €' },
+  { type: 'Grande maison / villa', volume: '80-120 m³', price: 'sur devis (dès 3 000 €)' },
+];
+
+const tarifsSpec = [
+  { type: 'Cave seule', volume: '5-12 m³', price: 'à partir de 250 €' },
+  { type: 'Garage seul', volume: '8-15 m³', price: 'à partir de 300 €' },
+  { type: 'Grenier seul', volume: '5-15 m³', price: 'à partir de 250 €' },
+  { type: 'Local commercial', volume: 'variable', price: 'à partir de 30 €/m³' },
+  { type: 'Enlèvement ponctuel', volume: '1-3 m³', price: 'à partir de 80 €' },
+  { type: 'Syndrome de Diogène', volume: 'variable', price: '60 à 80 €/m³ · min 1 500 €' },
+];
+
+const formules = [
+  { num: '01', name: 'Débarras Standard', desc: 'Tarif classique au m³, appliqué quand le logement contient principalement des encombrants.' },
+  { num: '02', name: 'Débarras Réduit', desc: 'Remise de 20 à 50 %. La valeur des biens valorisables est déduite du devis.' },
+  { num: '03', name: 'Débarras Gratuit', desc: 'Vous ne payez rien. La valeur des biens couvre intégralement nos frais.', highlight: true },
+  { num: '04', name: 'Débarras Indemnisé', desc: 'Nous vous versons une indemnité. La valeur des biens dépasse le coût de l\'intervention.' },
+];
+
+const inclus = [
+  'Visite et devis 100% gratuits',
+  'Démontage de tous les meubles',
+  'Manutention depuis tous les étages',
+  '2 fourgons disponibles (12 et 20 m³)',
+  'Carburant et trajets inclus',
+  'Tri sélectif des déchets',
+  'Évacuation en déchèterie professionnelle',
+  'Don aux associations (Emmaüs, Croix-Rouge)',
+  'Nettoyage de base (balayage, dépoussiérage)',
+  'Bordereau de suivi des déchets',
+  'Assurance professionnelle',
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+
+  <PageHero
+    overline="Nos tarifs"
+    title="Combien coûte<br/>un débarras à <em>Carcassonne ?</em>"
+    subtitle="Des prix transparents, fixés avant l'intervention. Aucun frais caché, aucune mauvaise surprise. Et grâce à notre système de valorisation, votre débarras peut être réduit, gratuit, voire rémunéré."
+  />
+
+  <!-- Сетка цен по типу жилья -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="display">Nos <em>tarifs indicatifs.</em></h2>
+        <p>Les prix ci-dessous sont donnés à titre indicatif. Le tarif définitif est déterminé après visite gratuite, en fonction du volume réel et de la valeur des objets.</p>
+      </div>
+
+      <div class="pricing-table">
+        <div class="pricing-row header">
+          <div>Type de logement</div>
+          <div>Volume approx.</div>
+          <div>Prix TTC</div>
+        </div>
+        {tarifs.map((t) => (
+          <div class="pricing-row">
+            <div class="pricing-type">{t.type}</div>
+            <div class="pricing-volume">{t.volume}</div>
+            <div class="pricing-price">{t.price}</div>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="subtitle-pricing">Prestations spécifiques</h3>
+      <div class="pricing-table">
+        <div class="pricing-row header">
+          <div>Prestation</div>
+          <div>Volume</div>
+          <div>Prix TTC</div>
+        </div>
+        {tarifsSpec.map((t) => (
+          <div class="pricing-row">
+            <div class="pricing-type">{t.type}</div>
+            <div class="pricing-volume">{t.volume}</div>
+            <div class="pricing-price">{t.price}</div>
+          </div>
+        ))}
+      </div>
+
+      <p class="pricing-note">
+        💡 <strong>Tous les prix sont TTC.</strong> Démontage, manutention,
+        évacuation et nettoyage de base inclus. Devis sans engagement, prix
+        fixe garanti par contrat.
+      </p>
+    </div>
+  </section>
+
+  <!-- 4 формулы -->
+  <section class="formules-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="display">Nos 4 formules de <em>débarras.</em></h2>
+        <p>Notre entrepôt et notre expertise dans la valorisation nous permettent de proposer une approche unique : votre débarras peut être réduit, gratuit, voire rémunéré.</p>
+      </div>
+
+      <div class="formules-grid">
+        {formules.map((f) => (
+          <div class={f.highlight ? 'formule-card highlight' : 'formule-card'}>
+            <div class="formule-num">— Formule {f.num}</div>
+            <h3>{f.name}</h3>
+            <p>{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Что включено -->
+  <section class="inclus-section">
+    <div class="container">
+      <div class="inclus-grid">
+        <div class="inclus-left">
+          <span class="mono-label">Tout est inclus</span>
+          <h2 class="display">Une prestation <em>complète,</em><br/>sans supplément.</h2>
+          <p>
+            Aucun frais supplémentaire le jour de l'intervention.
+            Le prix annoncé dans le devis est le prix final.
+          </p>
+        </div>
+        <div class="inclus-right">
+          <ul>
+            {inclus.map((item) => (
+              <li>✓ {item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Prêt à connaître le prix exact<br/>de <em>votre débarras ?</em>"
+    subtitle="Demandez votre devis gratuit. Notre équipe se déplace chez vous pour évaluer le volume et identifier les objets valorisables."
+  />
+
+</BaseLayout>
+
+<style>
+  .pricing-section {
+    padding: 100px 0;
+    background: var(--bg);
+  }
+  .section-header {
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: end;
+  }
+  .section-header h2 {
+    font-size: clamp(36px, 4.8vw, 60px);
+    line-height: 1.05;
+  }
+  .section-header h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .section-header p {
+    color: var(--text-muted);
+    font-size: 17px;
+    line-height: 1.55;
+    max-width: 540px;
+  }
+  @media (max-width: 900px) {
+    .section-header { grid-template-columns: 1fr; gap: 24px; }
+  }
+
+  .pricing-table {
+    border: 1px solid var(--line);
+    background: var(--bg-card);
+    margin-bottom: 48px;
+  }
+  .pricing-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 22px 28px;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+    gap: 24px;
+  }
+  .pricing-row:last-child { border-bottom: none; }
+  .pricing-row.header {
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 500;
+    padding: 16px 28px;
+  }
+  .pricing-type {
+    font-family: 'Instrument Serif', serif;
+    font-size: 20px;
+  }
+  .pricing-volume {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .pricing-price {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--accent);
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .subtitle-pricing {
+    font-family: 'Instrument Serif', serif;
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 24px;
+    margin-top: 24px;
+  }
+
+  .pricing-note {
+    margin-top: 32px;
+    padding: 24px;
+    background: var(--bg-soft);
+    border-left: 3px solid var(--accent);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 700px) {
+    .pricing-row { grid-template-columns: 1fr; gap: 8px; padding: 16px 20px; }
+    .pricing-row.header { display: none; }
+    .pricing-price { text-align: left; font-size: 20px; }
+  }
+
+  /* FORMULES */
+  .formules-section {
+    padding: 100px 0;
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+  }
+  .formules-section .section-header h2 { color: var(--text-on-dark); }
+  .formules-section .section-header p { color: var(--text-on-dark-muted); }
+
+  .formules-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line-dark);
+    border: 1px solid var(--line-dark);
+  }
+  .formule-card {
+    background: var(--bg-dark);
+    padding: 36px 28px;
+    transition: background 0.3s;
+  }
+  .formule-card:hover { background: var(--bg-dark-alt); }
+  .formule-num {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+  .formule-card h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--text-on-dark);
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+  .formule-card p {
+    font-size: 14px;
+    color: var(--text-on-dark-muted);
+    line-height: 1.6;
+  }
+  .formule-card.highlight { background: var(--accent); }
+  .formule-card.highlight:hover { background: #C8884B; }
+  .formule-card.highlight .formule-num { color: rgba(21, 25, 28, 0.7); }
+  .formule-card.highlight h3 { color: var(--bg-dark); }
+  .formule-card.highlight p { color: rgba(21, 25, 28, 0.85); }
+
+  @media (max-width: 1100px) {
+    .formules-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .formules-grid { grid-template-columns: 1fr; }
+  }
+
+  /* INCLUS */
+  .inclus-section {
+    padding: 100px 0;
+    background: var(--bg-soft);
+  }
+  .inclus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .inclus-left .mono-label {
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: block;
+  }
+  .inclus-left h2 {
+    font-size: clamp(36px, 4.8vw, 60px);
+    line-height: 1.05;
+    margin-bottom: 24px;
+  }
+  .inclus-left h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .inclus-left p {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+  .inclus-right ul {
+    list-style: none;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 32px;
+  }
+  .inclus-right li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 15px;
+  }
+  .inclus-right li:last-child { border-bottom: none; }
+
+  @media (max-width: 900px) {
+    .inclus-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>

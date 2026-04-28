@@ -1,0 +1,77 @@
+---
+import ServicePageLayout from '../layouts/ServicePageLayout.astro';
+
+const data = {
+  pageTitle: 'Vide Maison à Carcassonne | Spécialiste Vide-Maison Aude — Transport Carcassonne',
+  pageDescription: 'Vide maison à Carcassonne et dans l\'Aude par une équipe de professionnels. Succession, déménagement, EHPAD : devis gratuit, à partir de 1 200 €.',
+
+  overline: 'Notre spécialité',
+  title: 'Vide maison<br/>à <em>Carcassonne :</em><br/>nous vidons tout.',
+  subtitle: 'Le vide maison est l\'opération qui consiste à débarrasser intégralement un logement de son contenu : meubles, objets, électroménager, vêtements, souvenirs. Que ce soit après un décès, un départ en EHPAD ou avant une vente, nous prenons tout en charge avec respect et efficacité.',
+
+  priceFrom: 'à partir de 1 200 €',
+  priceDesc: 'Pour un vide maison complet (50-100 m²). Souvent réduit ou gratuit si présence de mobilier ancien, antiquités ou électroménager récent.',
+
+  introTitle: 'Le vide maison : de quoi <em>parle-t-on ?</em>',
+  introText: `
+    <p>Un vide maison désigne l'évacuation complète du contenu d'un logement, quel que soit son état initial. Contrairement à un simple déménagement qui transporte des biens d'un lieu à un autre, le vide maison consiste à libérer entièrement un logement, sans destination de réinstallation.</p>
+    <p>Le vide maison comprend plusieurs étapes : tri des biens (valorisable, donné aux associations, recyclé, éliminé), démontage des meubles, évacuation vers les filières adaptées, mise de côté des biens personnels, nettoyage de base.</p>
+    <p>Chez Transport Carcassonne, nous nous distinguons par notre approche de la valorisation : nous estimons systématiquement les biens présents pour vous proposer le meilleur tarif possible — parfois même gratuit.</p>
+  `,
+
+  casTitle: 'Quand a-t-on besoin<br/>d\'un <em>vide maison ?</em>',
+  casSubtitle: 'Le vide maison correspond à des moments souvent importants de la vie. Voici les situations dans lesquelles nos clients font appel à nous.',
+  cas: [
+    { icon: '⚖', title: 'Après un décès (succession)', text: 'C\'est la situation la plus fréquente. Nous intervenons avec respect, en mettant de côté les souvenirs (photos, lettres, bijoux), en évacuant le reste et en valorisant ce qui peut l\'être.' },
+    { icon: '🏥', title: 'Départ en EHPAD ou maison de retraite', text: 'Étape émotionnellement chargée. Nous accompagnons les familles avec délicatesse, en permettant à la personne de garder quelques meubles ou objets utiles pour sa nouvelle chambre.' },
+    { icon: '🏠', title: 'Vente ou mise en location du bien', text: 'Une maison vide se vend plus vite et à un meilleur prix. Nous préparons votre bien pour les visites et la commercialisation.' },
+    { icon: '🚛', title: 'Gros déménagement avec tri', text: 'Vous changez de vie et voulez repartir léger : pas tout emporter, seulement l\'essentiel. Nous travaillons en complément du déménageur.' },
+  ],
+
+  inclus: [
+    'Visite gratuite et devis détaillé sans engagement',
+    'Tri préalable avec ou sans votre présence',
+    'Mise de côté des documents, photos et objets personnels',
+    'Démontage de tous les meubles, même les plus encombrants',
+    'Évacuation de l\'électroménager (frigo, lave-linge, four...)',
+    'Vidage complet des placards, armoires, tiroirs',
+    'Évacuation des vêtements, livres, vaisselle, bibelots',
+    'Évacuation de la cave, du garage et du grenier (si demandé)',
+    'Tri sélectif et envoi vers les filières agréées',
+    'Don aux associations (Emmaüs, Croix-Rouge, Secours Populaire)',
+    'Valorisation des objets de valeur dans notre entrepôt',
+    'Nettoyage de base (balayage, dépoussiérage)',
+    'Bordereau de suivi des déchets remis',
+    'Facture détaillée',
+  ],
+
+  prixIntro: 'Le tarif d\'un vide maison dépend du volume à évacuer, de l\'accessibilité et de la valeur des biens présents.',
+  prixRows: [
+    { type: 'Studio / T1', volume: '10-15 m³', price: 'à partir de 350 €' },
+    { type: 'Appartement T2', volume: '15-25 m³', price: 'à partir de 600 €' },
+    { type: 'Appartement T3', volume: '25-35 m³', price: 'à partir de 900 €' },
+    { type: 'Maison plain-pied', volume: '30-50 m³', price: 'à partir de 1 200 €' },
+    { type: 'Maison complète', volume: '50-80 m³', price: 'à partir de 1 800 €' },
+    { type: 'Grande maison / villa', volume: '80-120 m³', price: 'sur devis (dès 3 000 €)' },
+  ],
+  prixNote: 'Nos quatre formules (Standard, Réduit, Gratuit, Indemnisé) s\'appliquent à tous les vide maisons. Si votre logement contient des biens valorisables — c\'est très souvent le cas pour les successions — votre facture peut être considérablement réduite, voire annulée.',
+
+  exempleTitle: 'Vide maison familiale à <em>Limoux.</em>',
+  exempleSituation: '<p>Maison ancienne de 110 m² à Limoux, avec cave et grenier. Volume estimé : <strong>55 m³</strong>. Contenu accumulé sur plusieurs décennies : mobilier d\'époque (buffet provençal, armoire normande, secrétaire), collection de vinyles, vaisselle de famille, vêtements, livres, photos et documents. Le client habitait Lyon et ne pouvait pas être présent.</p>',
+  exempleIntervention: '<p>Visite avec le notaire pour ouvrir les lieux. Tri pièce par pièce, mise de côté de 20 objets sentimentaux selon une liste fournie par le client. Livraison de 3 meubles à l\'EHPAD de la mère. Évaluation : <strong>35 m³ valorisables</strong>. Formule appliquée : <strong>Débarras Gratuit</strong>. Devis : <strong>0 €</strong>. Durée : 3 jours, équipe de 3 personnes.</p>',
+  exempleResultat: '<p>Le client n\'a rien payé. Sa mère a reçu ses meubles favoris à l\'EHPAD. La maison a été mise en vente la semaine suivante. Tout s\'est fait sans déplacement de la famille.</p>',
+
+  faq: [
+    { q: 'Quelle différence entre un vide maison et un débarras ?', a: 'Les deux termes désignent la même prestation : libérer entièrement un logement de son contenu. "Vide maison" est le terme courant utilisé par les particuliers, surtout dans le sud de la France. "Débarras" est plus le terme professionnel. Chez Transport Carcassonne, nous faisons les deux — c\'est notre métier.' },
+    { q: 'Pouvez-vous vider une maison sans que je sois présent ?', a: 'Oui, c\'est même très fréquent. Nous travaillons régulièrement sur mandat ou avec les clés laissées par un voisin, le notaire ou un agent immobilier. Vous recevez photos avant/pendant/après par email ou WhatsApp.' },
+    { q: 'Que devient le contenu de la maison ?', a: 'Tout est trié sur place. Les objets en bon état partent vers des associations (Emmaüs, Croix-Rouge) ou sont valorisés dans notre entrepôt. Les déchets vont en déchèterie professionnelle agréée. Vous recevez un bordereau de suivi.' },
+    { q: 'Combien de temps prend un vide maison complet ?', a: 'Studio/T1 : ½ journée. T2/T3 : 1 journée. Maison standard (100 m²) : 1 à 2 jours. Grande maison ou cas avec cave/garage/grenier : 2 à 3 jours. Cas Diogène ou très encombré : 3 à 5 jours.' },
+    { q: 'Travaillez-vous avec des notaires pour les successions ?', a: 'Oui, régulièrement. Nous fournissons tous les documents nécessaires (devis, facture, bordereau de suivi) pour la clôture du dossier de succession. Possibilité d\'intervenir sur mandat sans la présence des héritiers.' },
+  ],
+
+  ctaTitle: 'Besoin d\'un vide maison<br/>à <em>Carcassonne ?</em>',
+  ctaSubtitle: 'Que ce soit pour une succession, un départ en EHPAD ou une vente, nous nous occupons de tout. Devis gratuit, visite sous 24h, prix fixe garanti.',
+};
+---
+
+<ServicePageLayout {...data} />

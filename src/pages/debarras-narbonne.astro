@@ -1,0 +1,89 @@
+---
+import CityPageLayout from '../layouts/CityPageLayout.astro';
+
+const data = {
+  pageTitle: 'Débarras à Narbonne | Vide Maison Aude — Transport Carcassonne',
+  pageDescription: 'Débarras de maison, appartement, cave à Narbonne (11100). Équipe basée à 60 km, intervention sous 48h. À partir de 350 €.',
+
+  overline: 'Notre intervention',
+  title: 'Débarras<br/>à <em>Narbonne</em><br/>et le Narbonnais.',
+  subtitle: 'Narbonne, ancienne capitale romaine et porte d\'entrée du littoral audois, est l\'une des grandes villes où nous intervenons régulièrement. Maisons de pierre du centre historique, appartements modernes, propriétés viticoles, villas du littoral : la diversité narbonnaise demande une approche adaptée à chaque cas.',
+
+  cityInfo: {
+    population: '56 800 hab.',
+    distance: '60 km',
+    postalCode: '11100',
+    departement: 'Aude (11)',
+  },
+
+  introTitle: 'Narbonne : <em>histoire</em><br/>et diversité.',
+  introText: `
+    <p>Narbonne est, avec Carcassonne, la deuxième ville de l'Aude. Son centre historique remarquable (Cathédrale Saint-Just, Palais des Archevêques, Canal de la Robine, Halles), ses quartiers résidentiels variés et son arrière-pays viticole en font un territoire diversifié pour nos interventions.</p>
+    <p>Narbonne est à 60 km de notre base de Carcassonne. Pour cette distance, un forfait de déplacement transparent est appliqué, intégré dès le devis initial. Nous intervenons à Narbonne en environ 50 minutes par autoroute, ce qui nous permet d'être réactifs malgré la distance.</p>
+    <p>Nous intervenons dans tous les quartiers de Narbonne : centre historique avec ses contraintes d'accès, quartiers résidentiels plus récents, propriétés du littoral (Narbonne-Plage, Gruissan), domaines viticoles de la Clape et des Corbières.</p>
+  `,
+
+  servicesTitle: 'Nos services<br/>à <em>Narbonne.</em>',
+  servicesSubtitle: 'Toutes nos prestations à Narbonne et dans le Narbonnais.',
+  services: [
+    { icon: '🏠', title: 'Débarras de maison', text: 'Maisons en pierre du centre, villas du littoral, propriétés viticoles. À partir de 1 200 €.', link: '/debarras-maison' },
+    { icon: '🏢', title: 'Débarras d\'appartement', text: 'Appartements du centre historique, résidences modernes. À partir de 350 €.', link: '/debarras-appartement' },
+    { icon: '⚖', title: 'Débarras succession', text: 'Maisons familiales avec patrimoine. Coordination avec les notaires de Narbonne.', link: '/debarras-succession' },
+    { icon: '🍷', title: 'Débarras de cave', text: 'Caves d\'immeuble, caves de propriétés viticoles, anciens chais. À partir de 250 €.', link: '/debarras-cave' },
+    { icon: '🚗', title: 'Débarras de garage', text: 'Garages individuels, parkings sous-sol, dépendances. À partir de 300 €.', link: '/debarras-garage' },
+    { icon: '🪜', title: 'Débarras de grenier', text: 'Greniers de maisons anciennes, combles aménageables. À partir de 250 €.', link: '/debarras-grenier' },
+    { icon: '🛋', title: 'Enlèvement encombrants', text: 'Mobilier, électroménager, matelas. À partir de 80 €.', link: '/enlevement-encombrants' },
+    { icon: '🤐', title: 'Syndrome de Diogène', text: 'Logement insalubre. Discrétion absolue, équipe formée et équipée.', link: '/nettoyage-syndrome-diogene' },
+    { icon: '🏪', title: 'Local commercial', text: 'Commerces du centre, des Halles, locaux de la zone Bonne Source. À partir de 30 €/m³.', link: '/debarras-local-commercial' },
+  ],
+
+  quartiersTitle: 'Les <em>quartiers</em><br/>de Narbonne.',
+  quartiersSubtitle: 'Narbonne présente des contraintes très différentes selon les quartiers. Voici notre approche.',
+  quartiers: [
+    { name: 'Centre historique', description: 'Cathédrale, Palais des Archevêques, rues médiévales étroites. Autorisation de voirie systématique.' },
+    { name: 'Bourg', description: 'Mix immeubles anciens et résidences. Cours Mirabeau, place du Forum. Stationnement contraint.' },
+    { name: 'Saint-Jean Saint-Pierre', description: 'Quartier résidentiel mixte, copropriétés des années 70-80, nombreuses maisons individuelles.' },
+    { name: 'Razimbaud', description: 'Quartier résidentiel, lotissements, accès facile pour nos fourgons.' },
+    { name: 'Crabit / Boudet', description: 'Mix résidentiel et commercial, accès aisé.' },
+    { name: 'Narbonne-Plage', description: 'Résidences secondaires, villas en bord de mer. Saisonnalité à prendre en compte.' },
+    { name: 'Bonne Source / La Coupe', description: 'Zone d\'activité, locaux commerciaux et industriels. Intervention possible weekend.' },
+    { name: 'Périphérie viticole', description: 'Domaines des Corbières et de la Clape : Bages, Peyriac-de-Mer, Sigean, Bizanet.' },
+  ],
+
+  avantagesTitle: 'Pourquoi nous choisir<br/>à <em>Narbonne ?</em>',
+  avantages: [
+    { icon: '🚐', title: 'Forfait déplacement transparent', text: 'Pour Narbonne, un forfait kilométrique est appliqué et clairement annoncé dans le devis. Aucune surprise.' },
+    { icon: '⚡', title: 'Intervention sous 48h', text: 'Malgré la distance, nous restons réactifs. Visite organisée sous 48h, intervention dans la semaine en général.' },
+    { icon: '🏛', title: 'Expérience du patrimoine', text: 'Maisons anciennes du centre historique, mobilier d\'époque, propriétés viticoles : nous savons valoriser le patrimoine narbonnais.' },
+    { icon: '🤝', title: 'Coordination notaire / agence', text: 'Nous travaillons avec les études et agences de Narbonne pour les successions et fins de bail.' },
+  ],
+
+  exempleTitle: 'Maison de ville à <em>Narbonne,</em><br/>cours Mirabeau.',
+  exempleSituation: '<p>Maison de ville de 160 m² sur 3 niveaux, cours Mirabeau à Narbonne, près du Canal de la Robine. Volume estimé : <strong>70 m³</strong>. Maison habitée par le même couple pendant 50 ans. Suite au décès des deux propriétaires à quelques mois d\'intervalle, leurs trois enfants (Paris, Lyon, Montpellier) devaient vider la maison avant la mise en vente. Contenu de qualité : mobilier des années 50-70 (dont quelques pièces design intéressantes), bibliothèque de 800 livres, vaisselle, archives, 200 vinyles jazz et classique en parfait état.</p>',
+  exempleIntervention: '<p>Visite avec un seul des héritiers présent (les autres en visioconférence). Demande d\'autorisation de voirie pour stationnement cours Mirabeau. Tri méticuleux sur 3 jours. Identification de pièces design des années 60 (fauteuil scandinave, lampe italienne) et de la collection complète de vinyles jazz. Évaluation : <strong>20 m³ valorisables</strong>. Formule appliquée : <strong>Débarras Gratuit</strong>. Devis : <strong>0 €</strong>. Durée : 3 jours, équipe de 3.</p>',
+  exempleResultat: '<p>Les trois héritiers n\'ont rien payé. Chacun a reçu son colis d\'objets sentimentaux à son adresse (livres préférés, photos, objets de famille). La maison a été mise en vente la semaine suivante par l\'agence narbonnaise partenaire. <strong>La collection de vinyles jazz a été revendue 1 200 €</strong> à un disquaire de Béziers.</p>',
+
+  communesTitle: 'Communes <em>voisines</em>',
+  communesText: 'Au-delà de Narbonne intra-muros, nous intervenons dans tout le Narbonnais : la Clape, les Corbières maritimes, le bord d\'étang. Forfait de déplacement applicable selon la distance, toujours annoncé à l\'avance.',
+  communes: [
+    'Coursan', 'Cuxac-d\'Aude', 'Salles-d\'Aude', 'Vinassan', 'Armissan', 'Fleury-d\'Aude',
+    'Bages', 'Peyriac-de-Mer', 'Sigean', 'Portel-des-Corbières', 'Bizanet', 'Saint-Marcel-sur-Aude',
+    'Ouveillan', 'Marcorignan', 'Névian', 'Montredon-des-Corbières', 'Gruissan', 'Narbonne-Plage',
+  ],
+
+  faq: [
+    { q: 'Y a-t-il un supplément pour intervenir à Narbonne ?', a: 'Oui, un forfait de déplacement est appliqué pour Narbonne (60 km de notre base). Il est toujours intégré au devis initial. Le tarif de la prestation reste identique à Carcassonne, seul le déplacement est ajusté.' },
+    { q: 'Combien de temps pour avoir un devis à Narbonne ?', a: 'Sous 48h pour la visite. Pour optimiser nos déplacements, nous regroupons souvent plusieurs visites le même jour à Narbonne et alentour.' },
+    { q: 'Pouvez-vous intervenir dans le centre historique de Narbonne ?', a: 'Oui. Le centre historique a des contraintes spécifiques (rues étroites, zone piétonne partielle), mais nous nous adaptons. Demande d\'autorisation de voirie systématique, incluse dans notre service.' },
+    { q: 'Pouvez-vous intervenir à Narbonne-Plage ou Gruissan ?', a: 'Oui, dans toute la zone littorale. La saisonnalité est à prendre en compte : en haute saison, l\'accès aux résidences peut être limité, nous adaptons les horaires d\'intervention.' },
+    { q: 'Travaillez-vous avec les notaires de Narbonne ?', a: 'Oui, régulièrement. Plusieurs études narbonnaises nous recommandent à leurs clients. Nous fournissons tous les documents pour la clôture des successions.' },
+    { q: 'Pouvez-vous intervenir dans une propriété viticole des Corbières ou de la Clape ?', a: 'Oui, c\'est même fréquent. Les domaines viticoles ont souvent un patrimoine ancien important (caves, mobilier, outillage) qui peut être considérablement valorisé.' },
+    { q: 'Combien coûte un débarras à Narbonne ?', a: 'Tarifs identiques à Carcassonne pour la prestation, + forfait de déplacement. Pour un appartement T2 par exemple : 600 € (prestation) + forfait kilométrique. Tout est annoncé dans le devis initial.' },
+  ],
+
+  ctaTitle: 'Un débarras à <em>Narbonne ?</em><br/>Nous nous déplaçons.',
+  ctaSubtitle: 'Notre équipe intervient à Narbonne et dans tout le Narbonnais sous 48h. Forfait de déplacement transparent, devis fixe annoncé d\'emblée.',
+};
+---
+
+<CityPageLayout {...data} />

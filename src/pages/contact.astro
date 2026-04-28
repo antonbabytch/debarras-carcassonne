@@ -1,0 +1,361 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+
+const pageTitle = 'Contact — Devis Gratuit Débarras Carcassonne | Transport Carcassonne';
+const pageDescription = 'Contactez Transport Carcassonne pour un devis gratuit de débarras ou vide maison. Réponse sous 2h. Téléphone, WhatsApp, email ou formulaire en ligne.';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+
+  <PageHero
+    overline="Nous contacter"
+    title="Demandez votre <em>devis gratuit.</em>"
+    subtitle="Notre équipe vous répond sous 2h en semaine. Choisissez le moyen de contact qui vous convient le mieux : téléphone, WhatsApp, email ou formulaire en ligne."
+  />
+
+  <!-- Способы связи (4 карточки) -->
+  <section class="contact-channels">
+    <div class="container">
+      <div class="channels-grid">
+        <a href="tel:+33626178237" class="channel-card">
+          <div class="channel-icon">☎</div>
+          <h3>Téléphone</h3>
+          <p class="channel-num">06 26 17 82 37</p>
+          <p class="channel-desc">Le moyen le plus rapide. Lundi-Samedi de 8h à 19h.</p>
+          <span class="channel-link">Appeler maintenant →</span>
+        </a>
+        <a href="#" class="channel-card">
+          <div class="channel-icon">💬</div>
+          <h3>WhatsApp</h3>
+          <p class="channel-num">06 26 17 82 37</p>
+          <p class="channel-desc">Envoyez des photos pour un pré-devis sans déplacement.</p>
+          <span class="channel-link">Ouvrir WhatsApp →</span>
+        </a>
+        <a href="mailto:contact@debarras-carcassonne.fr" class="channel-card">
+          <div class="channel-icon">✉</div>
+          <h3>Email</h3>
+          <p class="channel-num">contact@debarras-carcassonne.fr</p>
+          <p class="channel-desc">Pour les demandes détaillées. Réponse sous 24h.</p>
+          <span class="channel-link">Envoyer un email →</span>
+        </a>
+        <a href="#form" class="channel-card highlight">
+          <div class="channel-icon">📝</div>
+          <h3>Formulaire</h3>
+          <p class="channel-num">Devis en ligne</p>
+          <p class="channel-desc">Décrivez votre besoin. Réponse sous 2h en semaine.</p>
+          <span class="channel-link">Aller au formulaire →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Форма + информация -->
+  <section class="contact-form-section" id="form">
+    <div class="container">
+      <div class="form-grid">
+        <div class="form-side">
+          <div class="form-block">
+            <div class="form-title">Devis gratuit</div>
+            <div class="form-sub">Réponse sous 2h en semaine, sans engagement.</div>
+
+            <div class="form-group">
+              <label for="name">Nom complet *</label>
+              <input type="text" id="name" placeholder="Prénom et nom" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Téléphone *</label>
+              <input type="tel" id="phone" placeholder="06 XX XX XX XX" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="votre@email.com" />
+            </div>
+            <div class="form-group">
+              <label for="bien">Type de bien à débarrasser *</label>
+              <select id="bien">
+                <option>Maison</option>
+                <option>Appartement</option>
+                <option>Cave</option>
+                <option>Garage</option>
+                <option>Grenier</option>
+                <option>Local commercial / bureau</option>
+                <option>Enlèvement d'un ou plusieurs objets</option>
+                <option>Autre / je ne sais pas</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ville">Ville</label>
+              <input type="text" id="ville" placeholder="Carcassonne, Trèbes, Limoux..." />
+            </div>
+            <div class="form-group">
+              <label for="urgence">Quand souhaitez-vous être débarrassé ?</label>
+              <select id="urgence">
+                <option>En urgence (sous 48h)</option>
+                <option>Dans la semaine</option>
+                <option>Dans le mois</option>
+                <option>Pas pressé / je me renseigne</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="situation">Décrivez votre situation</label>
+              <textarea id="situation" rows="4" placeholder="État du logement, contenu approximatif, contraintes d'accès..."></textarea>
+            </div>
+
+            <button class="btn btn-primary form-submit">Envoyer ma demande →</button>
+            <div class="form-note">
+              Vos données sont uniquement utilisées pour traiter votre
+              demande, conformément au RGPD.
+            </div>
+          </div>
+        </div>
+
+        <div class="info-side">
+          <div class="info-block">
+            <h3 class="info-title">Transport Carcassonne</h3>
+            <div class="info-row">
+              <span class="info-label">Adresse</span>
+              <span class="info-value">Carcassonne, Aude (11)<br/>France</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Horaires</span>
+              <span class="info-value">Lundi — Samedi : 8h-19h<br/>Dimanche : urgences</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">SIRET</span>
+              <span class="info-value">104 166 780</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Équipe</span>
+              <span class="info-value">3 professionnels<br/>5 ans d'expérience</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Flotte</span>
+              <span class="info-value">2 fourgons (12 et 20 m³)<br/>Entrepôt 160 m³</span>
+            </div>
+          </div>
+
+          <div class="guarantees">
+            <h4>Nos garanties</h4>
+            <ul>
+              <li>✓ Devis gratuit et sans engagement</li>
+              <li>✓ Prix fixe garanti par contrat</li>
+              <li>✓ Assurance professionnelle</li>
+              <li>✓ Bordereau de suivi des déchets</li>
+              <li>✓ Aucun acompte demandé</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ============ CHANNELS ============ */
+  .contact-channels {
+    padding: 80px 0;
+    background: var(--bg);
+  }
+  .channels-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .channel-card {
+    background: var(--bg);
+    padding: 36px 28px;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+  .channel-card:hover { background: var(--bg-card); }
+  .channel-card.highlight { background: var(--bg-dark); color: var(--text-on-dark); }
+  .channel-card.highlight:hover { background: var(--bg-dark-alt); }
+  .channel-icon {
+    font-size: 28px;
+    color: var(--accent);
+    margin-bottom: 24px;
+    font-family: 'Instrument Serif', serif;
+  }
+  .channel-card h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+  .channel-card.highlight h3 { color: var(--text-on-dark); }
+  .channel-num {
+    font-size: 15px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    word-break: break-word;
+  }
+  .channel-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+  .channel-card.highlight .channel-desc { color: var(--text-on-dark-muted); }
+  .channel-link {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-weight: 500;
+  }
+  .channel-card.highlight .channel-link { color: var(--accent); }
+  @media (max-width: 1024px) {
+    .channels-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .channels-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ============ FORM SECTION ============ */
+  .contact-form-section {
+    padding: 100px 0 120px;
+    background: var(--bg-soft);
+  }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .form-block {
+    background: var(--bg-card);
+    padding: 48px;
+    border: 1px solid var(--line);
+  }
+  .form-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 36px;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+  .form-sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 15px;
+    transition: border-color 0.2s;
+  }
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .form-submit {
+    width: 100%;
+    margin-top: 12px;
+    padding: 18px;
+    font-size: 15px;
+    justify-content: center;
+  }
+  .form-note {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 18px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* ============ INFO BLOCK ============ */
+  .info-block {
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+    padding: 40px;
+    margin-bottom: 24px;
+  }
+  .info-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--text-on-dark);
+    margin-bottom: 28px;
+    line-height: 1.1;
+  }
+  .info-row {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line-dark);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .info-row:first-of-type { padding-top: 0; }
+  .info-row:last-of-type { border-bottom: none; padding-bottom: 0; }
+  .info-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-on-dark-muted);
+    flex-shrink: 0;
+  }
+  .info-value {
+    font-size: 14px;
+    color: var(--text-on-dark);
+    text-align: right;
+    line-height: 1.4;
+  }
+
+  .guarantees {
+    background: var(--bg-card);
+    padding: 32px;
+    border: 1px solid var(--line);
+  }
+  .guarantees h4 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 18px;
+  }
+  .guarantees ul {
+    list-style: none;
+  }
+  .guarantees li {
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 1024px) {
+    .form-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+  @media (max-width: 600px) {
+    .form-block { padding: 28px; }
+    .info-block { padding: 28px; }
+  }
+</style>

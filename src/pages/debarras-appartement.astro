@@ -1,0 +1,75 @@
+---
+import ServicePageLayout from '../layouts/ServicePageLayout.astro';
+
+const data = {
+  pageTitle: 'Débarras d\'Appartement à Carcassonne | Studio, T2, T3 — Transport Carcassonne',
+  pageDescription: 'Débarras d\'appartement à Carcassonne et dans l\'Aude. Studio, T2, T3, T4 : nous vidons votre appartement avec ou sans ascenseur. À partir de 350 €.',
+
+  overline: 'Notre service',
+  title: 'Débarras<br/>d\'appartement à<br/><em>Carcassonne.</em>',
+  subtitle: 'Studio, T2, T3 ou plus grand : nous vidons votre appartement avec efficacité, quel que soit l\'étage et même sans ascenseur. Notre équipe gère la manutention, le démontage des meubles et l\'évacuation jusqu\'au fourgon. Devis gratuit sous 2h.',
+
+  priceFrom: 'à partir de 350 €',
+  priceDesc: 'Pour un studio ou T1 (10-15 m³). Étages sans ascenseur, manutention difficile, escaliers étroits : tout est inclus dans le prix annoncé.',
+
+  introTitle: 'Le débarras d\'appartement, <em>notre quotidien.</em>',
+  introText: `
+    <p>Le débarras d'appartement présente des spécificités que nous connaissons parfaitement. Contrairement à une maison de plain-pied, un appartement implique presque toujours des contraintes particulières : étage à monter, cages d'escalier étroites, ascenseurs trop petits, couloirs et parties communes à protéger, voisinage à respecter.</p>
+    <p>Chez Transport Carcassonne, nous traitons ces contraintes au quotidien. Notre équipe est formée à la manutention en immeuble, équipée de sangles, de protections et de techniques de démontage qui permettent de faire passer les meubles partout.</p>
+    <p>Tout cela est inclus dans le prix : pas de supplément pour l'étage, pas de supplément pour l'absence d'ascenseur.</p>
+  `,
+
+  casTitle: 'Dans <em>quels cas</em> faire<br/>débarrasser un appartement ?',
+  casSubtitle: 'Le débarras d\'appartement répond à des situations très variées, qu\'il s\'agisse d\'un propriétaire, d\'un locataire ou d\'un héritier.',
+  cas: [
+    { icon: '🔑', title: 'Propriétaire — retour de logement meublé', text: 'Votre locataire est parti en laissant le logement encombré. Nous remettons l\'appartement à neuf, photos avant/après fournies si besoin pour vos démarches juridiques.' },
+    { icon: '⚖', title: 'Héritier — appartement à vider', text: 'Vous héritez d\'un appartement à Carcassonne et vous habitez loin ? Nous gérons à distance : visite avec le notaire, photos par WhatsApp, paiement par virement.' },
+    { icon: '🏥', title: 'Départ en maison de retraite', text: 'Le départ d\'un parent en EHPAD demande de libérer son appartement rapidement. Nous accompagnons les familles avec délicatesse.' },
+    { icon: '🏗', title: 'Avant travaux ou mise en vente', text: 'Vous voulez rénover votre appartement ou le vendre vide ? Une maison vide se vend plus vite. Nous préparons le bien dans les délais que vous fixez.' },
+  ],
+
+  inclus: [
+    'Visite gratuite et devis détaillé sans engagement',
+    'Démontage de tous les meubles, même cuisines équipées',
+    'Évacuation de l\'électroménager (frigo, machine à laver, four)',
+    'Manutention par escalier ou ascenseur, quel que soit l\'étage',
+    'Protection des parties communes (sols, murs, ascenseur)',
+    'Démontage sur place des meubles trop encombrants',
+    'Vidage complet des placards, armoires, tiroirs',
+    'Évacuation des déchets de la cave et du parking si liés',
+    'Tri sélectif et envoi vers les filières adaptées',
+    'Don aux associations (Emmaüs, Croix-Rouge)',
+    'Valorisation des objets de valeur dans notre entrepôt',
+    'Nettoyage de base (balayage, dépoussiérage)',
+    'Bordereau de suivi des déchets remis',
+    'Demande d\'autorisation de voirie si stationnement difficile',
+  ],
+
+  prixIntro: 'Le tarif dépend du volume, de l\'étage, de l\'accessibilité et de la valeur des biens présents.',
+  prixRows: [
+    { type: 'Studio / T1', volume: '10-15 m³', price: 'à partir de 350 €' },
+    { type: 'Appartement T2', volume: '15-25 m³', price: 'à partir de 600 €' },
+    { type: 'Appartement T3', volume: '25-35 m³', price: 'à partir de 900 €' },
+    { type: 'Appartement T4 et +', volume: '35-50 m³', price: 'à partir de 1 300 €' },
+  ],
+  prixNote: 'Si votre appartement contient du mobilier de qualité, de l\'électroménager récent (lave-linge, frigo de moins de 5 ans), des objets vintage ou des collections, vous pouvez bénéficier de notre formule Réduit (-20 à -50 %) ou Gratuit.',
+
+  exempleTitle: 'T3 au 4ème sans ascenseur,<br/><em>Carcassonne centre.</em>',
+  exempleSituation: '<p>Appartement T3 de 75 m² au 4ème étage d\'un immeuble ancien sans ascenseur, dans la Bastide Saint-Louis. Cage d\'escalier étroite typique du XIXe siècle. Volume estimé : <strong>30 m³</strong>. Locataire parti en laissant tous les meubles : grande armoire en chêne, lit double, canapé d\'angle, table à manger, électroménager. L\'armoire ne passait ni dans l\'escalier ni par la fenêtre.</p>',
+  exempleIntervention: '<p>Demande d\'autorisation de voirie. Démontage complet de l\'armoire en chêne sur place (2 heures). Démontage du canapé d\'angle. Évaluation : <strong>8 m³ valorisables</strong>. Formule appliquée : <strong>Débarras Réduit (-25 %)</strong>. Devis : <strong>750 € TTC</strong> au lieu de 1 000 €. Durée : 1,5 jour, équipe de 3. Protection complète des parties communes.</p>',
+  exempleResultat: '<p>Appartement remis à neuf en 1,5 jour, sans aucune dégradation des parties communes ni plainte du voisinage. La propriétaire a pu remettre l\'appartement en location la semaine suivante.</p>',
+
+  faq: [
+    { q: 'Y a-t-il un supplément pour les étages sans ascenseur ?', a: 'Non. La manutention en escalier est incluse dans notre tarif de base, quel que soit l\'étage. Nous estimons l\'effort lors de la visite et l\'intégrons dans le devis fixe initial.' },
+    { q: 'Et si certains meubles ne passent pas par l\'escalier ?', a: 'Nous démontons sur place. Nos équipes sont équipées d\'outils pour démonter armoires, canapés, lits, cuisines. Tous les meubles sortent, sans exception. Aucun supplément pour le démontage.' },
+    { q: 'Que faire si le stationnement est difficile ?', a: 'Nous demandons gratuitement une autorisation de voirie en mairie de Carcassonne. Cela nous permet de stationner légalement devant votre immeuble pendant l\'intervention.' },
+    { q: 'Pouvez-vous intervenir dans un immeuble avec règlement strict ?', a: 'Oui. Si votre copropriété a des horaires d\'intervention spécifiques, nous nous adaptons. Indiquez-nous les contraintes lors de la visite.' },
+    { q: 'J\'habite à Paris, l\'appartement est à Carcassonne. Comment ça se passe ?', a: 'C\'est une situation très fréquente. Nous gérons à distance : visite avec un voisin, le concierge ou un mandataire, photos par WhatsApp, paiement par virement, envoi du bordereau et de la facture par email. Vous n\'avez pas besoin de vous déplacer.' },
+  ],
+
+  ctaTitle: 'Vous devez vider un appartement<br/>à <em>Carcassonne ?</em>',
+  ctaSubtitle: 'Que vous soyez propriétaire, héritier ou que vous prépariez un déménagement, notre équipe se charge de tout.',
+};
+---
+
+<ServicePageLayout {...data} />

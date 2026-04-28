@@ -1,0 +1,599 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CTASection from '../components/CTASection.astro';
+
+const pageTitle = 'À Propos | Transport Carcassonne — Entreprise de Débarras dans l\'Aude';
+const pageDescription = 'Découvrez Transport Carcassonne : équipe locale de 3 professionnels, 5 ans d\'expérience dans le débarras et le vide maison. SIRET 104 166 780.';
+
+const valeurs = [
+  {
+    icon: '🤝',
+    title: 'Respect',
+    desc: 'Respect des biens, respect des personnes, respect des situations. Que vous soyez en pleine succession émotionnellement difficile ou en train de vider votre cave, vous méritez d\'être traité avec considération.',
+  },
+  {
+    icon: '📋',
+    title: 'Transparence',
+    desc: 'Pas de devis flous, pas de prix qui changent en cours de route. Nous nous engageons par écrit, et le prix annoncé est le prix final. Si nous nous trompons dans l\'estimation, c\'est notre responsabilité.',
+  },
+  {
+    icon: '♻',
+    title: 'Responsabilité',
+    desc: 'Nous nous occupons de ce qui sort de chez vous : tri sélectif, filières adaptées, dons aux associations. Pas de décharge sauvage. Bordereau de suivi remis systématiquement.',
+  },
+  {
+    icon: '💰',
+    title: 'Équité',
+    desc: 'Le tarif doit refléter la vraie valeur du travail. Si votre logement contient des objets valorisables, nous les déduisons de votre facture. Parfois jusqu\'à la rendre gratuite, voire indemnisée.',
+  },
+];
+
+const principes = [
+  {
+    num: '01',
+    title: 'On prend le temps de comprendre',
+    desc: 'Avant de proposer quoi que ce soit, nous écoutons. Quelle est votre situation ? Quels sont vos délais ? Y a-t-il des contraintes émotionnelles, juridiques, familiales ? Cette compréhension change tout.',
+  },
+  {
+    num: '02',
+    title: 'On propose la solution la plus juste',
+    desc: 'Notre objectif n\'est pas de vous vendre la prestation la plus chère. Si votre cave peut être vidée en demi-journée, nous ne proposons pas un service complet. Si vos biens ont de la valeur, nous proposons un débarras réduit voire gratuit.',
+  },
+  {
+    num: '03',
+    title: 'On fait ce qu\'on a dit',
+    desc: 'Le devis est un engagement. Si nous avons annoncé 1 200 €, c\'est 1 200 €. Si nous avons annoncé 2 jours d\'intervention, c\'est 2 jours. Si nous nous trompons, c\'est nous qui assumons.',
+  },
+  {
+    num: '04',
+    title: 'On laisse tout propre',
+    desc: 'Un débarras, ce n\'est pas seulement vider. C\'est aussi laisser un logement présentable, prêt à être visité, vendu, loué ou rénové. Nettoyage de base inclus systématiquement.',
+  },
+];
+
+const engagements = [
+  'Visite et devis 100% gratuits, sans engagement',
+  'Réponse à votre demande sous 2h en semaine',
+  'Visite d\'évaluation sous 24h en moyenne',
+  'Prix fixe, garanti par contrat écrit',
+  'Aucun acompte demandé avant l\'intervention',
+  'Paiement uniquement après votre satisfaction',
+  'Espèces, virement, chèque acceptés',
+  'Facture conforme avec mentions légales',
+  'Bordereau de suivi des déchets remis',
+  'Restitution systématique des objets personnels',
+  'Discrétion absolue, surtout pour les situations sensibles',
+  'Assurance professionnelle pour vos biens et notre activité',
+  'Disponibilité weekend et jours fériés pour les urgences',
+  'Aucun supplément kilométrique dans notre zone (40 km)',
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+
+  <PageHero
+    overline="Qui sommes-nous"
+    title="Une <em>autre vision</em><br/>du débarras."
+    subtitle="Une équipe locale, basée à Carcassonne, qui aborde le débarras et le vide maison comme un service humain, pas comme une simple opération logistique. Notre métier ne se résume pas à charger des fourgons : il consiste à accompagner des familles dans des moments importants de leur vie."
+  />
+
+  <!-- История -->
+  <section class="story-section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-text">
+          <span class="mono-label">Notre histoire</span>
+          <h2 class="display">Une équipe à <em>taille humaine.</em></h2>
+          <p>
+            Transport Carcassonne est née d'un constat simple : dans le secteur
+            du débarras et du vide maison, beaucoup d'entreprises traitent leurs
+            clients comme de simples dossiers. Devis flous, prix qui changent
+            en cours d'intervention, tri bâclé, communication minimaliste.
+          </p>
+          <p>
+            Notre fondateur, fort de 5 années d'expérience dans le secteur du
+            transport et du débarras, a voulu construire une entreprise différente :
+            une équipe locale, à taille humaine, qui prend le temps d'écouter
+            chaque client.
+          </p>
+          <p>
+            Aujourd'hui, Transport Carcassonne intervient quotidiennement dans
+            toute l'agglomération carcassonnaise et dans un rayon de 40 km autour
+            de Carcassonne, ainsi qu'à Narbonne.
+          </p>
+        </div>
+        <div class="story-stats">
+          <div class="story-stat">
+            <span class="story-num">3</span>
+            <span class="story-label">Professionnels<br/>expérimentés</span>
+          </div>
+          <div class="story-stat">
+            <span class="story-num">2</span>
+            <span class="story-label">Fourgons<br/>12 m³ et 20 m³</span>
+          </div>
+          <div class="story-stat">
+            <span class="story-num">160</span>
+            <span class="story-label">m³ d'entrepôt<br/>pour valorisation</span>
+          </div>
+          <div class="story-stat">
+            <span class="story-num">5</span>
+            <span class="story-label">Années<br/>d'expérience</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ценности -->
+  <section class="valeurs-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="display">Les valeurs qui nous <em>guident.</em></h2>
+        <p>Quatre principes simples, mais sur lesquels nous ne transigeons jamais.</p>
+      </div>
+      <div class="valeurs-grid">
+        {valeurs.map((v) => (
+          <div class="valeur-card">
+            <div class="valeur-icon">{v.icon}</div>
+            <h3>{v.title}</h3>
+            <p>{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Принципы работы -->
+  <section class="principes-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="display">Comment nous <em>travaillons.</em></h2>
+        <p>Notre méthode tient en quatre principes très concrets.</p>
+      </div>
+      <div class="principes-list">
+        {principes.map((p) => (
+          <div class="principe-row">
+            <div class="principe-num">— {p.num}</div>
+            <div class="principe-content">
+              <h3>{p.title}</h3>
+              <p>{p.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Notre atout -->
+  <section class="atout-section">
+    <div class="container">
+      <div class="atout-content">
+        <span class="mono-label">Notre atout unique</span>
+        <h2 class="display">Valoriser pour <em>réduire</em><br/>votre facture.</h2>
+        <p class="atout-intro">
+          Voici ce qui nous distingue vraiment dans le secteur du débarras
+          à Carcassonne : notre entrepôt de 160 m³ et notre réseau de
+          partenaires nous permettent de faire ce que la plupart des
+          concurrents ne savent pas faire : valoriser vos biens.
+        </p>
+        <div class="atout-grid">
+          <div class="atout-result">
+            <span class="result-num">— 20 à 50 %</span>
+            <span class="result-label">de remise sur votre devis<br/>pour les objets de qualité</span>
+          </div>
+          <div class="atout-result highlight">
+            <span class="result-num">0 €</span>
+            <span class="result-label">débarras totalement gratuit<br/>(souvent en succession)</span>
+          </div>
+          <div class="atout-result">
+            <span class="result-num">+ €</span>
+            <span class="result-label">débarras indemnisé<br/>pour les antiquités</span>
+          </div>
+        </div>
+        <p class="atout-note">
+          Ce n'est pas marketing : c'est notre fonctionnement réel sur
+          environ 6 chantiers sur 10. La majorité de nos clients ne paient
+          pas le tarif standard.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Обязательства -->
+  <section class="engagements-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="display">Nos engagements <em>concrets.</em></h2>
+        <p>Tout est dans le concret. Voici ce que vous pouvez attendre de nous.</p>
+      </div>
+      <div class="engagements-grid">
+        {engagements.map((e) => (
+          <div class="engagement-item">✓ {e}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Юридические данные -->
+  <section class="legal-section">
+    <div class="container">
+      <div class="legal-grid">
+        <div class="legal-text">
+          <span class="mono-label">Informations légales</span>
+          <h2 class="display">Une entreprise<br/>déclarée et <em>assurée.</em></h2>
+          <p>Transport Carcassonne est une entreprise française, déclarée et en règle.</p>
+        </div>
+        <div class="legal-info">
+          <div class="legal-row">
+            <span class="legal-label">Nom</span>
+            <span class="legal-value">Transport Carcassonne</span>
+          </div>
+          <div class="legal-row">
+            <span class="legal-label">Forme juridique</span>
+            <span class="legal-value">Entreprise Individuelle (EI)</span>
+          </div>
+          <div class="legal-row">
+            <span class="legal-label">SIRET</span>
+            <span class="legal-value">104 166 780</span>
+          </div>
+          <div class="legal-row">
+            <span class="legal-label">Adresse</span>
+            <span class="legal-value">Carcassonne, Aude (11)</span>
+          </div>
+          <div class="legal-row">
+            <span class="legal-label">TVA</span>
+            <span class="legal-value">Non applicable, art. 293 B du CGI</span>
+          </div>
+          <div class="legal-row">
+            <span class="legal-label">Assurance</span>
+            <span class="legal-value">Responsabilité civile professionnelle</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Une question, un projet,<br/>une <em>urgence ?</em>"
+    subtitle="Nous sommes à votre écoute pour comprendre votre situation et vous proposer la meilleure solution."
+  />
+
+</BaseLayout>
+
+<style>
+  /* STORY */
+  .story-section {
+    padding: 100px 0;
+    background: var(--bg);
+  }
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .story-text .mono-label {
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: block;
+  }
+  .story-text h2 {
+    font-size: clamp(36px, 4.8vw, 60px);
+    line-height: 1.05;
+    margin-bottom: 32px;
+  }
+  .story-text h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .story-text p {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+  .story-stats {
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .story-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .story-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 48px;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .story-label {
+    font-size: 13px;
+    color: var(--text-on-dark-muted);
+    line-height: 1.4;
+  }
+  @media (max-width: 900px) {
+    .story-grid { grid-template-columns: 1fr; gap: 32px; }
+    .story-stats { padding: 28px; }
+  }
+
+  /* SECTION HEADER */
+  .section-header {
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: end;
+  }
+  .section-header h2 {
+    font-size: clamp(36px, 4.8vw, 60px);
+    line-height: 1.05;
+  }
+  .section-header h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .section-header p {
+    color: var(--text-muted);
+    font-size: 17px;
+    max-width: 540px;
+    line-height: 1.55;
+  }
+  @media (max-width: 900px) {
+    .section-header { grid-template-columns: 1fr; gap: 24px; }
+  }
+
+  /* VALEURS */
+  .valeurs-section {
+    padding: 100px 0;
+    background: var(--bg-soft);
+  }
+  .valeurs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .valeur-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 40px;
+    transition: all 0.3s;
+  }
+  .valeur-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+  }
+  .valeur-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  .valeur-card h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+  .valeur-card p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+  @media (max-width: 700px) {
+    .valeurs-grid { grid-template-columns: 1fr; }
+    .valeur-card { padding: 28px; }
+  }
+
+  /* PRINCIPES */
+  .principes-section {
+    padding: 100px 0;
+    background: var(--bg);
+  }
+  .principes-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .principe-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 40px;
+    padding: 40px 0;
+    border-top: 1px solid var(--line);
+    align-items: start;
+  }
+  .principe-row:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .principe-num {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--accent);
+    font-size: 18px;
+  }
+  .principe-content h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .principe-content p {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    max-width: 800px;
+  }
+  @media (max-width: 700px) {
+    .principe-row { grid-template-columns: 1fr; gap: 8px; padding: 28px 0; }
+  }
+
+  /* ATOUT */
+  .atout-section {
+    padding: 100px 0;
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+  }
+  .atout-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .atout-section .mono-label {
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: inline-block;
+  }
+  .atout-content h2 {
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.05;
+    color: var(--text-on-dark);
+    margin-bottom: 28px;
+  }
+  .atout-content h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .atout-intro {
+    font-size: 17px;
+    color: var(--text-on-dark-muted);
+    margin-bottom: 48px;
+    line-height: 1.65;
+  }
+  .atout-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .atout-result {
+    background: var(--bg-dark-alt);
+    border: 1px solid var(--line-dark);
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .atout-result.highlight {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .result-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 36px;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .atout-result.highlight .result-num { color: var(--bg-dark); }
+  .result-label {
+    font-size: 13px;
+    color: var(--text-on-dark-muted);
+    line-height: 1.5;
+  }
+  .atout-result.highlight .result-label { color: rgba(21, 25, 28, 0.85); }
+  .atout-note {
+    font-style: italic;
+    color: var(--text-on-dark-muted);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  @media (max-width: 700px) {
+    .atout-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ENGAGEMENTS */
+  .engagements-section {
+    padding: 100px 0;
+    background: var(--bg);
+  }
+  .engagements-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .engagement-item {
+    background: var(--bg);
+    padding: 18px 24px;
+    font-size: 15px;
+    color: var(--text);
+    transition: background 0.2s;
+  }
+  .engagement-item:hover {
+    background: var(--bg-card);
+    color: var(--accent);
+  }
+  @media (max-width: 600px) {
+    .engagements-grid { grid-template-columns: 1fr; }
+  }
+
+  /* LEGAL */
+  .legal-section {
+    padding: 100px 0;
+    background: var(--bg-soft);
+  }
+  .legal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .legal-text .mono-label {
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: block;
+  }
+  .legal-text h2 {
+    font-size: clamp(36px, 4.5vw, 56px);
+    line-height: 1.05;
+    margin-bottom: 24px;
+  }
+  .legal-text h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .legal-text p {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+  .legal-info {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 40px;
+  }
+  .legal-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    gap: 16px;
+  }
+  .legal-row:first-child { padding-top: 0; }
+  .legal-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .legal-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    padding-top: 4px;
+  }
+  .legal-value {
+    font-family: 'Instrument Serif', serif;
+    font-size: 16px;
+    text-align: right;
+    color: var(--text);
+  }
+  @media (max-width: 900px) {
+    .legal-grid { grid-template-columns: 1fr; gap: 32px; }
+    .legal-info { padding: 28px; }
+  }
+</style>

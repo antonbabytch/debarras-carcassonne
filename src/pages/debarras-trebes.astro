@@ -1,0 +1,86 @@
+---
+import CityPageLayout from '../layouts/CityPageLayout.astro';
+
+const data = {
+  pageTitle: 'Débarras à Trèbes | Vide Maison Aude — Transport Carcassonne',
+  pageDescription: 'Débarras de maison, appartement, cave à Trèbes (11800). Équipe locale basée à 6 km, intervention sous 24h, devis gratuit. À partir de 350 €.',
+
+  overline: 'Notre intervention',
+  title: 'Débarras<br/>à <em>Trèbes</em><br/>et alentours.',
+  subtitle: 'Trèbes, à 6 km de Carcassonne sur les rives du Canal du Midi, est l\'une des communes où nous intervenons le plus régulièrement. Maisons individuelles, propriétés au bord du canal, lotissements résidentiels : nous connaissons bien la commune et ses spécificités.',
+
+  cityInfo: {
+    population: '5 600 hab.',
+    distance: '6 km',
+    postalCode: '11800',
+    departement: 'Aude (11)',
+  },
+
+  introTitle: 'Trèbes : un cadre <em>unique</em><br/>au bord du canal.',
+  introText: `
+    <p>Trèbes a une identité forte : commune au confluent de l'Aude et du Canal du Midi, avec un port fluvial actif, des maisons anciennes en pierre dans le centre historique, et de nombreux lotissements pavillonnaires en périphérie. Nous y intervenons en moyenne plusieurs fois par mois.</p>
+    <p>Les 6 kilomètres qui séparent Trèbes de notre base à Carcassonne signifient que nous sommes chez vous en moins de 15 minutes après votre appel. Aucun frais de déplacement n'est facturé.</p>
+    <p>Nous connaissons les particularités de la commune : les rues parfois étroites du centre ancien, les écluses du Canal du Midi qui peuvent compliquer l'accès à certaines propriétés, les lotissements récents avec garages doubles. Pour chaque intervention, nous adaptons notre approche.</p>
+  `,
+
+  servicesTitle: 'Nos services<br/>à <em>Trèbes.</em>',
+  servicesSubtitle: 'Toutes nos prestations sont disponibles à Trèbes, sans frais supplémentaires.',
+  services: [
+    { icon: '🏠', title: 'Débarras de maison', text: 'Maisons en pierre du centre, villas de lotissement, propriétés au bord du canal. À partir de 1 200 €.', link: '/debarras-maison' },
+    { icon: '🏢', title: 'Débarras d\'appartement', text: 'Studios, T2, T3 dans les résidences récentes ou les immeubles anciens. À partir de 350 €.', link: '/debarras-appartement' },
+    { icon: '⚖', title: 'Débarras succession', text: 'Maison familiale, appartement après un décès. Coordination avec les notaires de Carcassonne et Trèbes.', link: '/debarras-succession' },
+    { icon: '🍷', title: 'Débarras de cave', text: 'Caves de maisons anciennes, caves voûtées, caves d\'immeuble. À partir de 250 €.', link: '/debarras-cave' },
+    { icon: '🚗', title: 'Débarras de garage', text: 'Garages individuels, double garages des lotissements. À partir de 300 €.', link: '/debarras-garage' },
+    { icon: '🪜', title: 'Débarras de grenier', text: 'Combles aménageables, greniers de maisons en pierre. À partir de 250 €.', link: '/debarras-grenier' },
+    { icon: '🛋', title: 'Enlèvement encombrants', text: 'Quelques meubles, électroménager, matelas. Intervention rapide. À partir de 80 €.', link: '/enlevement-encombrants' },
+    { icon: '🤐', title: 'Syndrome de Diogène', text: 'Logement insalubre, accumulation. Discrétion absolue dans une petite commune.', link: '/nettoyage-syndrome-diogene' },
+    { icon: '🏪', title: 'Local commercial', text: 'Commerces du centre, restaurants du port, locaux artisanaux. Intervention possible weekend.', link: '/debarras-local-commercial' },
+  ],
+
+  quartiersTitle: 'Les <em>secteurs</em> de Trèbes.',
+  quartiersSubtitle: 'Trèbes se compose de plusieurs zones distinctes, chacune avec ses caractéristiques d\'accès.',
+  quartiers: [
+    { name: 'Centre historique', description: 'Maisons anciennes en pierre, rues étroites, parfois nécessité d\'autorisation de voirie. Nous gérons les démarches.' },
+    { name: 'Bord du canal', description: 'Propriétés et maisons le long du Canal du Midi. Accès parfois contraint par les écluses ou ponts bas.' },
+    { name: 'Lotissements résidentiels', description: 'Pavillons individuels avec garage double, accès aisé pour les fourgons, stationnement facile.' },
+    { name: 'Zone d\'activité', description: 'Locaux artisanaux et commerciaux. Intervention possible en horaires décalés.' },
+    { name: 'Quartier de l\'Aiguille', description: 'Mix de maisons anciennes et récentes. Certains accès en pente nécessitent une logistique adaptée.' },
+    { name: 'Périphérie / hameaux', description: 'Maisons isolées, propriétés viticoles, petits hameaux autour de Trèbes. Inclus dans notre zone sans frais.' },
+  ],
+
+  avantagesTitle: 'Une équipe<br/>à <em>15 minutes</em> de chez vous.',
+  avantages: [
+    { icon: '⚡', title: 'Visite gratuite sous 24h', text: 'Trèbes est à 6 km de notre base. Nous pouvons venir le jour même pour un devis si l\'urgence le demande.' },
+    { icon: '🚐', title: 'Aucun frais de déplacement', text: 'Trèbes fait partie de notre première couronne. Aucun frais kilométrique, le devis annoncé est le devis final.' },
+    { icon: '🗺', title: 'Connaissance du terrain', text: 'Nous connaissons les rues étroites du centre, les contraintes du Canal du Midi, les accès aux propriétés isolées.' },
+    { icon: '🤝', title: 'Réseau local', text: 'Nous travaillons régulièrement avec les notaires, agences immobilières et syndics de Trèbes et Carcassonne.' },
+  ],
+
+  exempleTitle: 'Maison familiale à <em>Trèbes</em><br/>après succession.',
+  exempleSituation: '<p>Maison plain-pied de 130 m² à Trèbes avec cave et garage, dans un lotissement résidentiel près du Canal. Volume estimé : <strong>65 m³</strong>. Suite au décès de la propriétaire, ses deux enfants (Paris et Montpellier) devaient vider la maison avant la mise en vente. Mobilier ancien de qualité (buffet en chêne, armoire normande de famille), beaucoup de livres et de vaisselle, électroménager récent, outillage de jardin complet, vélos.</p>',
+  exempleIntervention: '<p>Visite d\'évaluation organisée avec les deux héritiers en visioconférence (l\'un sur place, l\'autre à distance). Identification de <strong>18 m³ revendables</strong>. Mise de côté des objets sentimentaux selon liste partagée : photos de famille, bijoux, 2 albums, montre de grand-père, service à thé en porcelaine. Formule appliquée : <strong>Débarras Réduit (-40 %)</strong>. Devis : <strong>1 500 € TTC</strong> au lieu de 2 600 € en standard. Durée : 2 jours, équipe de 3 personnes. Documents personnels expédiés aux deux adresses.</p>',
+  exempleResultat: '<p>Maison rendue vide et propre, prête à être mise en vente. Les deux héritiers ont reçu leurs colis d\'objets sentimentaux respectifs. Bordereau de suivi fourni au notaire pour la clôture de la succession. <strong>La maison s\'est vendue 3 semaines plus tard</strong>.</p>',
+
+  communesTitle: 'Communes <em>voisines</em>',
+  communesText: 'Au-delà de Trèbes, nous intervenons sans frais supplémentaires dans toutes les communes alentour : la basse vallée de l\'Aude, le Minervois oriental, et la couronne carcassonnaise.',
+  communes: [
+    'Carcassonne', 'Marseillette', 'Capendu', 'Blomac', 'Berriac', 'Aigues-Vives',
+    'Rustiques', 'Floure', 'Badens', 'Bouilhonnac', 'Conques-sur-Orbiel', 'Villedubert',
+    'Monze', 'Comigne', 'Fajac-en-Val', 'Pradelles-en-Val',
+  ],
+
+  faq: [
+    { q: 'Vous déplacez-vous gratuitement à Trèbes ?', a: 'Oui, totalement. Trèbes fait partie de notre première couronne d\'intervention. Aucun frais kilométrique n\'est appliqué.' },
+    { q: 'Combien de temps faut-il pour avoir un devis à Trèbes ?', a: 'Sous 24h pour la visite, et le devis vous est remis sur place ou envoyé dans les 2h suivantes. En cas d\'urgence, nous pouvons venir le jour même.' },
+    { q: 'Pouvez-vous intervenir dans le centre historique de Trèbes ?', a: 'Oui. Les rues étroites du centre demandent parfois une autorisation de voirie pour stationner. Nous nous occupons des démarches auprès de la mairie.' },
+    { q: 'Travaillez-vous avec les notaires de Trèbes ?', a: 'Trèbes a peu de notaires sur place ; la plupart des successions des Trébéens sont gérées par des études de Carcassonne avec lesquelles nous travaillons régulièrement.' },
+    { q: 'Et si la maison est au bord du canal avec un accès difficile ?', a: 'Nous avons l\'expérience des propriétés au bord du Canal du Midi. Si besoin, nous adaptons notre matériel : fourgon plus petit, manutention manuelle sur quelques mètres, coordination avec les éclusiers en cas de besoin.' },
+    { q: 'Combien coûte un débarras à Trèbes ?', a: 'Les tarifs sont identiques à Carcassonne : à partir de 350 € pour un studio, 1 200 € pour une maison plain-pied. Nos formules Réduit/Gratuit/Indemnisé s\'appliquent aussi à Trèbes.' },
+  ],
+
+  ctaTitle: 'Un débarras à <em>Trèbes ?</em><br/>Nous sommes à 15 min.',
+  ctaSubtitle: 'Notre équipe basée à Carcassonne intervient à Trèbes sans frais supplémentaires. Visite gratuite sous 24h, devis fixe, sans surprise.',
+};
+---
+
+<CityPageLayout {...data} />

@@ -1,0 +1,78 @@
+---
+import ServicePageLayout from '../layouts/ServicePageLayout.astro';
+
+const data = {
+  pageTitle: 'Enlèvement d\'Encombrants à Carcassonne | Vieux Meubles, Électroménager',
+  pageDescription: 'Enlèvement d\'encombrants à Carcassonne : vieux meubles, canapé, matelas, électroménager. Intervention rapide, à partir de 80 €.',
+
+  overline: 'Notre service',
+  title: 'Enlèvement<br/>d\'<em>encombrants</em><br/>à Carcassonne.',
+  subtitle: 'Vous voulez vous débarrasser d\'un canapé, d\'une vieille armoire, d\'un matelas usagé ou d\'un frigo hors service ? Pas besoin de vider toute votre maison : nous nous déplaçons pour un seul objet ou quelques meubles, partout dans la région carcassonnaise.',
+
+  priceFrom: 'à partir de 80 €',
+  priceDesc: 'Pour 1 objet encombrant standard. Démontage si nécessaire, descente d\'étage, évacuation : tout est inclus dans le prix annoncé.',
+
+  introTitle: 'Pourquoi faire appel<br/>à un <em>professionnel ?</em>',
+  introText: `
+    <p>Vous avez un vieux canapé à évacuer, un frigo qui ne marche plus, un matelas à remplacer ? Vous pourriez essayer de l'apporter vous-même en déchèterie, mais cela suppose : avoir une voiture suffisamment grande, charger l'objet seul, connaître les horaires des déchèteries, et faire les allers-retours.</p>
+    <p>Pour un coût raisonnable (souvent moins cher qu'une journée de location de camionnette), nous nous occupons de tout : déplacement, manutention de l'étage, transport, évacuation conforme. Vous restez chez vous, l'encombrant disparaît.</p>
+    <p>Notre service d'enlèvement d'encombrants est conçu pour les besoins ponctuels : 1 à 5 objets maximum. Au-delà, nous parlons de débarras complet (cave, garage, appartement).</p>
+  `,
+
+  casTitle: 'Tous les types <em>d\'encombrants.</em>',
+  casSubtitle: 'Du petit meuble au piano droit, nous prenons en charge tous les objets encombrants.',
+  cas: [
+    { icon: '🛋', title: 'Mobilier', text: 'Canapés, fauteuils, banquettes, lits, sommiers, armoires, commodes, buffets, tables, chaises, bureaux, bibliothèques, étagères.' },
+    { icon: '🛏', title: 'Literie', text: 'Matelas (toutes tailles), sommiers à lattes ou à ressorts, couettes, oreillers en grande quantité, surmatelas.' },
+    { icon: '🧊', title: 'Électroménager', text: 'Réfrigérateurs, congélateurs, lave-linge, sèche-linge, lave-vaisselle, cuisinières, fours, plaques, hottes.' },
+    { icon: '📺', title: 'Gros électronique', text: 'Téléviseurs (anciens et récents), hi-fi, ampli, enceintes, imprimantes, scanners.' },
+    { icon: '🚲', title: 'Loisirs et sport', text: 'Vélos, vélos d\'appartement, tapis de course, équipements de musculation, tables de ping-pong, billards.' },
+    { icon: '🪴', title: 'Extérieur', text: 'Salons de jardin, parasols, barbecues, planchas, tondeuses, débroussailleuses, pots de fleurs.' },
+  ],
+
+  inclus: [
+    'Devis téléphonique en 5 minutes',
+    'Confirmation par photos WhatsApp si besoin',
+    'Déplacement gratuit dans notre zone',
+    'Démontage des meubles inclus si nécessaire',
+    'Descente de tous les étages incluse, même sans ascenseur',
+    'Pas de supplément pour les objets très lourds (jusqu\'à 200 kg)',
+    'Évacuation en déchèterie professionnelle',
+    'Filière de recyclage pour électroménager (DEEE)',
+    'Filière Eco-Mobilier pour matelas et sommiers',
+    'Possibilité de don à des associations',
+    'Reçu fourni systématiquement',
+    'Paiement à la fin de l\'intervention',
+  ],
+
+  prixIntro: 'Le tarif dépend du type d\'objet, de l\'étage, et du nombre d\'éléments à évacuer.',
+  prixRows: [
+    { type: '1 objet standard (canapé, matelas)', volume: '1-2 m³', price: 'à partir de 80 €' },
+    { type: '1 objet lourd ou volumineux (frigo, armoire)', volume: '1-3 m³', price: 'à partir de 120 €' },
+    { type: '2 à 3 objets', volume: '2-5 m³', price: 'à partir de 150 €' },
+    { type: '4 à 5 objets', volume: '4-7 m³', price: 'à partir de 220 €' },
+    { type: 'Piano droit', volume: 'spécifique', price: 'à partir de 200 €' },
+    { type: '6 objets et plus', volume: 'variable', price: 'devis sur visite' },
+  ],
+  prixNote: 'Si l\'objet à évacuer a encore de la valeur (mobilier ancien, électroménager récent et fonctionnel), nous pouvons proposer un enlèvement gratuit, voire un rachat. Précisez-le lors de l\'appel.',
+
+  exempleTitle: 'Canapé d\'angle à <em>Pennautier.</em>',
+  exempleSituation: '<p>Canapé d\'angle 3 places de 2,80 m, en cuir, situé au 2ème étage sans ascenseur. Cage d\'escalier étroite. Le canapé devait être évacué dans les 48h car le nouveau meuble était livré le surlendemain.</p>',
+  exempleIntervention: '<p>Devis donné par téléphone après description : <strong>95 € TTC</strong>. Confirmation par photo WhatsApp. Intervention le lendemain. Démontage sur place (la structure intérieure ne passait pas dans l\'escalier) : 30 minutes. Évacuation par escalier en 2 personnes : 15 minutes. Transport vers déchèterie professionnelle.</p>',
+  exempleResultat: '<p>La cliente a récupéré son salon vide en 1h chrono. Le nouveau canapé a pu être livré le surlendemain sans encombre. Total : 95 € TTC, payé par chèque.</p>',
+
+  faq: [
+    { q: 'Pouvez-vous venir le jour même ?', a: 'Pour les urgences, oui, selon nos disponibilités. Mais le plus souvent, nous fixons un créneau dans les 24-48h.' },
+    { q: 'Faut-il être présent pendant l\'enlèvement ?', a: 'Oui, ou il faut une personne autorisée à nous ouvrir. Nous ne pouvons pas accéder seul à un logement habité.' },
+    { q: 'Pouvez-vous évacuer plusieurs objets de différents endroits de la maison ?', a: 'Oui, c\'est compris dans le forfait. Nous montons et descendons autant que nécessaire.' },
+    { q: 'Que faites-vous si l\'objet ne passe pas par l\'escalier ?', a: 'Nous démontons sur place. Sangles, outils, scie : nous trouvons toujours une solution. Inclus dans le prix.' },
+    { q: 'Reprenez-vous les vieux meubles encore en bon état pour les revendre ?', a: 'Oui, dans certains cas. Si l\'objet a une valeur de revente (mobilier ancien, design, électroménager récent), nous pouvons réduire le tarif voire le rendre gratuit.' },
+    { q: 'Et si je veux donner mon meuble à une association plutôt que le jeter ?', a: 'Possible. Nous pouvons soit l\'apporter à Emmaüs ou Croix-Rouge, soit l\'évaluer pour valorisation dans notre entrepôt.' },
+  ],
+
+  ctaTitle: 'Un encombrant à évacuer<br/>à <em>Carcassonne ?</em>',
+  ctaSubtitle: 'Décrochez votre téléphone : prix annoncé en 5 minutes, intervention possible dès demain.',
+};
+---
+
+<ServicePageLayout {...data} />
