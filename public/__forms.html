@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head><title>Forms</title></head>
+<head>
+  <meta charset="utf-8">
+  <title>Forms detection - do not visit</title>
+</head>
 <body>
+
+  <!-- Большая форма contact (на странице /contact) -->
   <form name="contact" netlify netlify-honeypot="bot-field" action="/merci" hidden>
+    <input type="hidden" name="form-name" value="contact" />
     <input type="text" name="nom" />
     <input type="email" name="email" />
     <input type="tel" name="telephone" />
@@ -12,11 +18,15 @@
     <textarea name="message"></textarea>
   </form>
 
+  <!-- Мини-форма devis-rapide (в hero на главной) -->
   <form name="devis-rapide" netlify netlify-honeypot="bot-field" action="/merci" hidden>
+    <input type="hidden" name="form-name" value="devis-rapide" />
     <input type="text" name="nom" />
     <input type="tel" name="telephone" />
     <input type="text" name="service" />
     <input type="text" name="urgence" />
+    <textarea name="message"></textarea>
   </form>
+
 </body>
 </html>
