@@ -99,6 +99,9 @@
     position: sticky;
     top: 0;
     z-index: 100;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
     background: var(--bg-dark);
     color: var(--text-on-dark);
     border-bottom: 1px solid var(--line-dark);
@@ -264,7 +267,10 @@
   }
 
   .mobile-menu-inner {
-    padding: 32px 24px 48px;
+    padding-top: 32px;
+    padding-bottom: 48px;
+    padding-left: max(24px, env(safe-area-inset-left));
+    padding-right: max(24px, env(safe-area-inset-right));
     display: flex;
     flex-direction: column;
     gap: 36px;
@@ -338,7 +344,10 @@
     }
 
     .nav-inner {
-      padding: 14px 0;
+      padding-top: 14px;
+      padding-bottom: 14px;
+      padding-left: max(20px, env(safe-area-inset-left));
+      padding-right: max(20px, env(safe-area-inset-right));
       gap: 12px;
     }
 
@@ -362,6 +371,11 @@
   @media (max-width: 480px) {
     .nav-phone {
       display: none;
+    }
+
+    .nav-inner {
+      padding-left: max(16px, env(safe-area-inset-left));
+      padding-right: max(16px, env(safe-area-inset-right));
     }
   }
 </style>
