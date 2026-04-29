@@ -1,0 +1,201 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+
+const pageTitle = 'Merci pour votre demande — Transport Carcassonne';
+const pageDescription = 'Votre demande a bien été reçue. Nous vous répondrons sous 2h en semaine.';
+
+const steps = [
+  {
+    icon: '⏱',
+    delay: 'Sous 2 heures',
+    desc: 'Nous étudions votre demande et préparons une première réponse personnalisée.',
+  },
+  {
+    icon: '📞',
+    delay: 'Nous vous appelons',
+    desc: 'Un membre de notre équipe vous contacte au numéro que vous avez indiqué.',
+  },
+  {
+    icon: '🚐',
+    delay: 'Visite gratuite',
+    desc: 'Si nécessaire, nous organisons une visite gratuite pour établir un devis précis.',
+  },
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+
+  <section class="merci-hero">
+    <div class="container">
+      <div class="hero-inner">
+        <span class="mono-label">Demande reçue</span>
+        <h1 class="display">Merci pour votre <em>demande.</em></h1>
+        <p class="hero-sub">
+          Nous avons bien reçu votre message. Notre équipe vous répondra
+          sous 2 heures en semaine, du lundi au samedi de 8h à 19h.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="next-steps">
+    <div class="container">
+      <p class="section-overline">La suite</p>
+      <h2 class="section-title">Ce qui se passe <em>maintenant</em></h2>
+      <div class="steps-grid">
+        {steps.map((step, i) => (
+          <div class="step-card">
+            <div class="step-num">{String(i + 1).padStart(2, '0')}</div>
+            <div class="step-icon">{step.icon}</div>
+            <h3 class="step-delay">{step.delay}</h3>
+            <p class="step-desc">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Une question <em>urgente ?</em>"
+    subtitle="Vous pouvez aussi nous contacter directement par téléphone ou WhatsApp."
+  />
+
+</BaseLayout>
+
+<style>
+  /* ── Hero ──────────────────────────────── */
+  .merci-hero {
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+    padding: 120px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .merci-hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 50%;
+    height: 120%;
+    background: radial-gradient(circle at center, rgba(168, 112, 63, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    max-width: 780px;
+  }
+
+  .merci-hero .mono-label {
+    color: var(--accent);
+    display: inline-block;
+    margin-bottom: 28px;
+  }
+
+  .merci-hero h1 {
+    font-size: clamp(44px, 6vw, 80px);
+    line-height: 1.04;
+    color: var(--text-on-dark);
+    margin-bottom: 28px;
+  }
+
+  .merci-hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: var(--text-on-dark-muted);
+    line-height: 1.65;
+    max-width: 540px;
+  }
+
+  /* ── Next steps ───────────────────────── */
+  .next-steps {
+    padding: 100px 0 120px;
+    background: var(--bg);
+  }
+
+  .section-overline {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 64px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .step-card {
+    background: var(--bg-card);
+    padding: 48px 40px;
+    position: relative;
+  }
+
+  .step-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--line);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .step-icon {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .step-delay {
+    font-family: 'Instrument Serif', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 14px;
+    line-height: 1.15;
+  }
+
+  .step-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 1024px) {
+    .merci-hero { padding: 80px 0 72px; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .next-steps { padding: 72px 0 80px; }
+  }
+
+  @media (max-width: 600px) {
+    .merci-hero { padding: 56px 0 52px; }
+    .step-card { padding: 36px 28px; }
+    .section-title { margin-bottom: 40px; }
+  }
+</style>

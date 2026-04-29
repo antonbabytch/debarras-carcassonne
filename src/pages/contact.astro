@@ -56,57 +56,70 @@ const pageDescription = 'Contactez Transport Carcassonne pour un devis gratuit d
       <div class="form-grid">
         <div class="form-side">
           <div class="form-block">
-            <div class="form-title">Devis gratuit</div>
-            <div class="form-sub">Réponse sous 2h en semaine, sans engagement.</div>
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              action="/merci"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <p class="hidden" style="display:none">
+                <label>Ne pas remplir si vous êtes humain : <input name="bot-field" /></label>
+              </p>
 
-            <div class="form-group">
-              <label for="name">Nom complet *</label>
-              <input type="text" id="name" placeholder="Prénom et nom" />
-            </div>
-            <div class="form-group">
-              <label for="phone">Téléphone *</label>
-              <input type="tel" id="phone" placeholder="06 XX XX XX XX" />
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" placeholder="votre@email.com" />
-            </div>
-            <div class="form-group">
-              <label for="bien">Type de bien à débarrasser *</label>
-              <select id="bien">
-                <option>Maison</option>
-                <option>Appartement</option>
-                <option>Cave</option>
-                <option>Garage</option>
-                <option>Grenier</option>
-                <option>Local commercial / bureau</option>
-                <option>Enlèvement d'un ou plusieurs objets</option>
-                <option>Autre / je ne sais pas</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="ville">Ville</label>
-              <input type="text" id="ville" placeholder="Carcassonne, Trèbes, Limoux..." />
-            </div>
-            <div class="form-group">
-              <label for="urgence">Quand souhaitez-vous être débarrassé ?</label>
-              <select id="urgence">
-                <option>En urgence (sous 48h)</option>
-                <option>Dans la semaine</option>
-                <option>Dans le mois</option>
-                <option>Pas pressé / je me renseigne</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="situation">Décrivez votre situation</label>
-              <textarea id="situation" rows="4" placeholder="État du logement, contenu approximatif, contraintes d'accès..."></textarea>
-            </div>
+              <div class="form-title">Devis gratuit</div>
+              <div class="form-sub">Réponse sous 2h en semaine, sans engagement.</div>
 
-            <button class="btn btn-primary form-submit">Envoyer ma demande →</button>
-            <div class="form-note">
-              Vos données sont uniquement utilisées pour traiter votre
-              demande, conformément au RGPD.
-            </div>
+              <div class="form-group">
+                <label for="name">Nom complet *</label>
+                <input type="text" id="name" name="nom" placeholder="Prénom et nom" />
+              </div>
+              <div class="form-group">
+                <label for="phone">Téléphone *</label>
+                <input type="tel" id="phone" name="telephone" placeholder="06 XX XX XX XX" />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="votre@email.com" />
+              </div>
+              <div class="form-group">
+                <label for="bien">Type de bien à débarrasser *</label>
+                <select id="bien" name="service">
+                  <option>Maison</option>
+                  <option>Appartement</option>
+                  <option>Cave</option>
+                  <option>Garage</option>
+                  <option>Grenier</option>
+                  <option>Local commercial / bureau</option>
+                  <option>Enlèvement d'un ou plusieurs objets</option>
+                  <option>Autre / je ne sais pas</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="ville">Ville</label>
+                <input type="text" id="ville" name="ville" placeholder="Carcassonne, Trèbes, Limoux..." />
+              </div>
+              <div class="form-group">
+                <label for="urgence">Quand souhaitez-vous être débarrassé ?</label>
+                <select id="urgence" name="urgence">
+                  <option>En urgence (sous 48h)</option>
+                  <option>Dans la semaine</option>
+                  <option>Dans le mois</option>
+                  <option>Pas pressé / je me renseigne</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="situation">Décrivez votre situation</label>
+                <textarea id="situation" name="message" rows="4" placeholder="État du logement, contenu approximatif, contraintes d'accès..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary form-submit">Envoyer ma demande →</button>
+              <div class="form-note">
+                Vos données sont uniquement utilisées pour traiter votre
+                demande, conformément au RGPD.
+              </div>
+            </form>
           </div>
         </div>
 
