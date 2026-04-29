@@ -73,11 +73,20 @@ const pageDescription = 'Contactez Transport Carcassonne pour un devis gratuit d
 
               <div class="form-group">
                 <label for="name">Nom complet *</label>
-                <input type="text" id="name" name="nom" placeholder="Prénom et nom" />
+                <input type="text" id="name" name="nom" placeholder="Prénom et nom" required />
               </div>
               <div class="form-group">
                 <label for="phone">Téléphone *</label>
-                <input type="tel" id="phone" name="telephone" placeholder="06 XX XX XX XX" />
+                <input
+                  type="tel"
+                  id="phone"
+                  name="telephone"
+                  placeholder="06 XX XX XX XX"
+                  inputmode="tel"
+                  pattern="[0-9\s\+\.\-\(\)]{8,20}"
+                  title="Format attendu : 06 12 34 56 78 ou +33 6 12 34 56 78"
+                  required
+                />
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
@@ -85,7 +94,7 @@ const pageDescription = 'Contactez Transport Carcassonne pour un devis gratuit d
               </div>
               <div class="form-group">
                 <label for="bien">Type de bien à débarrasser *</label>
-                <select id="bien" name="service">
+                <select id="bien" name="service" required>
                   <option>Maison</option>
                   <option>Appartement</option>
                   <option>Cave</option>
@@ -102,7 +111,7 @@ const pageDescription = 'Contactez Transport Carcassonne pour un devis gratuit d
               </div>
               <div class="form-group">
                 <label for="urgence">Quand souhaitez-vous être débarrassé ?</label>
-                <select id="urgence" name="urgence">
+                <select id="urgence" name="urgence" required>
                   <option>En urgence (sous 48h)</option>
                   <option>Dans la semaine</option>
                   <option>Dans le mois</option>
@@ -111,7 +120,7 @@ const pageDescription = 'Contactez Transport Carcassonne pour un devis gratuit d
               </div>
               <div class="form-group">
                 <label for="situation">Décrivez votre situation</label>
-                <textarea id="situation" name="message" rows="4" placeholder="État du logement, contenu approximatif, contraintes d'accès..."></textarea>
+                <textarea id="situation" name="message" rows="4" placeholder="État du logement, contenu approximatif, contraintes d'accès..." required></textarea>
               </div>
 
               <button type="submit" class="btn btn-primary form-submit">Envoyer ma demande →</button>
