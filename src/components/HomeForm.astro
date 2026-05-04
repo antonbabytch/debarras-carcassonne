@@ -1,0 +1,204 @@
+---
+// src/components/HomeForm.astro
+---
+
+<form
+  name="devis-gratuit"
+  method="POST"
+  action="/merci"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class="hf"
+>
+  <input type="hidden" name="form-name" value="devis-gratuit" />
+  <p class="hf__honeypot"><label>Ne pas remplir si vous êtes humain : <input name="bot-field" /></label></p>
+
+  <h2 class="hf__title">Devis gratuit</h2>
+  <p class="hf__subtitle">Réponse sous 2h en semaine, sans engagement.</p>
+
+  <div class="hf__field">
+    <label for="hf-nom" class="hf__label">Votre nom</label>
+    <input id="hf-nom" name="nom" type="text" required class="hf__input" placeholder="Votre nom" />
+  </div>
+
+  <div class="hf__field">
+    <label for="hf-tel" class="hf__label">Téléphone</label>
+    <input id="hf-tel" name="telephone" type="tel" required class="hf__input" placeholder="06 12 34 56 78" />
+  </div>
+
+  <div class="hf__row">
+    <div class="hf__field">
+      <label for="hf-service" class="hf__label">Type de bien</label>
+      <select id="hf-service" name="service" required class="hf__input">
+        <option value="">Sélectionner</option>
+        <option value="Maison">Maison</option>
+        <option value="Appartement">Appartement</option>
+        <option value="Cave / Garage / Grenier">Cave / Garage / Grenier</option>
+        <option value="Local commercial">Local commercial</option>
+        <option value="Quelques objets seulement">Quelques objets seulement</option>
+        <option value="Je ne sais pas">Je ne sais pas, je veux un conseil</option>
+      </select>
+    </div>
+
+    <div class="hf__field">
+      <label for="hf-urgence" class="hf__label">Délai</label>
+      <select id="hf-urgence" name="urgence" required class="hf__input">
+        <option value="">Sélectionner</option>
+        <option value="Urgent — sous 1 ou 2 jours">Urgent — sous 1 ou 2 jours</option>
+        <option value="Cette semaine">Cette semaine</option>
+        <option value="Dans le mois">Dans le mois</option>
+        <option value="Pas pressé">Pas pressé, je me renseigne</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="hf__field">
+    <label for="hf-message" class="hf__label">Précisions (optionnel)</label>
+    <textarea id="hf-message" name="message" rows="3" class="hf__input hf__textarea" placeholder="Décrivez votre situation..."></textarea>
+  </div>
+
+  <button type="submit" class="hf__submit">Envoyer ma demande →</button>
+
+  <p class="hf__rgpd">Vos données sont uniquement utilisées pour traiter votre demande, conformément au RGPD.</p>
+</form>
+
+<style>
+  .hf {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 32px;
+    background: #1a1a1a;
+    border: 1px solid rgba(196, 134, 88, 0.15);
+    border-radius: 16px;
+    color: #f5f1ec;
+    box-sizing: border-box;
+  }
+
+  .hf *, .hf *::before, .hf *::after {
+    box-sizing: border-box;
+  }
+
+  .hf__honeypot {
+    display: none !important;
+  }
+
+  .hf__title {
+    font-family: inherit;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: #f5f1ec;
+  }
+
+  .hf__subtitle {
+    font-size: 15px;
+    margin: 0 0 24px;
+    color: rgba(245, 241, 236, 0.7);
+  }
+
+  .hf__field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+
+  .hf__label {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: rgba(245, 241, 236, 0.85);
+  }
+
+  .hf__input {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-family: inherit;
+    color: #1a1a1a;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .hf__input:focus {
+    border-color: #c48658;
+    box-shadow: 0 0 0 3px rgba(196, 134, 88, 0.15);
+  }
+
+  .hf__textarea {
+    min-height: 88px;
+    resize: vertical;
+    line-height: 1.4;
+  }
+
+  select.hf__input {
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23333' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+  }
+
+  .hf__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 640px) {
+    .hf__row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .hf__submit {
+    display: block;
+    width: 100%;
+    min-height: 52px;
+    margin-top: 8px;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    color: #1a1a1a;
+    background: #c48658;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+  }
+
+  .hf__submit:hover {
+    background: #b37548;
+  }
+
+  .hf__submit:active {
+    transform: scale(0.98);
+  }
+
+  .hf__rgpd {
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+    margin: 16px 0 0;
+    color: rgba(245, 241, 236, 0.5);
+  }
+
+  @media (max-width: 640px) {
+    .hf {
+      padding: 24px 20px;
+      border-radius: 12px;
+    }
+    .hf__title {
+      font-size: 24px;
+    }
+  }
+</style>

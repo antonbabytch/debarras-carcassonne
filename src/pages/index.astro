@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
+import HomeForm from '../components/HomeForm.astro';
 
 const pageTitle = 'Débarras et Vide Maison à Carcassonne | Transport Carcassonne';
 const pageDescription = 'Entreprise de débarras et vide maison à Carcassonne et dans l\'Aude. Devis gratuit sous 2h, prix fixe, valorisation de vos objets.';
@@ -159,8 +160,8 @@ const marquee = [
   <section class="hero">
     <div class="container hero-inner">
       <div class="overline mono-label">Entreprise de débarras dans l'Aude</div>
-      <div class="hero-grid">
-        <div>
+      <div class="hero__container">
+        <div class="hero__text">
           <h1 class="display hero-title">
             Débarras et<br/>
             vide maison à<br/>
@@ -176,27 +177,27 @@ const marquee = [
             <a href="#services" class="btn btn-outline-light btn-large">Nos services</a>
           </div>
         </div>
-        <div class="hero-side">
-          <div class="hero-side-photo">
-            <PhotoPlaceholder
-              aspectRatio="4/3"
-              label="Photo équipe"
-              description="L'équipe de 3 professionnels devant le fourgon"
-              variant="dark"
-            />
-          </div>
-          <div class="hero-side-stat">
-            <div class="stat-num">2<sup>h</sup></div>
-            <div class="stat-label">Réponse à votre demande<br/>en semaine</div>
-          </div>
-          <div class="hero-side-stat">
-            <div class="stat-num">5<sup>ans</sup></div>
-            <div class="stat-label">D'expérience dans le débarras<br/>et le vide maison</div>
-          </div>
-          <div class="hero-side-stat">
-            <div class="stat-num">160<sup>m³</sup></div>
-            <div class="stat-label">D'entrepôt pour valoriser<br/>vos biens</div>
-          </div>
+        <div class="hero__photo">
+          <PhotoPlaceholder
+            aspectRatio="4/3"
+            label="Photo équipe"
+            description="L'équipe de 3 professionnels devant le fourgon"
+            variant="dark"
+          />
+        </div>
+      </div>
+      <div class="hero__stats">
+        <div class="hero-side-stat">
+          <div class="stat-num">2<sup>h</sup></div>
+          <div class="stat-label">Réponse à votre demande<br/>en semaine</div>
+        </div>
+        <div class="hero-side-stat">
+          <div class="stat-num">5<sup>ans</sup></div>
+          <div class="stat-label">D'expérience dans le débarras<br/>et le vide maison</div>
+        </div>
+        <div class="hero-side-stat">
+          <div class="stat-num">160<sup>m³</sup></div>
+          <div class="stat-label">D'entrepôt pour valoriser<br/>vos biens</div>
         </div>
       </div>
     </div>
@@ -468,47 +469,7 @@ const marquee = [
           </div>
         </div>
 
-        <form
-          class="form"
-          name="devis-gratuit"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          action="/merci"
-        >
-          <input type="hidden" name="form-name" value="devis-gratuit" />
-          <p hidden><label>Не заполнять: <input name="bot-field" /></label></p>
-
-          <div class="form-title">Devis gratuit</div>
-          <div class="form-sub">Réponse sous 2h en semaine, sans engagement.</div>
-
-          <input type="text" name="nom" placeholder="Votre nom" required />
-          <input type="tel" name="telephone" placeholder="Téléphone" required />
-
-          <select name="service" required>
-            <option value="">Type de débarras</option>
-            <option value="Maison">Maison</option>
-            <option value="Appartement">Appartement</option>
-            <option value="Garage">Garage</option>
-            <option value="Cave">Cave</option>
-            <option value="Grenier">Grenier</option>
-          </select>
-
-          <select name="urgence" required>
-            <option value="">Délai</option>
-            <option value="En urgence (sous 48h)">En urgence (sous 48h)</option>
-            <option value="Dans la semaine">Dans la semaine</option>
-            <option value="Pas urgent">Pas urgent</option>
-          </select>
-
-          <textarea name="message" placeholder="Précisions (optionnel)"></textarea>
-
-          <button type="submit" class="btn btn-primary">Devis gratuit</button>
-          <div class="form-note">
-            Vos données sont uniquement utilisées pour traiter votre
-            demande, conformément au RGPD.
-          </div>
-        </form>
+        <HomeForm />
       </div>
     </div>
   </section>
@@ -550,12 +511,27 @@ const marquee = [
     height: 1px;
     background: var(--accent);
   }
-  .hero-grid {
+  .hero__container {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 80px;
+    grid-template-columns: 1fr;
+    gap: 32px;
     align-items: start;
-    padding-bottom: 100px;
+    padding-bottom: 40px;
+  }
+  @media (min-width: 1024px) {
+    .hero__container {
+      grid-template-columns: 1.3fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+  }
+  .hero__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    border-top: 1px solid var(--line-dark);
+    padding-top: 32px;
+    padding-bottom: 64px;
   }
   .hero-title {
     font-size: clamp(48px, 7.2vw, 104px);
@@ -579,18 +555,6 @@ const marquee = [
     align-items: center;
     flex-wrap: wrap;
   }
-  .hero-side {
-    border-left: 1px solid var(--line-dark);
-    padding-left: 40px;
-    padding-bottom: 16px;
-  }
-  .hero-side-photo {
-    margin-bottom: 32px;
-  }
-  .hero-side-stat {
-    margin-bottom: 36px;
-  }
-  .hero-side-stat:last-child { margin-bottom: 0; }
   .stat-num {
     font-family: 'Instrument Serif', serif;
     font-size: 64px;
@@ -640,24 +604,13 @@ const marquee = [
     to { transform: translateX(-50%); }
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1023px) {
     .hero { padding: 56px 0 0; }
-    .hero-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
-      padding-bottom: 56px;
-    }
-    .hero-side {
-      border-left: none;
-      padding-left: 0;
-      border-top: 1px solid var(--line-dark);
-      padding-top: 32px;
-      display: grid;
+    .hero__stats {
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
     .hero-side-stat {
-      margin-bottom: 0;
       padding-right: 12px;
       border-right: 1px solid var(--line-dark);
     }
@@ -665,21 +618,30 @@ const marquee = [
       border-right: none;
       padding-right: 0;
     }
-    .stat-num {
-      font-size: 40px;
-      margin-bottom: 6px;
-    }
+    .stat-num { font-size: 40px; margin-bottom: 6px; }
     .stat-num sup { font-size: 16px; }
     .stat-label { font-size: 11px; line-height: 1.4; }
     .hero-actions .btn { flex: 1; justify-content: center; }
   }
 
-  @media (max-width: 480px) {
-    .hero-side { gap: 10px; }
+  @media (max-width: 640px) {
+    .hero__stats {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .hero-side-stat {
+      padding-right: 0;
+      border-right: none;
+      border-bottom: 1px solid var(--line-dark);
+      padding-bottom: 16px;
+    }
+    .hero-side-stat:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
     .stat-num { font-size: 32px; }
     .stat-num sup { font-size: 13px; }
     .stat-label { font-size: 10px; }
-    .hero-side-stat { padding-right: 8px; }
   }
 
   /* ============ SECTIONS ============ */
@@ -1183,23 +1145,44 @@ const marquee = [
     margin-bottom: 10px;
     font-weight: 500;
   }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 520px) {
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+  }
   .form-group input,
-  .form-group select {
+  .form-group select,
+  .form-group textarea {
     width: 100%;
-    padding: 14px 16px;
+    min-height: 48px;
+    padding: 12px 16px;
     background: transparent;
     border: 1px solid var(--line-dark);
     border-radius: 4px;
     color: var(--text-on-dark);
     font-family: inherit;
-    font-size: 15px;
+    font-size: 16px;
     transition: border-color 0.2s;
+    box-sizing: border-box;
   }
-  .form-group input::placeholder {
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.5;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
     color: rgba(156, 163, 172, 0.5);
   }
   .form-group input:focus,
-  .form-group select:focus {
+  .form-group select:focus,
+  .form-group textarea:focus {
     outline: none;
     border-color: var(--accent);
   }
@@ -1211,7 +1194,7 @@ const marquee = [
     width: 100%;
     margin-top: 12px;
     padding: 18px;
-    font-size: 15px;
+    font-size: 16px;
     justify-content: center;
   }
   .form-note {

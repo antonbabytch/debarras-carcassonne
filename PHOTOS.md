@@ -1,117 +1,55 @@
-# Checklist photos — Transport Carcassonne
+# Liste des photos à fournir
 
-Remplacer chaque `PhotoPlaceholder` par une vraie photo en modifiant le composant concerné.
-Pour chaque emplacement : supprimer le `<PhotoPlaceholder .../>` et le remplacer par `<img src="/photos/nom-du-fichier.jpg" alt="..." loading="lazy" />`.
+Toutes les photos doivent être placées dans `src/assets/photos/` avec EXACTEMENT les noms ci-dessous (en minuscules, avec tirets).
 
----
+| # | Fichier | Format | Min. taille | Sujet |
+|---|---------|--------|-------------|-------|
+| 1 | equipe-hero.jpg | 4/3 | 1600×1200 | Équipe de 3 personnes devant le fourgon |
+| 2 | equipe-panoramique.jpg | 21/9 | 1920×823 | Même équipe, format large |
+| 3 | entrepot-interieur.jpg | 21/9 | 1920×823 | Intérieur entrepôt 160 m³ |
+| 4 | fourgon-12m3.jpg | 16/9 | 1920×1080 | Fourgon 12 m³ extérieur |
+| 5 | fourgon-20m3.jpg | 16/9 | 1920×1080 | Fourgon 20 m³ extérieur |
+| 6 | intervention-avant.jpg | 4/3 | 1600×1200 | Pièce encombrée AVANT |
+| 7 | intervention-apres.jpg | 4/3 | 1600×1200 | Même pièce vide APRÈS |
+| 8 | equipe-action.jpg | 4/3 | 1600×1200 | Équipe en train de charger |
+| 9 | tri-entrepot-square.jpg | 1/1 | 1200×1200 | Tri en entrepôt (carré) |
+| 10 | mobilier-valorise-square.jpg | 1/1 | 1200×1200 | Antiquités prêtes à revendre |
 
-## Page d'accueil (`src/pages/index.astro`)
+## Format technique
 
-- [ ] **Hero — équipe** (`label="Photo équipe"`)
-  - Emplacement : `.hero-side-photo`
-  - Format suggéré : 4/3, horizontal
-  - Contenu : L'équipe de 3 professionnels devant le fourgon
+- JPG, qualité 85-90 %
+- Compressées (TinyPNG / Squoosh)
+- Noms exacts en minuscules avec tirets
 
-- [ ] **Engagement — entrepôt** (`label="Entrepôt 160 m³"`)
-  - Emplacement : `.eng-photo-row`
-  - Format suggéré : panoramique (21/9)
-  - Contenu : Vue de l'entrepôt de valorisation à Carcassonne
+## Mapping placeholder → photo
 
-- [ ] **En images — Avant/Après** (`label="Avant / Après"`)
-  - Emplacement : `.photo-grid-main`
-  - Format suggéré : 4/3
-  - Contenu : Maison complète vidée — Carcassonne centre
+- Page d'accueil :
+  - Hero (4/3) → equipe-hero.jpg
+  - Notre métier / Atout (21/9) → entrepot-interieur.jpg
+  - Galerie «En images» :
+    - Avant/après gauche → intervention-avant.jpg
+    - Avant/après droite → intervention-apres.jpg
+    - Carré 1 → tri-entrepot-square.jpg
+    - Carré 2 → mobilier-valorise-square.jpg
 
-- [ ] **En images — Fourgon** (`label="Fourgon 20 m³"`)
-  - Emplacement : `.photo-grid-side` (1/2)
-  - Format suggéré : carré (1/1)
-  - Contenu : Chargement d'un appartement T4
+- /a-propos :
+  - Hero panoramique (21/9) → equipe-panoramique.jpg
+  - Fourgon 12 m³ → fourgon-12m3.jpg
+  - Fourgon 20 m³ → fourgon-20m3.jpg
+  - Entrepôt (21/9) → entrepot-interieur.jpg
 
-- [ ] **En images — Tri** (`label="Tri & valorisation"`)
-  - Emplacement : `.photo-grid-side` (2/2)
-  - Format suggéré : carré (1/1)
-  - Contenu : Mobilier ancien sélectionné pour revente
+- ServicePageLayout (10 pages) :
+  - Hero intervention (21/9) → equipe-panoramique.jpg
+  - Triptyque avant → intervention-avant.jpg
+  - Triptyque pendant → equipe-action.jpg
+  - Triptyque après → intervention-apres.jpg
 
----
+- CityPageLayout (5 pages) :
+  - Hero ville (16/9) → equipe-panoramique.jpg (fallback générique)
+  - Quartiers (2× 4/3) → fourgon-12m3.jpg, equipe-action.jpg (fallback)
 
-## Page À Propos (`src/pages/a-propos.astro`)
+## Workflow d'ajout d'une photo
 
-- [ ] **Hero panoramique** (`label="Photo équipe & fourgons"`)
-  - Emplacement : `.hero-photo-section`
-  - Format suggéré : 21/9
-  - Contenu : L'équipe de Transport Carcassonne devant les deux fourgons
-
-- [ ] **Histoire — Fourgons** (`label="Les fourgons"`)
-  - Emplacement : `.story-photo-grid` (1/2)
-  - Format suggéré : 16/9
-  - Contenu : Fourgon 12 m³ et fourgon 20 m³
-
-- [ ] **Histoire — Équipe** (`label="L'équipe"`)
-  - Emplacement : `.story-photo-grid` (2/2)
-  - Format suggéré : 16/9
-  - Contenu : Les 3 professionnels de Transport Carcassonne
-
-- [ ] **Atout — Entrepôt** (`label="Entrepôt 160 m³"`)
-  - Emplacement : `.atout-photo`
-  - Format suggéré : 21/9
-  - Contenu : Notre entrepôt de valorisation à Carcassonne
-
----
-
-## Pages villes (`src/layouts/CityPageLayout.astro`)
-*S'applique à : Carcassonne, Trèbes, Limoux, Castelnaudary, Narbonne*
-
-- [ ] **Photo de la ville** (`label="Photo ville"`)
-  - Emplacement : `.city-hero-photo` (section, après le hero)
-  - Format suggéré : 16/9
-  - Contenu : Vue de la ville ou ruelle typique
-  - *À personnaliser par ville*
-
-- [ ] **Quartier — Photo 1** (`label="Quartier — Photo 1"`)
-  - Emplacement : `.quartiers-photos` (1/2)
-  - Format suggéré : 4/3
-  - Contenu : Vue d'un quartier typique de la ville
-  - *À personnaliser par ville*
-
-- [ ] **Quartier — Photo 2** (`label="Quartier — Photo 2"`)
-  - Emplacement : `.quartiers-photos` (2/2)
-  - Format suggéré : 4/3
-  - Contenu : Maison avant débarras dans ce quartier
-  - *À personnaliser par ville*
-
----
-
-## Pages services (`src/layouts/ServicePageLayout.astro`)
-*S'applique à : débarras maison, vide maison, appartement, succession, cave, garage, grenier, encombrants, local commercial, syndrome de Diogène*
-
-- [ ] **En intervention** (`label="En intervention"`)
-  - Emplacement : `.service-hero-photo`
-  - Format suggéré : 21/9
-  - Contenu : Notre équipe lors d'un débarras complet
-  - *Peut être la même photo pour tous les services, ou personnalisée*
-
-- [ ] **Avant** (`label="Avant"`)
-  - Emplacement : `.avant-apres-photos` (1/3)
-  - Format suggéré : 4/3
-  - Contenu : État du logement avant l'intervention
-
-- [ ] **Pendant** (`label="Pendant"`)
-  - Emplacement : `.avant-apres-photos` (2/3)
-  - Format suggéré : 4/3
-  - Contenu : L'équipe au travail
-
-- [ ] **Après** (`label="Après"`)
-  - Emplacement : `.avant-apres-photos` (3/3)
-  - Format suggéré : 4/3
-  - Contenu : Logement vidé et nettoyé
-
----
-
-## Recommandations techniques
-
-- **Format** : JPEG ou WebP, qualité 80-85%
-- **Largeur max** : 1600px (les photos 21/9 peuvent aller jusqu'à 1920px)
-- **Dossier** : Placer les photos dans `public/photos/`
-- **Nommage** : `equipe-fourgon.jpg`, `entrepot-160m3.jpg`, `carcassonne-ville.jpg`, etc.
-- **Balise alt** : toujours descriptive pour le SEO et l'accessibilité
-- **Lazy loading** : utiliser `loading="lazy"` sur toutes les images sauf celles visibles sans défilement
+1. Placer le fichier dans src/assets/photos/ avec le nom exact
+2. Demander à Claude Code : «Connecte les nouvelles photos selon PHOTOS.md»
+3. Le composant remplacera automatiquement les placeholders correspondants
