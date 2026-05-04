@@ -5,6 +5,7 @@
 import BaseLayout from './BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CTASection from '../components/CTASection.astro';
+import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
 
 export interface Props {
   // SEO
@@ -84,6 +85,18 @@ const {
     subtitle={subtitle}
   />
 
+  <!-- HERO PHOTO -->
+  <section class="city-hero-photo">
+    <div class="container">
+      <PhotoPlaceholder
+        aspectRatio="16/9"
+        label="Photo ville"
+        description={`Débarras à ${overline} — Transport Carcassonne`}
+        variant="light"
+      />
+    </div>
+  </section>
+
   <!-- CITY INFO BANNER -->
   <section class="city-info-banner">
     <div class="container">
@@ -152,6 +165,20 @@ const {
             <p>{q.description}</p>
           </div>
         ))}
+      </div>
+      <div class="quartiers-photos">
+        <PhotoPlaceholder
+          aspectRatio="4/3"
+          label="Quartier — Photo 1"
+          description="Vue d'un quartier typique de la ville"
+          variant="light"
+        />
+        <PhotoPlaceholder
+          aspectRatio="4/3"
+          label="Quartier — Photo 2"
+          description="Maison avant débarras"
+          variant="light"
+        />
       </div>
     </div>
   </section>
@@ -237,6 +264,12 @@ const {
 </BaseLayout>
 
 <style>
+  /* CITY HERO PHOTO */
+  .city-hero-photo {
+    background: var(--bg);
+    padding: 0 0 80px;
+  }
+
   /* CITY INFO BANNER */
   .city-info-banner {
     background: var(--bg-soft);
@@ -406,9 +439,16 @@ const {
     color: var(--text-muted);
     line-height: 1.6;
   }
+  .quartiers-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 48px;
+  }
   @media (max-width: 900px) {
     .city-quartiers { padding: 64px 0; }
     .quartiers-grid { grid-template-columns: 1fr; }
+    .quartiers-photos { grid-template-columns: 1fr; }
   }
 
   /* AVANTAGES */

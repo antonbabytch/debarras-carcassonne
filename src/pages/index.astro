@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
 
 const pageTitle = 'Débarras et Vide Maison à Carcassonne | Transport Carcassonne';
 const pageDescription = 'Entreprise de débarras et vide maison à Carcassonne et dans l\'Aude. Devis gratuit sous 2h, prix fixe, valorisation de vos objets.';
@@ -176,6 +177,14 @@ const marquee = [
           </div>
         </div>
         <div class="hero-side">
+          <div class="hero-side-photo">
+            <PhotoPlaceholder
+              aspectRatio="4/3"
+              label="Photo équipe"
+              description="L'équipe de 3 professionnels devant le fourgon"
+              variant="dark"
+            />
+          </div>
           <div class="hero-side-stat">
             <div class="stat-num">2<sup>h</sup></div>
             <div class="stat-label">Réponse à votre demande<br/>en semaine</div>
@@ -248,6 +257,14 @@ const marquee = [
           </div>
         </div>
       </div>
+      <div class="eng-photo-row">
+        <PhotoPlaceholder
+          aspectRatio="21/9"
+          label="Entrepôt 160 m³"
+          description="Vue de l'entrepôt de valorisation à Carcassonne"
+          variant="light"
+        />
+      </div>
     </div>
   </section>
 
@@ -278,6 +295,43 @@ const marquee = [
           <p>Local commercial, syndrome de Diogène, situations complexes : en cinq ans, nous avons vu presque tout. Nous trouverons une solution.</p>
           <span class="service-link">Nous contacter</span>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EN IMAGES ============ -->
+  <section class="en-images">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="display">Le débarras en <em>images.</em></h2>
+        <p>
+          Maisons, appartements, caves, greniers : voici quelques exemples
+          de nos interventions dans la région de Carcassonne.
+        </p>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-grid-main">
+          <PhotoPlaceholder
+            aspectRatio="4/3"
+            label="Avant / Après"
+            description="Maison complète vidée — Carcassonne centre"
+            variant="light"
+          />
+        </div>
+        <div class="photo-grid-side">
+          <PhotoPlaceholder
+            aspectRatio="1/1"
+            label="Fourgon 20 m³"
+            description="Chargement d'un appartement T4"
+            variant="light"
+          />
+          <PhotoPlaceholder
+            aspectRatio="1/1"
+            label="Tri & valorisation"
+            description="Mobilier ancien sélectionné pour revente"
+            variant="light"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -414,51 +468,42 @@ const marquee = [
           </div>
         </div>
 
-        <form class="form" name="devis-rapide" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci">
-          <input type="hidden" name="form-name" value="devis-rapide" />
-          <p style="display:none;">
-            <label>Ne pas remplir si vous êtes humain : <input name="bot-field" /></label>
-          </p>
+        <form
+          class="form"
+          name="devis-gratuit"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="/merci"
+        >
+          <input type="hidden" name="form-name" value="devis-gratuit" />
+          <p hidden><label>Не заполнять: <input name="bot-field" /></label></p>
+
           <div class="form-title">Devis gratuit</div>
           <div class="form-sub">Réponse sous 2h en semaine, sans engagement.</div>
-          <div class="form-group">
-            <label for="name">Votre nom</label>
-            <input type="text" id="name" name="nom" placeholder="Prénom et nom" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">Téléphone</label>
-            <input
-              type="tel"
-              id="phone"
-              name="telephone"
-              placeholder="06 12 34 56 78"
-              inputmode="tel"
-              pattern="^(\+33\s?|0)[1-9]([\s\.\-]?\d{2}){4}$"
-              title="Format attendu : 06 12 34 56 78 ou +33 6 12 34 56 78"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="object">Type de bien</label>
-            <select id="object" name="service">
-              <option>Maison</option>
-              <option>Appartement</option>
-              <option>Cave / Garage / Grenier</option>
-              <option>Local commercial</option>
-              <option>Quelques objets seulement</option>
-              <option>Je ne sais pas, je veux un conseil</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="when">Quand ?</label>
-            <select id="when" name="urgence">
-              <option>Urgent — sous 1 ou 2 jours</option>
-              <option>Cette semaine</option>
-              <option>Dans le mois</option>
-              <option>Pas pressé, je me renseigne</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary">Envoyer ma demande →</button>
+
+          <input type="text" name="nom" placeholder="Votre nom" required />
+          <input type="tel" name="telephone" placeholder="Téléphone" required />
+
+          <select name="service" required>
+            <option value="">Type de débarras</option>
+            <option value="Maison">Maison</option>
+            <option value="Appartement">Appartement</option>
+            <option value="Garage">Garage</option>
+            <option value="Cave">Cave</option>
+            <option value="Grenier">Grenier</option>
+          </select>
+
+          <select name="urgence" required>
+            <option value="">Délai</option>
+            <option value="En urgence (sous 48h)">En urgence (sous 48h)</option>
+            <option value="Dans la semaine">Dans la semaine</option>
+            <option value="Pas urgent">Pas urgent</option>
+          </select>
+
+          <textarea name="message" placeholder="Précisions (optionnel)"></textarea>
+
+          <button type="submit" class="btn btn-primary">Devis gratuit</button>
           <div class="form-note">
             Vos données sont uniquement utilisées pour traiter votre
             demande, conformément au RGPD.
@@ -509,7 +554,7 @@ const marquee = [
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 80px;
-    align-items: end;
+    align-items: start;
     padding-bottom: 100px;
   }
   .hero-title {
@@ -538,6 +583,9 @@ const marquee = [
     border-left: 1px solid var(--line-dark);
     padding-left: 40px;
     padding-bottom: 16px;
+  }
+  .hero-side-photo {
+    margin-bottom: 32px;
   }
   .hero-side-stat {
     margin-bottom: 36px;
@@ -717,9 +765,13 @@ const marquee = [
     text-align: right;
     line-height: 1.4;
   }
+  .eng-photo-row {
+    margin-top: 64px;
+  }
   @media (max-width: 900px) {
     .eng-grid { grid-template-columns: 1fr; gap: 40px; }
     .eng-stats { padding: 32px; }
+    .eng-photo-row { margin-top: 40px; }
   }
 
   /* ============ SERVICES ============ */
@@ -802,6 +854,26 @@ const marquee = [
   @media (max-width: 900px) {
     .services-grid { grid-template-columns: 1fr; }
     .service { min-height: auto; padding: 32px 24px; }
+  }
+
+  /* ============ EN IMAGES ============ */
+  .en-images { background: var(--bg-soft); }
+  .photo-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 16px;
+  }
+  .photo-grid-side {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 900px) {
+    .photo-grid { grid-template-columns: 1fr; }
+    .photo-grid-side { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+  }
+  @media (max-width: 560px) {
+    .photo-grid-side { grid-template-columns: 1fr; }
   }
 
   /* ============ FORMULES ============ */

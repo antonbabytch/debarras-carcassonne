@@ -1,0 +1,83 @@
+---
+interface Props {
+  aspectRatio?: '16/9' | '4/3' | '1/1' | '3/4' | '21/9';
+  label: string;
+  description?: string;
+  variant?: 'dark' | 'light';
+  class?: string;
+}
+
+const {
+  aspectRatio = '4/3',
+  label,
+  description,
+  variant = 'dark',
+  class: className = ''
+} = Astro.props;
+---
+
+<div
+  class={`photo-placeholder photo-placeholder--${variant} ${className}`}
+  style={`aspect-ratio: ${aspectRatio};`}
+  data-photo-slot={label}
+>
+  <div class="photo-placeholder__inner">
+    <svg class="photo-placeholder__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <circle cx="8.5" cy="8.5" r="1.5" />
+      <path d="M21 15l-5-5L5 21" />
+    </svg>
+    <div class="photo-placeholder__text">
+      <div class="photo-placeholder__label">{label}</div>
+      {description && <div class="photo-placeholder__desc">{description}</div>}
+    </div>
+  </div>
+</div>
+
+<style>
+  .photo-placeholder {
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+  }
+  .photo-placeholder--dark {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border: 1px dashed rgba(196, 134, 88, 0.3);
+    color: rgba(196, 134, 88, 0.7);
+  }
+  .photo-placeholder--light {
+    background: linear-gradient(135deg, #f5f1ec 0%, #ebe4dc 100%);
+    border: 1px dashed rgba(80, 60, 40, 0.2);
+    color: rgba(80, 60, 40, 0.6);
+  }
+  .photo-placeholder__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 24px;
+    text-align: center;
+  }
+  .photo-placeholder__icon {
+    width: 40px;
+    height: 40px;
+    opacity: 0.6;
+  }
+  .photo-placeholder__label {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .photo-placeholder__desc {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 4px;
+    max-width: 280px;
+  }
+</style>

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CTASection from '../components/CTASection.astro';
+import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
 
 const pageTitle = 'À Propos | Transport Carcassonne — Entreprise de Débarras dans l\'Aude';
 const pageDescription = 'Découvrez Transport Carcassonne : équipe locale de 3 professionnels, 5 ans d\'expérience dans le débarras et le vide maison. SIRET 104 166 780.';
@@ -78,6 +79,18 @@ const engagements = [
     subtitle="Une équipe locale, basée à Carcassonne, qui aborde le débarras et le vide maison comme un service humain, pas comme une simple opération logistique. Notre métier ne se résume pas à charger des fourgons : il consiste à accompagner des familles dans des moments importants de leur vie."
   />
 
+  <!-- Photo panoramique hero -->
+  <section class="hero-photo-section">
+    <div class="container">
+      <PhotoPlaceholder
+        aspectRatio="21/9"
+        label="Photo équipe & fourgons"
+        description="L'équipe de Transport Carcassonne devant les deux fourgons"
+        variant="light"
+      />
+    </div>
+  </section>
+
   <!-- История -->
   <section class="story-section">
     <div class="container">
@@ -120,6 +133,22 @@ const engagements = [
             <span class="story-num">5</span>
             <span class="story-label">Années<br/>d'expérience</span>
           </div>
+        </div>
+      </div>
+      <div class="story-photo-row">
+        <div class="story-photo-grid">
+          <PhotoPlaceholder
+            aspectRatio="16/9"
+            label="Les fourgons"
+            description="Fourgon 12 m³ et fourgon 20 m³ — pour tous les volumes"
+            variant="light"
+          />
+          <PhotoPlaceholder
+            aspectRatio="16/9"
+            label="L'équipe"
+            description="Les 3 professionnels de Transport Carcassonne"
+            variant="light"
+          />
         </div>
       </div>
     </div>
@@ -177,6 +206,14 @@ const engagements = [
           partenaires nous permettent de faire ce que la plupart des
           concurrents ne savent pas faire : valoriser vos biens.
         </p>
+        <div class="atout-photo">
+          <PhotoPlaceholder
+            aspectRatio="21/9"
+            label="Entrepôt 160 m³"
+            description="Notre entrepôt de valorisation à Carcassonne"
+            variant="dark"
+          />
+        </div>
         <div class="atout-grid">
           <div class="atout-result">
             <span class="result-num">— 20 à 50 %</span>
@@ -262,6 +299,12 @@ const engagements = [
 </BaseLayout>
 
 <style>
+  /* HERO PHOTO */
+  .hero-photo-section {
+    padding: 0 0 80px;
+    background: var(--bg);
+  }
+
   /* STORY */
   .story-section {
     padding: 100px 0;
@@ -317,9 +360,19 @@ const engagements = [
     color: var(--text-on-dark-muted);
     line-height: 1.4;
   }
+  .story-photo-row {
+    margin-top: 64px;
+  }
+  .story-photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
   @media (max-width: 900px) {
     .story-grid { grid-template-columns: 1fr; gap: 32px; }
     .story-stats { padding: 28px; }
+    .story-photo-row { margin-top: 40px; }
+    .story-photo-grid { grid-template-columns: 1fr; }
   }
 
   /* SECTION HEADER */
@@ -465,6 +518,10 @@ const engagements = [
     color: var(--text-on-dark-muted);
     margin-bottom: 48px;
     line-height: 1.65;
+  }
+  .atout-photo {
+    margin-bottom: 48px;
+    text-align: left;
   }
   .atout-grid {
     display: grid;

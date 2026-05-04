@@ -5,6 +5,7 @@
 import BaseLayout from './BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CTASection from '../components/CTASection.astro';
+import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
 
 export interface Props {
   // SEO
@@ -92,6 +93,14 @@ const {
         <h2 class="display intro-title" set:html={introTitle} />
         <div class="intro-text" set:html={introText} />
       </div>
+      <div class="service-hero-photo">
+        <PhotoPlaceholder
+          aspectRatio="21/9"
+          label="En intervention"
+          description="Notre équipe lors d'un débarras complet"
+          variant="light"
+        />
+      </div>
     </div>
   </section>
 
@@ -173,6 +182,32 @@ const {
           <div class="exemple-section">
             <h4>Le résultat</h4>
             <p set:html={exempleResultat} />
+          </div>
+        </div>
+        <div class="avant-apres-photos">
+          <div class="avant-apres-photo">
+            <PhotoPlaceholder
+              aspectRatio="4/3"
+              label="Avant"
+              description="État du logement avant l'intervention"
+              variant="dark"
+            />
+          </div>
+          <div class="avant-apres-photo">
+            <PhotoPlaceholder
+              aspectRatio="4/3"
+              label="Pendant"
+              description="L'équipe au travail"
+              variant="dark"
+            />
+          </div>
+          <div class="avant-apres-photo">
+            <PhotoPlaceholder
+              aspectRatio="4/3"
+              label="Après"
+              description="Logement vidé et nettoyé"
+              variant="dark"
+            />
           </div>
         </div>
       </div>
@@ -264,9 +299,13 @@ const {
   .intro-text :global(p:last-child) {
     margin-bottom: 0;
   }
+  .service-hero-photo {
+    margin-top: 64px;
+  }
   @media (max-width: 900px) {
     .service-intro { padding: 64px 0; }
     .intro-grid { grid-template-columns: 1fr; gap: 32px; }
+    .service-hero-photo { margin-top: 40px; }
   }
 
   /* SECTION HEADER */
@@ -493,9 +532,16 @@ const {
   .exemple-section :global(strong) {
     color: var(--accent);
   }
+  .avant-apres-photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
   @media (max-width: 700px) {
     .service-exemple { padding: 64px 0; }
     .exemple-section { padding: 20px 24px; }
+    .avant-apres-photos { grid-template-columns: 1fr; }
   }
 
   /* FAQ */
