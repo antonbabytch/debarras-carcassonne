@@ -1,0 +1,113 @@
+---
+const SITE_URL = 'https://debarras-carcassonne.fr';
+
+const businessData = {
+  "@context": "https://schema.org",
+  "@type": "MovingCompany",
+  "@id": `${SITE_URL}/#localbusiness`,
+  "name": "Transport Carcassonne",
+  "alternateName": "Débarras Carcassonne",
+  "url": SITE_URL,
+  "logo": `${SITE_URL}/favicon.svg`,
+  "image": `${SITE_URL}/og-image.jpg`,
+  "description": "Entreprise de débarras et vide maison à Carcassonne et dans l'Aude. Équipe locale de 3 professionnels, devis gratuit sous 2h, prix fixe garanti, valorisation des biens.",
+  "telephone": "+33626178237",
+  "email": "contact@debarras-carcassonne.fr",
+  "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Espèces, Carte bancaire, Virement",
+  "knowsLanguage": ["fr-FR"],
+  "foundingDate": "2021",
+  "slogan": "Devis gratuit sous 2h, prix fixe garanti",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Carcassonne",
+    "postalCode": "11000",
+    "addressRegion": "Occitanie",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.2128,
+    "longitude": 2.3490
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Carcassonne" },
+    { "@type": "City", "name": "Trèbes" },
+    { "@type": "City", "name": "Limoux" },
+    { "@type": "City", "name": "Castelnaudary" },
+    { "@type": "City", "name": "Narbonne" },
+    { "@type": "City", "name": "Lézignan-Corbières" },
+    { "@type": "AdministrativeArea", "name": "Aude (11)" }
+  ],
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.2128,
+      "longitude": 2.3490
+    },
+    "geoRadius": "40000"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "08:00",
+      "closes": "19:00"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services de débarras et vide maison",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Débarras de maison" },
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "1200", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Vide maison après succession" },
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "1200", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Débarras d'appartement" },
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "350", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Débarras de cave" },
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "250", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Débarras de garage" },
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "300", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Débarras de grenier" },
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "250", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Enlèvement d'encombrants" },
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "80", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Débarras de local commercial" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Nettoyage syndrome de Diogène" }
+      }
+    ]
+  },
+  "sameAs": []
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(businessData)} />
