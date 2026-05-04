@@ -6,6 +6,10 @@ import BaseLayout from './BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CTASection from '../components/CTASection.astro';
 import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
+import equipePanoramique from '../assets/photos/equipe-panoramique.webp';
+import interventionAvant from '../assets/photos/intervention-avant.webp';
+import equipeAction from '../assets/photos/equipe-action.webp';
+import interventionApres from '../assets/photos/intervention-apres.webp';
 
 export interface Props {
   // SEO
@@ -97,7 +101,8 @@ const {
         <PhotoPlaceholder
           aspectRatio="21/9"
           label="En intervention"
-          description="Notre équipe lors d'un débarras complet"
+          photo={equipePanoramique}
+          alt="L'équipe de Transport Carcassonne en intervention de débarras"
           variant="light"
         />
       </div>
@@ -189,7 +194,8 @@ const {
             <PhotoPlaceholder
               aspectRatio="4/3"
               label="Avant"
-              description="État du logement avant l'intervention"
+              photo={interventionAvant}
+              alt="Pièce encombrée avant l'intervention de débarras"
               variant="dark"
             />
           </div>
@@ -197,7 +203,8 @@ const {
             <PhotoPlaceholder
               aspectRatio="4/3"
               label="Pendant"
-              description="L'équipe au travail"
+              photo={equipeAction}
+              alt="L'équipe de Transport Carcassonne en train de charger le fourgon"
               variant="dark"
             />
           </div>
@@ -205,7 +212,8 @@ const {
             <PhotoPlaceholder
               aspectRatio="4/3"
               label="Après"
-              description="Logement vidé et nettoyé"
+              photo={interventionApres}
+              alt="Pièce complètement vidée et nettoyée après le débarras"
               variant="dark"
             />
           </div>

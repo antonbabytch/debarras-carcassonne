@@ -6,6 +6,9 @@ import BaseLayout from './BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CTASection from '../components/CTASection.astro';
 import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
+import equipePanoramique from '../assets/photos/equipe-panoramique.webp';
+import fourgon12m3 from '../assets/photos/fourgon-12m3.webp';
+import equipeAction from '../assets/photos/equipe-action.webp';
 
 export interface Props {
   // SEO
@@ -91,7 +94,8 @@ const {
       <PhotoPlaceholder
         aspectRatio="16/9"
         label="Photo ville"
-        description={`Débarras à ${overline} — Transport Carcassonne`}
+        photo={equipePanoramique}
+        alt={`Équipe Transport Carcassonne en intervention de débarras`}
         variant="light"
       />
     </div>
@@ -170,13 +174,15 @@ const {
         <PhotoPlaceholder
           aspectRatio="4/3"
           label="Quartier — Photo 1"
-          description="Vue d'un quartier typique de la ville"
+          photo={fourgon12m3}
+          alt="Fourgon 12 m³ de Transport Carcassonne dans un quartier de la ville"
           variant="light"
         />
         <PhotoPlaceholder
           aspectRatio="4/3"
           label="Quartier — Photo 2"
-          description="Maison avant débarras"
+          photo={equipeAction}
+          alt="L'équipe de Transport Carcassonne en train de charger les encombrants"
           variant="light"
         />
       </div>

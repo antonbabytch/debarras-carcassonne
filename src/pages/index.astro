@@ -2,6 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
 import HomeForm from '../components/HomeForm.astro';
+import equipeHero from '../assets/photos/equipe-hero.webp';
+import entrepotInterieur from '../assets/photos/entrepot-interieur.webp';
+import interventionAvant from '../assets/photos/intervention-avant.webp';
+import triEntrepotSquare from '../assets/photos/tri-entrepot-square.webp';
+import mobilierValoriseSquare from '../assets/photos/mobilier-valorise-square.webp';
 
 const pageTitle = 'Débarras et Vide Maison à Carcassonne | Transport Carcassonne';
 const pageDescription = 'Entreprise de débarras et vide maison à Carcassonne et dans l\'Aude. Devis gratuit sous 2h, prix fixe, valorisation de vos objets.';
@@ -181,7 +186,8 @@ const marquee = [
           <PhotoPlaceholder
             aspectRatio="4/3"
             label="Photo équipe"
-            description="L'équipe de 3 professionnels devant le fourgon"
+            photo={equipeHero}
+            alt="L'équipe de 3 professionnels de Transport Carcassonne devant le fourgon"
             variant="dark"
           />
         </div>
@@ -262,7 +268,8 @@ const marquee = [
         <PhotoPlaceholder
           aspectRatio="21/9"
           label="Entrepôt 160 m³"
-          description="Vue de l'entrepôt de valorisation à Carcassonne"
+          photo={entrepotInterieur}
+          alt="Intérieur de l'entrepôt de valorisation 160 m³ de Transport Carcassonne"
           variant="light"
         />
       </div>
@@ -315,21 +322,24 @@ const marquee = [
           <PhotoPlaceholder
             aspectRatio="4/3"
             label="Avant / Après"
-            description="Maison complète vidée — Carcassonne centre"
+            photo={interventionAvant}
+            alt="Pièce encombrée avant l'intervention de débarras — Transport Carcassonne"
             variant="light"
           />
         </div>
         <div class="photo-grid-side">
           <PhotoPlaceholder
             aspectRatio="1/1"
-            label="Fourgon 20 m³"
-            description="Chargement d'un appartement T4"
+            label="Tri en entrepôt"
+            photo={triEntrepotSquare}
+            alt="Tri des objets en entrepôt avant valorisation — Transport Carcassonne"
             variant="light"
           />
           <PhotoPlaceholder
             aspectRatio="1/1"
-            label="Tri & valorisation"
-            description="Mobilier ancien sélectionné pour revente"
+            label="Mobilier valorisé"
+            photo={mobilierValoriseSquare}
+            alt="Mobilier et antiquités sélectionnés pour revente — Transport Carcassonne"
             variant="light"
           />
         </div>

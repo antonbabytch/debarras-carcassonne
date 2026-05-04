@@ -3,6 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CTASection from '../components/CTASection.astro';
 import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
+import equipePanoramique from '../assets/photos/equipe-panoramique.webp';
+import fourgon12m3 from '../assets/photos/fourgon-12m3.webp';
+import fourgon20m3 from '../assets/photos/fourgon-20m3.webp';
+import entrepotInterieur from '../assets/photos/entrepot-interieur.webp';
 
 const pageTitle = 'À Propos | Transport Carcassonne — Entreprise de Débarras dans l\'Aude';
 const pageDescription = 'Découvrez Transport Carcassonne : équipe locale de 3 professionnels, 5 ans d\'expérience dans le débarras et le vide maison. SIRET 104 166 780.';
@@ -85,7 +89,8 @@ const engagements = [
       <PhotoPlaceholder
         aspectRatio="21/9"
         label="Photo équipe & fourgons"
-        description="L'équipe de Transport Carcassonne devant les deux fourgons"
+        photo={equipePanoramique}
+        alt="L'équipe de Transport Carcassonne devant les deux fourgons, format panoramique"
         variant="light"
       />
     </div>
@@ -139,14 +144,16 @@ const engagements = [
         <div class="story-photo-grid">
           <PhotoPlaceholder
             aspectRatio="16/9"
-            label="Les fourgons"
-            description="Fourgon 12 m³ et fourgon 20 m³ — pour tous les volumes"
+            label="Fourgon 12 m³"
+            photo={fourgon12m3}
+            alt="Fourgon 12 m³ de Transport Carcassonne — débarras et vide maison"
             variant="light"
           />
           <PhotoPlaceholder
             aspectRatio="16/9"
-            label="L'équipe"
-            description="Les 3 professionnels de Transport Carcassonne"
+            label="Fourgon 20 m³"
+            photo={fourgon20m3}
+            alt="Fourgon 20 m³ de Transport Carcassonne — grands volumes"
             variant="light"
           />
         </div>
@@ -210,7 +217,8 @@ const engagements = [
           <PhotoPlaceholder
             aspectRatio="21/9"
             label="Entrepôt 160 m³"
-            description="Notre entrepôt de valorisation à Carcassonne"
+            photo={entrepotInterieur}
+            alt="Intérieur de l'entrepôt de valorisation 160 m³ de Transport Carcassonne"
             variant="dark"
           />
         </div>
