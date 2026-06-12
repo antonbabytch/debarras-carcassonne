@@ -83,6 +83,8 @@ const ogImageURL = ogImage.startsWith('http') ? ogImage : new URL(ogImage, SITE_
     gtag('config', GA_ID, { anonymize_ip: true });
     window.gtag = gtag;
   </script>
+
+  <slot name="head" />
 </head>
 <body>
   <Header />

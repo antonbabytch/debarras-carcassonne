@@ -65,9 +65,56 @@ const {
   faq,
   ctaTitle, ctaSubtitle,
 } = Astro.props;
+
+// Extract base price (first number found in priceFrom string)
+const priceMatch = priceFrom?.match(/\d[\d\s]*/);
+const basePrice = priceMatch ? priceMatch[0].replace(/\s/g, '') : '350';
+
+// Cleaning HTML tags for schema text (title may contain <br/>, <em>)
+const cleanTitle = (s: string) => s?.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() ?? '';
+
+const SITE_URL = 'https://debarras-carcassonne.fr';
+const serviceName = cleanTitle(title || pageTitle);
+
+const faqSchema = faq && faq.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': faq.map(f => ({
+    '@type': 'Question',
+    'name': cleanTitle(f.q),
+    'acceptedAnswer': { '@type': 'Answer', 'text': cleanTitle(f.a) },
+  })),
+} : null;
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  'serviceType': 'Débarras',
+  'name': serviceName,
+  'description': cleanTitle(pageDescription),
+  'provider': {
+    '@type': 'MovingCompany',
+    'name': 'Débarras Carcassonne',
+    'url': SITE_URL,
+    'telephone': '+33680873047',
+  },
+  'areaServed': {
+    '@type': 'GeoCircle',
+    'geoMidpoint': { '@type': 'GeoCoordinates', 'latitude': 43.2128, 'longitude': 2.3490 },
+    'geoRadius': 50000,
+  },
+  'offers': {
+    '@type': 'Offer',
+    'priceCurrency': 'EUR',
+    'price': basePrice,
+    'priceSpecification': { '@type': 'PriceSpecification', 'minPrice': basePrice, 'priceCurrency': 'EUR' },
+  },
+};
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  {faqSchema && <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
   <PageHero
     overline={overline}
