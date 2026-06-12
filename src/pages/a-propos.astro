@@ -3,10 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CTASection from '../components/CTASection.astro';
 import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
-import equipePanoramique from '../assets/photos/equipe-panoramique.webp';
-import fourgon12m3 from '../assets/photos/fourgon-12m3.webp';
-import fourgon20m3 from '../assets/photos/fourgon-20m3.webp';
-import entrepotInterieur from '../assets/photos/entrepot-interieur.webp';
 
 const pageTitle = 'À Propos | Débarras Carcassonne — Entreprise de Débarras dans l\'Aude';
 const pageDescription = 'Découvrez Débarras Carcassonne : équipe locale de 3 professionnels, 5 ans d\'expérience dans le débarras et le vide maison. SIRET 104 166 780.';
@@ -89,7 +85,6 @@ const engagements = [
       <PhotoPlaceholder
         aspectRatio="21/9"
         label="Photo équipe & fourgons"
-        photo={equipePanoramique}
         alt="L'équipe de Débarras Carcassonne devant les deux fourgons, format panoramique"
         variant="light"
       />
@@ -145,14 +140,12 @@ const engagements = [
           <PhotoPlaceholder
             aspectRatio="16/9"
             label="Fourgon 12 m³"
-            photo={fourgon12m3}
             alt="Fourgon 12 m³ de Débarras Carcassonne — débarras et vide maison"
             variant="light"
           />
           <PhotoPlaceholder
             aspectRatio="16/9"
             label="Fourgon 20 m³"
-            photo={fourgon20m3}
             alt="Fourgon 20 m³ de Débarras Carcassonne — grands volumes"
             variant="light"
           />
@@ -217,7 +210,6 @@ const engagements = [
           <PhotoPlaceholder
             aspectRatio="21/9"
             label="Entrepôt 160 m³"
-            photo={entrepotInterieur}
             alt="Intérieur de l'entrepôt de valorisation 160 m³ de Débarras Carcassonne"
             variant="dark"
           />
@@ -661,4 +653,4 @@ const engagements = [
     .legal-grid { grid-template-columns: 1fr; gap: 32px; }
     .legal-info { padding: 28px; }
   }
-</style>
+</style>                                                                                                                                                                                                                                                                                                                       

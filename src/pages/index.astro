@@ -3,11 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
 import HomeForm from '../components/HomeForm.astro';
 import ComboOffer from '../components/ComboOffer.astro';
-import equipeHero from '../assets/photos/equipe-hero.webp';
-import entrepotInterieur from '../assets/photos/entrepot-interieur.webp';
-import interventionAvant from '../assets/photos/intervention-avant.webp';
-import triEntrepotSquare from '../assets/photos/tri-entrepot-square.webp';
-import mobilierValoriseSquare from '../assets/photos/mobilier-valorise-square.webp';
 
 const pageTitle = 'Débarras Carcassonne — Vide maison & succession dans l\'Aude';
 const pageDescription = 'Entreprise locale de débarras et vide maison à Carcassonne. Devis gratuit sous 2h, prix fixe, valorisation Emmaüs. ☎ 06 80 87 30 47';
@@ -187,7 +182,6 @@ const marquee = [
           <PhotoPlaceholder
             aspectRatio="4/3"
             label="Photo équipe"
-            photo={equipeHero}
             alt="L'équipe de 3 professionnels de Débarras Carcassonne devant le fourgon"
             variant="dark"
           />
@@ -269,7 +263,6 @@ const marquee = [
         <PhotoPlaceholder
           aspectRatio="21/9"
           label="Entrepôt 160 m³"
-          photo={entrepotInterieur}
           alt="Intérieur de l'entrepôt de valorisation 160 m³ de Débarras Carcassonne"
           variant="light"
         />
@@ -323,7 +316,6 @@ const marquee = [
           <PhotoPlaceholder
             aspectRatio="4/3"
             label="Avant / Après"
-            photo={interventionAvant}
             alt="Pièce encombrée avant l'intervention de débarras — Débarras Carcassonne"
             variant="light"
           />
@@ -332,14 +324,12 @@ const marquee = [
           <PhotoPlaceholder
             aspectRatio="1/1"
             label="Tri en entrepôt"
-            photo={triEntrepotSquare}
             alt="Tri des objets en entrepôt avant valorisation — Débarras Carcassonne"
             variant="light"
           />
           <PhotoPlaceholder
             aspectRatio="1/1"
             label="Mobilier valorisé"
-            photo={mobilierValoriseSquare}
             alt="Mobilier et antiquités sélectionnés pour revente — Débarras Carcassonne"
             variant="light"
           />
@@ -1220,8 +1210,3 @@ const marquee = [
   }
 
   @media (max-width: 900px) {
-    .cta { padding: 64px 0; }
-    .cta-grid { grid-template-columns: 1fr; gap: 48px; }
-    .form { padding: 28px; }
-  }
-</style>

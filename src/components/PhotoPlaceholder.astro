@@ -37,6 +37,7 @@ const {
     data-photo-slot={label}
   >
     <div class="photo-placeholder__inner">
+      <span class="photo-placeholder__badge">Photo à venir</span>
       <svg class="photo-placeholder__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <rect x="3" y="3" width="18" height="18" rx="2" />
         <circle cx="8.5" cy="8.5" r="1.5" />
@@ -97,6 +98,23 @@ const {
     gap: 12px;
     padding: 24px;
     text-align: center;
+  }
+  .photo-placeholder__badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: rgba(168, 112, 63, 0.18);
+    color: #c48658;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .photo-placeholder--light .photo-placeholder__badge {
+    background: rgba(168, 112, 63, 0.12);
+    color: #6b4422;
   }
   .photo-placeholder__icon {
     width: 40px;
