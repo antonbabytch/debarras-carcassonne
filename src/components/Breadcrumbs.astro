@@ -1,0 +1,41 @@
+---
+// Visual breadcrumb trail + BreadcrumbList JSON-LD. Last item = current page (no href).
+interface Crumb { name: string; href?: string }
+const { items } = Astro.props as { items: Crumb[] };
+const SITE_URL = 'https://debarras-carcassonne.fr';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((it, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: it.name,
+    ...(it.href ? { item: new URL(it.href, SITE_URL).href } : {}),
+  })),
+};
+---
+
+<nav class="breadcrumbs" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      {items.map((it, i) => (
+        <li>
+          {it.href ? <a href={it.href}>{it.name}</a> : <span aria-current="page">{it.name}</span>}
+          {i < items.length - 1 && <span class="bc-sep" aria-hidden="true">›</span>}
+        </li>
+      ))}
+    </ol>
+  </div>
+</nav>
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+<style>
+  .breadcrumbs { background: var(--bg); border-bottom: 1px solid var(--line); }
+  .breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 0; padding: 11px 0; }
+  .breadcrumbs li { display: flex; align-items: center; gap: 4px; font-size: 13px; }
+  .breadcrumbs a { color: var(--text-muted); text-decoration: none; }
+  .breadcrumbs a:hover { color: var(--accent); }
+  .breadcrumbs span[aria-current] { color: var(--text); font-weight: 500; }
+  .bc-sep { color: var(--text-muted); margin: 0 4px; }
+</style>

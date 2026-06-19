@@ -43,7 +43,7 @@ const ogImageURL = ogImage.startsWith('http') ? ogImage : new URL(ogImage, SITE_
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
-  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  {noindex && <meta name="robots" content="noindex, follow" />}
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -75,14 +75,33 @@ const ogImageURL = ogImage.startsWith('http') ? ogImage : new URL(ogImage, SITE_
     rel="stylesheet"
   />
 
-  <!-- Google Analytics 4 -->
-  <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+  <!-- Google Consent Mode v2 — denied by default; GA loads only after consent -->
   <script is:inline define:vars={{ GA_ID }}>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', GA_ID, { anonymize_ip: true });
     window.gtag = gtag;
+    gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: 'denied', functionality_storage: 'granted', security_storage: 'granted',
+      wait_for_update: 500
+    });
+    gtag('js', new Date());
+    window.__loadGA = function () {
+      if (window.__gaLoaded) return; window.__gaLoaded = true;
+      var s = document.createElement('script');
+      s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(s);
+      gtag('config', GA_ID, { anonymize_ip: true });
+    };
+    window.__ccGrant = function () {
+      try { localStorage.setItem('cc-consent', 'granted'); } catch (e) {}
+      gtag('consent', 'update', { analytics_storage: 'granted' }); window.__loadGA();
+    };
+    window.__ccDeny = function () {
+      try { localStorage.setItem('cc-consent', 'denied'); } catch (e) {}
+      gtag('consent', 'update', { analytics_storage: 'denied' });
+    };
+    try { if (localStorage.getItem('cc-consent') === 'granted') { gtag('consent', 'update', { analytics_storage: 'granted' }); window.__loadGA(); } } catch (e) {}
   </script>
 
   <slot name="head" />
@@ -96,7 +115,7 @@ const ogImageURL = ogImage.startsWith('http') ? ogImage : new URL(ogImage, SITE_
 
   <Footer />
 
-  <a href="tel:+33680873047" class="floating-call" data-track="phone_click" data-source="floating">
+  <a href="tel:+33629178237" class="floating-call" data-track="phone_click" data-source="floating">
     ☎ Appeler
   </a>
 
@@ -142,6 +161,44 @@ const ogImageURL = ogImage.startsWith('http') ? ogImage : new URL(ogImage, SITE_
         });
       });
     });
+  </script>
+
+  <!-- Cookie consent banner (CNIL / Consent Mode v2) -->
+  <style is:global>
+    .cc-banner { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 1000; max-width: 720px; margin: 0 auto;
+      background: var(--bg-dark, #15191C); color: var(--text-on-dark, #FAFAF7); border: 1px solid var(--line-dark, #2D3338);
+      border-radius: 12px; padding: 18px 20px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+      box-shadow: 0 24px 60px -18px rgba(0,0,0,.6); }
+    .cc-banner[hidden] { display: none; }
+    .cc-text { font-size: 13.5px; line-height: 1.55; color: var(--text-on-dark-muted, #9CA3AC); flex: 1; min-width: 240px; margin: 0; }
+    .cc-text a { color: var(--accent, #A8703F); text-decoration: underline; text-underline-offset: 2px; }
+    .cc-actions { display: flex; gap: 10px; flex-shrink: 0; }
+    .cc-btn { padding: 10px 18px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; border: 1px solid transparent; font-family: inherit; }
+    .cc-btn--primary { background: var(--accent, #A8703F); color: #15100A; border-color: var(--accent, #A8703F); }
+    .cc-btn--ghost { background: transparent; color: var(--text-on-dark, #FAFAF7); border-color: var(--line-dark, #2D3338); }
+    .cc-btn--ghost:hover { border-color: var(--accent, #A8703F); }
+    @media (max-width: 560px) { .cc-banner { flex-direction: column; align-items: stretch; } .cc-actions { justify-content: flex-end; } }
+  </style>
+  <div class="cc-banner" id="cc-banner" role="dialog" aria-label="Consentement aux cookies" hidden>
+    <p class="cc-text">
+      Nous utilisons des cookies de mesure d'audience (Google Analytics) pour améliorer le site.
+      Ils ne sont déposés qu'avec votre accord. <a href="/politique-confidentialite">En savoir plus</a>.
+    </p>
+    <div class="cc-actions">
+      <button type="button" class="cc-btn cc-btn--ghost" id="cc-refuse">Refuser</button>
+      <button type="button" class="cc-btn cc-btn--primary" id="cc-accept">Accepter</button>
+    </div>
+  </div>
+  <script is:inline>
+    (function () {
+      var b = document.getElementById('cc-banner'); if (!b) return;
+      var stored = null; try { stored = localStorage.getItem('cc-consent'); } catch (e) {}
+      if (!stored) b.removeAttribute('hidden');
+      var a = document.getElementById('cc-accept'), r = document.getElementById('cc-refuse');
+      a && a.addEventListener('click', function () { window.__ccGrant && window.__ccGrant(); b.setAttribute('hidden', ''); });
+      r && r.addEventListener('click', function () { window.__ccDeny && window.__ccDeny(); b.setAttribute('hidden', ''); });
+      window.__ccManage = function () { b.removeAttribute('hidden'); };
+    })();
   </script>
 </body>
 </html>

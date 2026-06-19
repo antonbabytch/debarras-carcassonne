@@ -6,6 +6,7 @@ import BaseLayout from './BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CTASection from '../components/CTASection.astro';
 import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 export interface Props {
   // SEO
@@ -92,7 +93,7 @@ const serviceSchema = {
     '@type': 'MovingCompany',
     'name': 'Débarras Carcassonne',
     'url': SITE_URL,
-    'telephone': '+33680873047',
+    'telephone': '+33629178237',
   },
   'areaServed': {
     '@type': 'GeoCircle',
@@ -111,6 +112,8 @@ const serviceSchema = {
 <BaseLayout title={pageTitle} description={pageDescription}>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   {faqSchema && <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+
+  <Breadcrumbs items={[{ name: 'Accueil', href: '/' }, { name: 'Services', href: '/#services' }, { name: serviceName }]} />
 
   <PageHero
     overline={overline}

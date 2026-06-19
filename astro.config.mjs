@@ -9,7 +9,9 @@ export default defineConfig({
     sitemap({
       filter: (page) =>
         !page.includes('/merci') &&
-        !page.includes('/__forms'),
+        !page.includes('/__forms') &&
+        !page.includes('/mentions-legales') &&
+        !page.includes('/politique-confidentialite'),
     }),
   ],
 });
