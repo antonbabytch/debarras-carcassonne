@@ -6,6 +6,7 @@ import BaseLayout from './BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CTASection from '../components/CTASection.astro';
 import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
+import photos from '../data/photos';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 export interface Props {
@@ -133,6 +134,7 @@ const serviceSchema = {
     <div class="container">
       <PhotoPlaceholder
         aspectRatio="16/9"
+        photo={photos['equipe-panoramique']}
         label="Photo ville"
         alt={`Équipe Débarras Carcassonne en intervention de débarras`}
         variant="light"
@@ -212,12 +214,14 @@ const serviceSchema = {
       <div class="quartiers-photos">
         <PhotoPlaceholder
           aspectRatio="4/3"
+          photo={photos['fourgon-12m3']}
           label="Quartier — Photo 1"
           alt="Fourgon 12 m³ de Débarras Carcassonne dans un quartier de la ville"
           variant="light"
         />
         <PhotoPlaceholder
           aspectRatio="4/3"
+          photo={photos['equipe-action']}
           label="Quartier — Photo 2"
           alt="L'équipe de Débarras Carcassonne en train de charger les encombrants"
           variant="light"

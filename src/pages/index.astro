@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
+import photos from '../data/photos';
 import HomeForm from '../components/HomeForm.astro';
 import ComboOffer from '../components/ComboOffer.astro';
 
@@ -181,6 +182,7 @@ const marquee = [
         <div class="hero__photo">
           <PhotoPlaceholder
             aspectRatio="4/3"
+            photo={photos['equipe-hero']}
             label="Photo équipe"
             alt="L'équipe de 3 professionnels de Débarras Carcassonne devant le fourgon"
             variant="dark"
@@ -262,6 +264,7 @@ const marquee = [
       <div class="eng-photo-row">
         <PhotoPlaceholder
           aspectRatio="21/9"
+          photo={photos['entrepot-interieur']}
           label="Entrepôt 160 m³"
           alt="Intérieur de l'entrepôt de valorisation 160 m³ de Débarras Carcassonne"
           variant="light"
@@ -315,6 +318,7 @@ const marquee = [
         <div class="photo-grid-main">
           <PhotoPlaceholder
             aspectRatio="4/3"
+            photo={photos['intervention-avant']}
             label="Avant / Après"
             alt="Pièce encombrée avant l'intervention de débarras — Débarras Carcassonne"
             variant="light"
@@ -323,12 +327,14 @@ const marquee = [
         <div class="photo-grid-side">
           <PhotoPlaceholder
             aspectRatio="1/1"
+            photo={photos['tri-entrepot-square']}
             label="Tri en entrepôt"
             alt="Tri des objets en entrepôt avant valorisation — Débarras Carcassonne"
             variant="light"
           />
           <PhotoPlaceholder
             aspectRatio="1/1"
+            photo={photos['mobilier-valorise-square']}
             label="Mobilier valorisé"
             alt="Mobilier et antiquités sélectionnés pour revente — Débarras Carcassonne"
             variant="light"

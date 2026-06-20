@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CTASection from '../components/CTASection.astro';
 import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
+import photos from '../data/photos';
 
 const pageTitle = 'À Propos | Débarras Carcassonne — Entreprise de Débarras dans l\'Aude';
 const pageDescription = 'Découvrez Débarras Carcassonne : équipe locale de 3 professionnels, 5 ans d\'expérience dans le débarras et le vide maison. SIRET 104 166 780 00005.';
@@ -84,6 +85,7 @@ const engagements = [
     <div class="container">
       <PhotoPlaceholder
         aspectRatio="21/9"
+        photo={photos['equipe-panoramique']}
         label="Photo équipe & fourgons"
         alt="L'équipe de Débarras Carcassonne devant les deux fourgons, format panoramique"
         variant="light"
@@ -139,12 +141,14 @@ const engagements = [
         <div class="story-photo-grid">
           <PhotoPlaceholder
             aspectRatio="16/9"
+            photo={photos['fourgon-12m3']}
             label="Fourgon 12 m³"
             alt="Fourgon 12 m³ de Débarras Carcassonne — débarras et vide maison"
             variant="light"
           />
           <PhotoPlaceholder
             aspectRatio="16/9"
+            photo={photos['fourgon-20m3']}
             label="Fourgon 20 m³"
             alt="Fourgon 20 m³ de Débarras Carcassonne — grands volumes"
             variant="light"
@@ -209,6 +213,7 @@ const engagements = [
         <div class="atout-photo">
           <PhotoPlaceholder
             aspectRatio="21/9"
+            photo={photos['entrepot-interieur']}
             label="Entrepôt 160 m³"
             alt="Intérieur de l'entrepôt de valorisation 160 m³ de Débarras Carcassonne"
             variant="dark"
